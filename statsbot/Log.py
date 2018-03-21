@@ -60,15 +60,6 @@ class Log:
 
 if __name__ == "__main__":
     log = Log(line="[00:04] <rosvi> I have a linux box I'm gonna install arch a windows box. Not bootable media. Would it be possible to installa distro on those circumstances? Just wondering about it")
-    log = Log(filename="#ubuntu.txt")
-    log = Log(filename="log.txt")
-    log = Log(filename="palle_pig.txt")
-    [print(entry) for entry in log.entries]
-
-    '''
-    log = Log(line="11:39 < Scarecrow> I'm so desensitized to cakes. You get cake all the time nowadays.")
-    print(log)
-
-    log = Log(filename="log.txt")
-    [print(entry) for entry in log.entries]
-    '''
+    log = Log(filename="../resources/#ubuntu.txt")
+    log = Log(filename="../resources/log.txt")
+    log = Log(filename="../resources/palle_pig.txt")

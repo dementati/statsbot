@@ -21,7 +21,8 @@ class Stats:
 
 
 if __name__ == "__main__":
-    log = Log(filename="palle_pig.txt")
+    log = Log(filename="../resources/palle_pig.txt")
     stats = Stats(log)
 
-    [print(item) for item in reversed(sorted(stats.message_distribution_over_nicks.items(), key=operator.itemgetter(1)))]
+    [print(item) for item
+        in reversed(sorted(stats.message_distribution_over_nicks.items(), key=operator.itemgetter(1)))]
