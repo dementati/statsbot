@@ -1,0 +1,149 @@
+00:58 < meganomic> Hadn't seen my bathroom spider for a while. Took a shower. Then I saw him walking on the wall trying to get rid of all that water. Poor spider bro
+01:20 < jefvel> https://i.redd.it/x0l9tz77drm01.jpg
+02:40 -!- CrazyBytes [524be490@Clk-4D3DA9A0.cm-4-4d.dynamic.ziggo.nl] has quit [Quit: http://chat.sfml-dev.org/]
+09:22 < Wertilq> :D
+09:22 < Wertilq> I feel revitalized
+09:22 < Wertilq> Yesterday I was just starring blankly being unable to follow conversations etc
+09:22 < Wertilq> Now I am back to being human again
+09:39 -!- Fred [Fred@Clk-5DBAE86D.cust.bredbandsbolaget.se] has joined #pallkars
+11:03 -!- Fred [Fred@Clk-5DBAE86D.cust.bredbandsbolaget.se] has quit [Quit: Leaving]
+11:07 < kimbye> https://www.youtube.com/watch?v=YPSBJcL3FGI
+11:08 < kimbye> it's my nameday today, please give me cake
+11:09 < Wertilq> therocode: your female have her name day, you need to bake her a cake!
+11:12 < Wertilq> With extra marsipan!
+11:12 < Wertilq> Jordgubbar!
+11:13 < Wertilq> And SPRING!
+11:13 < Wertilq> Put some flowers on it!
+11:18 < Wertilq> And ballonger too!
+11:19 < kimbye> hmm
+11:19 < kimbye> I've eaten flowers before, but not balloons
+11:20 < Wertilq> http://edibleballoonsgroup.ca/
+11:20 < kimbye> lol
+11:26 < Wertilq> I ate at Amazing Thai in Uppsala this weekend :D
+11:26 < Wertilq> They had a chocolate fountain it was pretty amazing :D
+11:27 < Wertilq> You could put some sweet bread in it and marshmallows
+11:27 < Wertilq> Would've been awesome with fruits and berries too
+11:28 -!- kimki [kim@Clk-8F6F513E.user.ki.se] has joined #pallkars
+11:36 < Scarecrow> Wertilq: Hope the food wasn't spoiled so you become one too
+11:36 < AliPasha> kimki: Oh, yes, happy nameday
+11:36 < AliPasha> kimki: It's also today in the Finnish calendar
+11:37 < Scarecrow> kimki: On your cake day, you get cake. On your nameday, you get a name.
+11:39 <~therocode> Wertilq: cake on names day is for extravagant pricks!
+11:39 <~therocode> https://www.badnorth.com/  this game looks cool :O
+11:39 < Scarecrow> I'm so desensitized to cakes. You get cake all the time nowadays.
+11:40 < Scarecrow> I had cake yesterday.
+11:40 < AliPasha> therocode: Thus, name-day-cake is precisely your thing, yes? =P
+11:40 < AliPasha> There was this apple-pie-sort-of-cake for dessert today
+11:41 < Scarecrow> therocode: The aesthetic is very pleasant
+11:47 < kimki> AliPasha: yayy thanks! is "kimmo" there too?
+12:04 < AliPasha> kimki: No. It's Aki, Kim, Joakim
+12:07 < kimki> interesting
+12:08 < AliPasha> kimki: In the Finnish name statistics there are ~6340 men and ~500 women named Kim
+12:09 < AliPasha> kimki: And 623 people whose surname is Kim
+12:11 < kimki> I wonder if any of those numbers overlap, so that there's some people named Kim Kim
+12:11 < kimki> kimkim
+12:11 -!- kimbye is now known as kimkim
+12:12 < AliPasha> That I can't say. Such would not be possible for people born in Finland, but could be possible for someone who's moved here
+12:14 < kimki> how about if you marry someone with the last name Kim? how are marriage renaming things there? do women generally take on the husband's last name?
+12:16 < jefvel> I want to be named mikke k. kim
+12:16 < jefvel> of course the k. stands for kim
+12:17 < jefvel> but it becomes a palindrome with k
+12:17 < kimki> :D
+12:17 < kimki> lol, that reminds me of something I heard yesterday -- my chinese colleagues have really common names
+12:17 < kimki> so when they write publications, sometimes they add fake middle initials
+12:17 < kimki> to not get mixed up with other authors
+12:18 < jefvel> yung madafaka yung
+12:18 < kimki> haha
+12:19 < jefvel> why do scientific papers have like cross symbols after some of the author names sometimes?
+12:19 < jefvel> I hope it's not because they're dead
+12:19 < jefvel> oh
+12:19 < jefvel> it's a dagger, not a cross
+12:19 < jefvel> https://en.wikipedia.org/wiki/Dagger_(typography)
+12:20 < kimki> haha
+12:20 < kimki> yeah it's just a footnote thingy like an asterisk or number or whatever
+12:21 < jefvel> might just use RIP as a footnote
+12:21 < jefvel> Jonas Jonson††† 
+12:21 < jefvel> ps han lever
+12:25 < kimki> haha
+12:25 < kimki> just kiddin gguys I'm not dead 
+12:30 < AliPasha> kimki: Hmm, that is a good question. It is usual, but by no mean necessary (any more), for the woman to take the man's surname
+13:12 < Scarecrow> Oh goodie
+13:12 < Scarecrow> I'm gonna be on the same team as Patrik Lindefors
+13:30 < meganomic> 13:30
+13:34 < kimki> AliPasha: right, similar to sweden then I suppose
+13:37 < kimki> 13:37
+13:37 < jefvel> ††† Patrik † Lindefors †††
+13:37 < jefvel> _-TuRbO-_-SlAyEr-_
+13:39 < kimki> MAC addresses are unique and specific to the hardware, right?
+13:39 < kimki> as in, they're the same no matter what OS you install or whatever
+13:40 < jefvel> i think so
+13:40 < jefvel> that is probably correct
+13:40 < kimki> I agree
+13:40 < jefvel> you're my favourite customer
+13:40 < jefvel> o hai dogy
+13:41 < kimki> lol, I told my supervisor to watch that movie
+13:41 < kimki> and he was like "it was so bad"
+13:41 < kimki> and not even in a "so bad it's good" way
+13:41 < kimki> he just hated it
+13:41 < kimki> haha
+13:42 < jefvel> haha, it's a risky movie to recommend
+13:42 < jefvel> you need that special trash mindset to appreciate it
+13:43 < kimki> haha yeah
+13:43 < jefvel> I think I got beerborne aids this weekend
+13:43 < kimki> we are special trash :)
+13:43 < kimki> oh, that sounds lovely
+13:43 < jefvel> yep, this is special trash united 
+13:44 < jefvel> good thing I can work from home, because I feel too sick to go out but not too sick to get something done
+13:46 < Wertilq> Scarecrow: congratulations :D
+13:47 < Wertilq> May your workdays be interesting :D
+13:47 < jefvel> I hate UIs that don't have a manual refresh button
+13:47 < Wertilq> Your tickets will be stuff like "change all 'if' into 'case'"
+13:48 < Wertilq> and "Add comments praising Lord Lindefors in all files"
+13:48 < kimki> jefvel: you can just drag the screen down like on phone apps
+13:48 < kimki> just pull your monitor down onto the floor
+13:48 < kimki> throw it for best effect
+13:48 < jefvel> yeah, but some apps don't even have that
+13:48 < jefvel> like spotify
+13:48 < jefvel> spotify has podcasts now, and there's a podcast list
+13:48 < jefvel> and you never know if it's been updated with the newest stuff
+13:49 < jefvel> so I have to restart spotify to be sure
+13:49 < kimki> aha
+13:49 < jefvel> just let me f5, it's an electron app after all
+13:50 < jefvel> also the tieto project has a guideline that was something like "we don't like manual refresh, so please remove refresh buttons"
+13:50 < kimki> aparently it's not actually electron :o
+13:50 < jefvel> it isn't?
+13:51 < kimki> oh, it's still chromium though
+13:51 < kimki> the second answer is from a real spotfiy person https://www.quora.com/How-did-Spotify-make-a-multiplatform-lightweight-well-designed-desktop-application-What-is-the-technology-behind-it
+13:51 < jefvel> yeah still web based, but the stuff behind the scenes is c++
+13:52 < kimki> yep
+13:52 < jefvel> hey I read that same one wow
+13:52 < kimki> omg are we related
+13:53 < jefvel> its me ur brother
+13:55 < kimki> electron is nice but poopbloat
+13:57 < Scarecrow> Wertilq: Good times
+14:01 < Scarecrow> Yay, I wrote a shell function to query any table in any running server's database through our database's REST API
+14:01 < Scarecrow> So I just type "query_cdb RE1P BespokeCalculationResults" and I get the contents of that database table in that server in formatted JSON to the terminal
+14:09 < meganomic> nice
+14:17 < meganomic> kimki: "Well designed", fail. I still remember the old version with 2 times the functionality
+14:19 < kimki> haha
+14:19 < kimki> I've only started using it recently, so
+14:19 < meganomic> =)
+14:38 < jefvel> heh, that guy who made the nazi pug video has been convicted, and might go to jail for causing a mass offence 
+14:41 < kimki> :|
+14:44 < jefvel> https://twitter.com/CountDankulaTV/status/832770533758349312 haha
+14:48 < kimki> haha, glad he's being cool about it
+14:52 < kimki> https://pbs.twimg.com/media/DYRSxaqWsAkRXg5.jpg:large loll
+14:56 < jefvel> lmaoooasdfadgasdf
+14:59 < kimki> tack för stödet!
+14:59 < kimki> I feel like I'm the only person talking in this channel today
+14:59 < kimki> hello hello hello
+15:00 < Scarecrow> Is there any way to dump the current irssi log for a channel to file?
+15:00 < Scarecrow> I mean, the scrollback
+15:01 < kimki> dunno, I just have logs on I guess and would just copy the log file from the current day or something
+15:01 < kimki> did you want something in particular_
+15:01 < kimki> ?*
+15:01 < Scarecrow> kimki: I'm gonna analyze to what extent you're the only person talking in this channel today
+15:02 < jefvel> ah
+15:02 < jefvel> that is a very important thing to do
+15:02 < kimki> lol
+15:02 < Scarecrow> I am very important and doing very important things all the time

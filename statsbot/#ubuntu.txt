@@ -1,0 +1,2040 @@
+[00:04] <rosvi> I have a linux box I'm gonna install arch a windows box. Not bootable media. Would it be possible to installa distro on those circumstances? Just wondering about it
+[00:04] <pengwens> kostkon: The BIOS sets aside 8MB of system memory for the integrated video controller.  Yeah, that's 8MB, and that's not a typo
+[00:04] <kostkon> pengwens, lol, just 8mb
+[00:05] <pengwens> kostkon: yes, indeed.  it's an old computer
+[00:05] <kostkon> pengwens, what's the cpu btw
+[00:06] <pengwens> kostkon: oh, it's a solid Pentium 4. (with hyperthreading technology!)
+[00:06] <pengwens> model name	: Intel(R) Pentium(R) 4 CPU 3.40GHz
+[00:06] <pengwens> I think you can get them on ebay for like $1.50
+[00:06] <pengwens> I spend $15 to upgrade the memory to 4Gb
+[00:07] <pengwens> If I can find a dvi-vga converter, I can give the graphics card a try and see if that frees up some onboard memory
+[00:07] <pengwens> it's worth a shot.
+[00:08] <kostkon> pengwens, came across a remapping option while in the bios?
+[00:09] <phnx> pengwens man its friday ) where`s ur beer?
+[00:10] <pengwens> dang.  I have a dvi-hdmi converter.  Now all I need is an hdmi cable ...
+[00:10] <pengwens> kostkon: no, one didn't pop out to me.  What should I be looking for?
+[00:10] <kostkon> pengwens, memory remapping of something along those lines
+[00:11] <kostkon> or*
+[00:11] <pengwens> kostkon: right on - let me give it another peak.  I saw the option with the integrated memory reserve and then gave up.  8Mb sounds pretty small, even for a computer this old
+[00:11] <pengwens> brb
+[00:12] <_foo> I was trying to add a custom option in xorg.conf (but there is no xorg.conf anymore in ubuntu 16.10) Any help? [the custom option is "CustomEDID"]
+[00:13] <_foo> X -configure didn't work anymore also (to have a xorg.conf.new to start modifying)
+[00:17] <pengwens> kostkon: no such luck
+[00:17] <pengwens> I could only find one item in the BIOS that talked about the graphics card
+[00:18] <pengwens> fyi - i tried booting into bodhi linux instead of ubuntu, and that side also only sees 3Gb of memory
+[00:19] <pengwens> (although dmidecode still lists 4Gb)
+[00:19] <Tezcatlipoca> @pengwens, @kostkon http://paste.ubuntu.com/p/VGkFzwfDvP/
+[00:20] <Tezcatlipoca> that is the result of my trying to make
+[00:21] <kostkon> pengwens, dang. i don't want to say it because it's takes a lot of time, but you probably need to run that memory test, you know, the one listed in grub or when you boot the liveusb
+[00:21] <pengwens> kostkon: yeah, that's a solid overnight job.  I let that thing run for 7 hours last time and it still didn't finish.  It's entirely possible I have a bad memory module.  (The first time it only recognized three of them, so I had to reseat the fourth)
+[00:22] <pengwens> Tezcatlipoca: are there more than 8 lines pasted there?  (Sorry if I am missing the others)
+[00:23] <kostkon> pengwens, it didn't? yeah most likely one of those is bad
+[00:23] <pengwens> kostkon: Right on - I'll give it a shot
+[00:24] <pengwens> kostkon: and hey - if three of them are good, i still got three 1Gb sticks for $15!
+[00:24] <Tezcatlipoca> @pengwens,  I just wrote the output of the make to a file and uploaded the file. I just assumed that which came out would be the relevant part.  Should I do it again and try to capture everything that shows up on screen.
+[00:24] <kostkon> pengwens, 3GB is fine for an old system like this
+[00:24] <pengwens> Tezcatlipoca: yeah, I can't make heads or tails of what's printed there, because I only see 8 lines that are trying to be executed and not the errors that show up from them
+[00:25] <Tezcatlipoca> ok, thanks for looking
+[00:25] <pengwens> kostkon: I have a fifth stick leftover that I can try throwing in there.  I just need to find out which slot is the bad one and yank that out of there.
+=== eXino_ is now known as eXino
+=== eXino is now known as eXino_
+[00:31] <Tezcatlipoca> Anybody care to take a look at this better error result and give me some ideas about what I can do to get this very old program to install: http://paste.ubuntu.com/p/FkSrSKhJPF/
+[00:37] <Tezcatlipoca> Anyone good at compiling old programs?
+[00:52] <Checkmate> Hello i want to compress my directory folder to a small size
+[00:52] <maddawg2> did you try compressing it?
+[00:53] <_foo> Tezcatlipoca: Hi, how old is your program?
+[00:53] <maddawg2> and which folder specifically
+[00:53] <Checkmate> which best 7zip or .tar?
+[00:54] <_foo> Checkmate: 7zip and .tar.xz have very similar compression ratios
+[00:55] <Checkmate> _foo which the best to generate small size?
+[00:55] <maddawg2> Checkmate, it depends on a number of factors to be honest
+[00:55] <maddawg2> like the size you're starting with, what size you're looking at going to
+[00:55] <maddawg2> what type of file is it
+[00:55] <maddawg2> etc
+[00:55] <maddawg2> also are you looking to comrpess your home director?
+[00:56] <maddawg2> or which directory specifically
+[00:56] <Checkmate> maddawg2 i' want to compress my directory folder include rar files and text documents
+[00:57] <Checkmate> Desktop
+[00:57] <Checkmate>  /
+[00:57] <maddawg2> Desktop and / are two different directories
+[00:58] <maddawg2> . / is your whole drive basically
+[00:58] <maddawg2> or rather your root drive i should say
+[00:58] <maddawg2> and Desktop is part of your home folder
+[00:58] <Checkmate> yes
+[00:58] <maddawg2> personally I'd take the stuff you want to compress and put it all in one folder then compress sjust that folde
+[00:58] <maddawg2> not the whole desktop folder
+[00:59] <maddawg2> i dont know how the system will behave next time you start if you need to access it compressed all the time
+[00:59] <maddawg2> and how large is it to start with?
+[00:59] <maddawg2> and what is your target size?
+[00:59] <Checkmate> 500GB
+[01:00] <Checkmate> i want compress all of them and get like 100 or 200 GB in result compression
+[01:00] <maddawg2> have you just considered getting a bigger hard drive?
+[01:00] <maddawg2> lol
+[01:00] <maddawg2> 500GB isnt that much
+[01:00] <Checkmate> i have 1TB i want make a backup
+[01:01] <maddawg2> ah.. i got like 8TB built in and 32TB external
+[01:01] <Checkmate> lool
+[01:01] <maddawg2> technically it's 64TB but it's a RAID 10 right now
+[01:01] <jdr> what do you store?
+[01:01] <Checkmate> insane
+[01:01] <maddawg2> and technically the internal is 16TB but it's also a raid 10
+[01:02] <maddawg2> jdr nah it's just for bragging rights
+[01:02] <maddawg2> jk
+[01:02] <maddawg2> mainly tons of music, pictures, videos
+[01:02] <maddawg2> it's on an 8 bay synology
+[01:02] <OerHeks> compressing rar in 7zip, and bulk them in tar
+[01:02] <jdr> haha gotcha
+[01:02] <jdr> I am up to 14GB in my Onedrive :D
+[01:02] <jdr> And thats it.
+[01:02] <maddawg2> the internal drives was just cuz i had the drives to spare
+[01:02] <Checkmate> Oerheks do you have good command to do that?
+[01:03] <maddawg2> i have google unlimited cloud through gsuite (worth the $10 a month for sure), and my synology drive is set to sync to that realtime
+[01:03] <maddawg2> it does encrypt everything before it sends it
+[01:03] <maddawg2> EncFS
+[01:04] <jdr> Thats killer.
+[01:04] <maddawg2> not my favorite tho
+[01:04] <maddawg2> i'm trying to figure out how to get my gdrive to mount locally on my ubuntu machine
+[01:04] <maddawg2> so i can stream from it
+[01:04] <jdr> Thought Google had a linux client
+[01:04] <maddawg2> there's a project called plexdrive that kinda does it but it doesnt work with encryption very well i hear
+[01:04] <jdr> ahh
+[01:04] <maddawg2> it's just a sync client
+[01:05] <pengwens> kostkon: I think one of my memory receivers is bad
+[01:05] <maddawg2> two way sync
+[01:05] <maddawg2> it would serve as a way to mount it externally and get a theoretical unlimted
+[01:05] <maddawg2> wouldnt*
+[01:05] <jdr> What would you stream from it?
+[01:05] <jdr> videos?
+[01:05] <maddawg2> yea my movies and music
+[01:05] <Checkmate> maddawg2 what the best 7z or tar?
+[01:06] <jdr> Gotcha.
+[01:06] <maddawg2> i ripped all my movies from dvd over the course of like 9 months
+[01:06] <maddawg2> and blueray
+[01:06] <jdr> Shit.
+[01:07] <jdr> I dont purchase a whole lot of DVD/BlueRays...but when I do, most of the time they come with a free iTunes copy
+[01:08] <maddawg2> well checkmate are you looking to preserve permissions and directory structure etc
+[01:08] <maddawg2> like for archiving or soemthing
+[01:09] <maddawg2> jdr does iTunes still DRM their movies?
+[01:09] <jdr> yes
+[01:09] <maddawg2> yea
+[01:09] <maddawg2> no go for me
+[01:09] <maddawg2> lol
+[01:09] <maddawg2> i use plex and emby
+[01:09] <jdr> I know, its a turn off for a lot of folks.
+[01:10] <maddawg2> and they cant work with those
+[01:10] <meteorx> whats up everybody
+[01:10] <jdr> But I am engulfed in the Apple ecosystem
+[01:10] <maddawg2> actually i'm really just using plex and Kodi now
+[01:10] <jdr> whats shakin meteorx
+[01:10] <maddawg2> plex is AWESOME... lets me watch my film collection anywhere in the world on any device... and i can even add user accounts
+[01:10] <jdr> Hmm
+[01:10] <maddawg2> it can be played directly from a webbrowser too
+[01:11] <jdr> Is there like a Plex app?
+[01:11] <jdr> For phone?
+[01:11] <maddawg2> there is also an app yes
+[01:11] <maddawg2> for both ios and android
+[01:11] <jdr> gotcha
+[01:11] <maddawg2> it streams to your device
+[01:11] <jdr> Download to device?
+[01:11] <maddawg2> so you dont store
+[01:11] <jdr> or just stream?
+[01:11] <maddawg2> you can do both
+[01:11] <maddawg2> it hass an offline mode
+[01:11] <maddawg2> you can download them for offline
+[01:11] <maddawg2> or stream
+[01:11] <jdr> Thats sweet
+[01:11] <maddawg2> the server automatically compresses the video to fit your bandwidth too
+[01:12] <maddawg2> and converts on the fly
+[01:12] <meteorx> what are you guys talking about?
+[01:12] <maddawg2> (ffmpeg)
+[01:12] <meteorx> what is that?
+[01:12] <jdr> meteorx: Plex
+[01:12] <meteorx> what is plex?
+[01:13] <tgm4883> Can we stay on channel topic?
+[01:16] <jdr> Sure tgm4883. Didn't think it was a big deal.
+[01:16] <tgm4883> jdr: There's a lot of people that idle here and periodically check back to see if a question was asked, so chat in the channel makes that difficult to follow
+[01:17] <jdr> Gotcha, makes sense.
+[01:21] <meteorx> whats up
+[01:21] <meteorx> anyone here
+[01:21] <meteorx> heloooo
+[01:21] <meteorx> noone
+[01:22] <pengwens> does anyone know how to test a particular memory bank?  my computer sees four banks, sees four modules, but the total memory isn't there
+[01:22] <jdr> 32 bit?
+[01:22] <pengwens> yes
+[01:22] <meteorx> how about 64 bit
+[01:23] <pengwens> https://pastebin.com/wmGrCTqe
+[01:23] <pengwens> meteorx: it's an old computer with a 32 bit processor
+[01:24] <pengwens> I have tried three different modules in the fourth bank, and the computer can see them but they don't add to the total overall memory
+[01:26] <pengwens> i tried opening up memtest86+ with various configurations, and it too would see all four banks occupied, but it wouldn't register more than 3Gb of memory available
+=== bazhang_ is now known as bazhang
+[01:32] <Tezcatlipoca> @_foo, you still around? It's from about 2003
+[01:32] <tonywb> I am having problems with my lan connection dropping off on my computer after setting in suspend mode for more than a hour or so.  Works fine if i suspend then wake back up quickly
+[01:34] <Tezcatlipoca> @pengwens, you still up for a quick look? I got everything to output to a pastebin: http://paste.ubuntu.com/p/FkSrSKhJPF/
+[01:37] <pengwens> Tezcatlipoca: what are you trying to build?  (this looks like it's going to be out of my league)
+[01:37] <pengwens> Tezcatlipoca: getting errors like "expected ‘unsigned char *’ but argument is of type ‘char *’" sound like it's intended to be built with a different version of GCC
+=== Rez is now known as l
+[01:37] <catartic> I want to set up an authenticated proxy server, but don't really know where to start :( I read
+[01:37] <catartic>                   about squid proxy, but all I found is quite old already, can I rely on it? Do you have any good
+[01:37] <catartic>                   documentation on how to implement the authentication process against a remote sql database
+[01:38] <pengwens> Tezcatlipoca: that's a problem with the source code + compiler and not something that would be easy to fix, unless you can get away with running it with a different compiler
+[01:38] <catartic> (possibly postgres)?
+[01:38] <catartic> I messed up with the copy paste
+[01:39] <catartic> reformulating: I want to set up an authenticated proxy server, but don't really know where to start :( I read about squid proxy, but all I found is quite old already, can I rely on it? Do you have any good documentation on how to implement the authentication process against a remote sql database (possibly postgres)?
+[01:40] <pengwens> uhg.  I don't want to spend anymore money on this dinosaur of a desktop, but I'd like to max out my memory (I just spent $15 to try it out) (https://www.ebay.com/itm/DELL-OPTIPLEX-GX280-DESKTOP-LGA775-VGA-OEM-MOTHERBOARD-XF954-KC012-CG812-0XF954/251887088447?hash=item3aa5a3f33f:g:nGkAAOSwH2hZt1RD)
+[01:40] <catartic> any help would be much appreciated :)
+[01:48] <ljc>  hey i'm on 16.10/yakkety and my repo urls are 404'ing again (i changed them to old-release a few days ago)
+[01:50] <pengwens> FUN.  Power surge
+[01:52] <Tezcatlipoca> @pengwens, thanks for the tip. I was trying to install hydan
+[01:53] <Tezcatlipoca> I am going to see if I can figure out how to try the compilers from around that time
+[01:53] <pengwens> Tezcatlipoca: can you give a link to where you found the code?  when I search the web I get a lot of weird hits
+[01:54] <Tezcatlipoca> @pengwens http://www.crazyboy.com/hydan/ is where I found it
+[01:56] <pengwens> Tezcatlipoca: one sec - let me take a look at the source code (and READMEs)
+[02:00] <pengwens> Tezcatlipoca: try running "sudo apt-get install libssl-dev" and then run make again
+[02:03] <jayjo_> is it possible to use imagemagick to convert a hue to transparency? So there will actually be degress of alpha removed?
+[02:04] <bazhang> jayjo_, imagemagick has a channel here on freenode
+[02:05] <jayjo_> bazhang: ah great, thank you
+[02:05] <bazhang> welcome
+[02:08] <driveaway> i need a link for kali linux
+[02:08] <Tezcatlipoca> @pengwens,  it said it and all of its dependencies are up to date already
+[02:08] <driveaway> i need a link for kali linux anyone please
+[02:09] <terminalator> Why does notify-send suddenly ignores expiry times under 1000 milliseconds?
+[02:09] <driveaway> i need a good torrent site
+[02:09] <driveaway> i need a link for kali linux
+[02:09] <driveaway> i need a good torrent site
+[02:11] <bazhang> distrowatch.com has the linux iso driveaway
+[02:11] <driveaway> thanks
+[02:11] <bazhang> for kali support, driveaway it's #kali-linux
+[02:11] <driveaway> i need a good torrent site
+[02:12] <driveaway> that works
+[02:12] <bazhang> driveaway, we just gave you one, for linux iso
+[02:12] <driveaway> bazhang /
+[02:12] <driveaway> ?
+[02:12] <driveaway> please
+[02:12] <bazhang> driveaway, if you mean piracy sites, then dont ask on freenode network
+[02:13] <driveaway> just a torrent site
+[02:13] <driveaway> a new one
+[02:13] <bazhang> driveaway, distrowatch.com has the linux iso torrents
+[02:14] <Tezcatlipoca> @pengwens, I couldn't find any documentation at the site and in the readme it just says "untar and run make" .  I have this suspicion that I am going to have to try to figure out what software and version this person was running it on and do it in a VM or something.
+[02:14] <pengwens> Tezcatlipoca: You can try emailing the developer. This is very specialized software here
+[02:16] <Tezcatlipoca> @pengwens.  Yeah, I should go ahead and send one off to them.  Thanks for taking a look with me.
+[02:17] <pengwens> Tezcatlipoca: I got so far as to run into the error: "undefined reference to `hdn_exe_section_is_code'"
+[02:18] <pengwens> Tezcatlipoca: good luck.  if someone wants to develop open source code and share it, one thing they have to do is help users out
+[02:19] <Tezcatlipoca> Thanks. Yeah, they seem pretty chill from their old site anyway. I am hopeful I'll get something.
+[02:29] <pengwens> oh man.  I'm having all sorts of fun problems
+[02:31] <jayjo_> I am getting the error " unexpected token near (" when trying to run https://stackoverflow.com/a/26442085
+[02:31] <jayjo_> a bash error ... should I try to execute this a different way?
+[02:34] <jayjo_> It's also just the generic bash: syntax error near unexpected token `(' , so I don't know which one
+[02:39] <userus> hello
+[02:40] <ljc> is there any way to use 16.10 repositories?
+[02:41] <ljc> i've just got a vm, i don't care about upgrading and would prefer not to lose my data
+[02:44] <Adran> ljc: you can use the archive mirrors
+[02:44] <userus> anyone put ubuntu on a chromebook?
+[02:44] <Adran> http://old-releases.ubuntu.com/ubuntu/
+[02:44] <ljc> Adran: Err:1 http://old-releases.ubuntu.com/ubuntu yakkety/universe amd64 gcc-6-arm-linux-gnueabi-base amd64 6.2.0-5ubuntu12cross1
+[02:44] <ljc>   404  Not Found
+[02:45] <Adran> ljc: what
+[02:45] <Adran> i don't think universe gets included
+[02:45] <Adran> look at http://old-releases.ubuntu.com/ubuntu/dists/ to make sure the mirrors match
+[02:45] <Adran> http://old-releases.ubuntu.com/ubuntu/dists/yakkety/universe/
+[02:46] <ljc> yea
+[02:47] <ljc> so that exists, but i'm not sure why apt get is failing
+=== FrankF1 is now known as FrankF
+[03:07] <andre> hello
+=== andre is now known as Guest29337
+[03:07] <Guest29337> someone to help me please
+[03:08] <Guest29337> i want to make an airplay server with my orangepi one
+[03:16] <curie> #bitcoin
+[03:20] <curie> #bitcoin-core-dev
+[03:24] <xrs444> Hello all, anyone around to help me with a exports file /NFS4 issue?
+[03:28] <guiverc> xrs444, tell us the issue, if someone can help they'll reply
+[03:30] <sineroth> hello does anyone know why i get this error msg. Error 1: fsck.usf not found     Error 2: error 2 while tring to execute fsck.ufs for sda1
+=== dingir___ is now known as dingir
+[03:31] <xrs444> I'm trying to limit access to NFS shares to two subnets. I'm exporting the root like this:/export		10.10.0.0/16(rw,fsid=0,no_subtree_check,sync) 192.168.0.0/24(rw,fsid=0,no_subtree_check,sync)
+[03:32] <xrs444> however only the machines in the first subnet got to NFS4, the ones in the 192 range use NFS3
+[03:32] <xrs444> Am I wrong here, and can't specify two like this, or am I missing something?
+[03:34] <sineroth> i ran a linux live to try repair bad sectors on a ufs formatted drive from a nas storage box
+[03:34] <sineroth> can that work does fsck read ufs?
+[03:37] <segersjerry> sineroth, Where was the typo, you said ufs and usf.
+[03:39] <segersjerry> sineroth, anyway that's my best guess, I don't know much about linux.
+[03:41] <guiverc> sineroth, ufs is berkeley fast file system, it needs helpers/drivers to read it.the first error you gave showed the helper|driver wasn't found (on your system)
+[03:42] <guiverc> sorry xrs444 I've not used nfs as you do (that i recall anyway) - can't give advice
+[03:42] <xrs444> no worries, I can set it to * for now, and I'll change it when I find an answer
+[03:43] <sineroth> unix file system
+[03:46] <zykotick9> xrs444: (i'm just being lazy asking you but...) how can you tell if it's NFS v3 v v4?  I set up nfs for the first time in probably 5 years, yesterday - and i have no idea if i'm using v3 or v4, but am kinda curious.
+[03:47] <xrs444> mount | grep nfs4 :)
+[03:47] <zykotick9> xrs444: thanks.
+[03:47] <xrs444> there's probably a better way, but that seems to work :)
+[03:48] <zykotick9> xrs444: ;)  "mount | grep nfs" returned nfs4.  thanks.
+[03:48] <jim> hi, how can I find the versions of mongodb that have been packaged?
+[03:49] <guiverc> jim, https://packages.ubuntu.com/search?keywords=mongodb
+[03:49] <jim> thanks
+[03:50] <zykotick9> xrs444: <sidenote> in about 95% of cases i also consider using "grep -i foo" a "better way" (makes case search NOT sensitive)
+=== chu is now known as elchu
+=== elchu is now known as chu
+[03:53] <zykotick9> jim: if you want to find out from terminal (if i recall correctly) i think it's "apt-cache search foo" will show what version is available.
+[03:58] <xrs444> Zykotick9: Duly noted, a useful tip!
+[03:59] <zykotick9> xrs444: <sidenote #2> you can use TAB to autocomplete nicknames so z-y-k-TAB would probably complete my nick - correctly ;)
+[04:06] <jim> zykotick9, right... thanks. I'm more interested at the moment to find out what versions have (ever) been packaged
+[04:06] <zykotick9> sorta OT for #ubuntu, but does anyone know, is ActionParsnip still active here?
+[04:06] <jim> the package.u.c link shows those
+[04:07] <jim> what's an ActionParsnip?
+[04:07] <zykotick9> jim: ahh, well, glad you found your answer.
+[04:07] <zykotick9> jim: s/what's/who is/
+[04:07] <jim> ActionParsnip is a who?!
+[04:08] <zykotick9> jim: yes, they where/are a person - who used to be very active in #ubuntu
+[04:08] <jim> oh ok
+[04:13] <gjumrani> JOIN #ubuntu
+[04:22] <susu> hello
+[04:22] <susu> some one here
+[04:23] <Bashing-om> !ask | susu
+[04:23] <ubottu> susu: Please don't ask to ask a question, simply ask the question (all on ONE line and in the channel, so that others can read and follow it easily). If anyone knows the answer they will most likely reply. :-) See also !patience
+[04:29] <eraserpencil> why is nginx as a reverse proxy server coupled with apache as the web server more poplar than the other way round
+[04:29] <outoftime_92> Who know to to retrieve EDID direcly from the monitor and how to read/translate it in human readable format?
+[04:35] <outoftime_92> eraserpencil: try /join #nginx
+[04:36] <eraserpencil> thanks
+=== ViSi0n is now known as UsQUE
+[04:52] <BUSY> hello friends, i am having some real network connectivity issues.  what sort of cli resources can i use to solve the problem?
+[04:52] <untoreh> BUSY: what kind
+[04:53] <BUSY> i think the problem exists between the router and the computer.  it's wireless but it has been running flawlessly for over a year
+[04:54] <BUSY> what can i do to look for any strange open ports or just get a diagnostic feel for how packets are being sent?
+[05:04] <raigon> hello
+[05:10] <untoreh> BUSY: `sudo netstat -tunap` and play around with iptraf (apt install iptraf-ng)
+[05:17] <hanabishi> hello every one
+[05:17] <hanabishi> good day to everone
+[05:18] <guiverc> if you have questions - just ask.  hundreds of people enter the room each day, so hello gets boring after the first 50...
+[05:19] <sysfault> guiverc: heartless
+[05:20] <guiverc> we don't mean to be rude hanabishi (so hi & sorry), most of us are doing other things and answer questions we see we can answer - maybe i am heartless sysfault
+[05:20] <sysfault> guiverc: or maybe not
+[05:21] <guiverc> fyi:  thankfully most of the room has more heart than me
+[05:21] <sysfault> ;)
+[05:21] <dingir> hi
+[05:21] <dingir> i have a question
+[05:22] <dingir> when i connect to vpn on my box then i cannot access it via ssh whats the matter
+[05:22] <guiverc> please ask it dingir
+[05:24] <dingir> like it will connect timeout
+[05:25] <dingir> any idea how to make sshd work through vpn
+[05:28] <lotuspsychje> dingir: there is a nice #openssh channel if you like
+[05:29] <dingir> thanks
+[05:30] <guiverc> sorry everyone
+[05:35] <katnip> is 16.0.4.4 out?
+[05:36] <lotuspsychje> katnip: yes
+[05:36] <katnip> how do i upgrade to it?
+[05:36] <lotuspsychje> katnip: sudo apt update && sudo apt upgrade to stay to latest
+[05:38] <katnip> hmm, nothing changed
+[05:38] <guiverc> katnip, try `sudo apt dist-upgrade`
+[05:39] <guiverc> it could also be your mirrors (if you don't use canonical's site) haven't updated yet  (my isp's mirror is often slow to update)
+[05:40] <katnip> hmm
+[05:40] <katnip> yeah nothing yet
+[05:40] <lotuspsychje> katnip: is it updating?
+[05:41] <katnip> nope
+[05:41] <katnip> updating yes, but not upgradinig
+[05:43] <lotuspsychje> katnip: released on 1st of march https://wiki.ubuntu.com/XenialXerus/ReleaseSchedule
+[05:43] <lotuspsychje> katnip: how about sudo apt full-upgrade
+[05:43] <lotuspsychje> katnip: then after check lsb_release -a
+[05:44] <guiverc> https://lists.ubuntu.com/archives/ubuntu-announce/2018-March/000229.html
+[05:45] <energizer> Where are my gnome keyboard shortcuts stored?
+[05:46] <katnip> Description:	Ubuntu 16.04.4 LTS it must have upgraded without me noticing :)
+[05:46] <lotuspsychje> katnip: yeah, just keeping system up to date is a good idea :p
+[05:46] <Zoara327> Hello!
+[05:46] <Zoara327> Anyone there? lol
+[05:47] <lotuspsychje> Zoara327: 1500 users are
+[05:47] <Zoara327> wow, I guess so
+[05:48] <Zoara327> So I am having issues running ubuntu on a hp desktop
+[05:48] <lotuspsychje> Zoara327: please state your issue to the channel
+[05:49] <Zoara327> It lets me install it like normal, and tells me to restart to use the new partition, but then when I restart it completely ignores the partition, says I have no working os installrf
+[05:49] <Zoara327> "installed"
+[05:49] <lotuspsychje> Zoara327: wich ubuntu version are you trying to install, and how are you partitioning?
+[05:49] <Zoara327> But not only does it claim it was successful, but if I try reinstalling it, it comes up as a full drive
+[05:49] <Zoara327> Let me check
+[05:50] <Zoara327> Ubuntu 16.10 off a bootable disk I got off a magazine
+[05:50] <guiverc> Zoara327, is it a small netbook (there are some models hp/asus/sony that used a bios that was unstandard - booted only 'windows' and you had to make ubuntu report it was windows to make the eufi boot it)
+[05:50] <lotuspsychje> Zoara327: 16.10 has been end of life
+[05:50] <Zoara327> not that the last part would be important since I have used the disk multiple times before lol
+[05:51] <lotuspsychje> Zoara327: please download a supported version from our topic
+[05:51] <Zoara327> Yeah, I was trying it intentionally since It was a older computer
+[05:51] <lotuspsychje> Zoara327: do you want long time support or testing newer,latest?
+[05:51] <Zoara327> I actually just downloaded the 5 year support off the website and made a usb copy
+[05:52] <lotuspsychje> Zoara327: 16.04?
+[05:52] <Zoara327> yes\
+[05:52] <lotuspsychje> Zoara327: ok good, are you gonna singleboot or dualboot?
+[05:53] <Zoara327> Singleboot, I already wiped windows 10 off the machine
+[05:53] <lotuspsychje> Zoara327: great, did you disable fastboot & secureboot?
+[05:53] <Zoara327> Ugh, yeah
+[05:53] <lotuspsychje> Zoara327: ok tne partitioning part in setup should go fine
+[05:53] <Zoara327> I heard that hp computers have a weird thing for other oses besides the designated ones though
+[05:54] <Zoara327> I had even turned off secure boot and fastboot beforehand
+[05:54] <Zoara327> it didnt make a difference, still failed
+[05:54] <lotuspsychje> Zoara327: you mean like another bios setting blocking new Os?
+[05:54] <Zoara327> Would booting usb make a difference?
+[05:54] <Zoara327> also it being newer
+[05:55] <lotuspsychje> Zoara327: sure try the 16.04.4 usb install
+[05:55] <Zoara327> ok, I will
+[05:55] <lotuspsychje> Zoara327: F12 should give you boot devices at startup
+[05:55] <Zoara327> eh, f9 usually does it but k lol
+[05:56] <Zoara327> not important
+[05:56] <Zoara327> but why do hp computers give such a hard drive with alternate operating systems though?
+[05:56] <Zoara327> what keeps it from taking a new os
+[05:56] <lotuspsychje> Zoara327: try autopartition or manual?
+[05:57] <lotuspsychje> Zoara327: well like you say, i have encountered machines in the past with deep hidden bios setting i had to turn off to install ubuntu, cant recall name
+[05:58] <lotuspsychje> Zoara327: i think it was something intel..
+[05:58] <Zoara327> Its a weird computer
+[05:58] <Zoara327> a hp 8 I think
+[05:59] <lotuspsychje> Zoara327: well most of the times, its uefi related when you cant install ubuntu
+[05:59] <Zoara327> Windows 8 installed, cheapy all in one lol
+[05:59] <lotuspsychje> Zoara327: let us know when your at partitioning screen ok
+[05:59] <Zoara327> I saw there were 8 specific settings too
+[05:59] <Zoara327> I wont be able to do it tonight, the computer isnt with me atm
+[06:00] <lotuspsychje> oh kk
+[06:00] <Zoara327> but if I have troubles, I will be back
+[06:00] <Zoara327> Thanks for the help though
+[06:00] <lotuspsychje> Zoara327: well good luck for later then, and welcome to the ubuntu community
+[06:00] <Zoara327> Thank you!
+[06:00] <lotuspsychje> Zoara327: welcome
+[06:14] <yaboo> hey guys who broke mariadb-server on ubuntu 18.04 beta
+[06:14] <lotuspsychje> yaboo: join #ubuntu+1 for bionic
+[06:18] <guiverc> i noticed my [isp] mirror still has 12.04.5 iso's available for download. not ideal given EOL status (excluding ESM)... should this info go anywhere (isp doesn't care; files dated 3-mar-2018 on site)
+[06:23] <outoftime_92> How to retrieve EDID directly from the monitor?
+=== fego is now known as zephyr
+=== dingir is now known as dingir_
+[06:44] <lotuspsychje> !info edid-decode | outoftime_92 is this usefull?
+[06:44] <ubottu> outoftime_92 is this usefull?: edid-decode (source: edid-decode): decode the binary EDID information from monitors. In component universe, is optional. Version 0.1~git20160708.c72db881-1 (artful), package size 17 kB, installed size 47 kB
+[06:49] <lotuspsychje> outoftime_92: or read-edid
+[06:52] <outoftime_92> lotuspsychje: get-edid gives me not usefull output http://termbin.com/06yg
+[06:53] <outoftime_92> ubottu: I'm trying to get EDID that monitor sends, in order to find out what is wrong
+[06:53] <ubottu> outoftime_92: I am only a bot, please don't think I'm intelligent :)
+[06:54] <lotuspsychje> outoftime_92: and what is wrong exactly?
+[06:56] <lotuspsychje> outoftime_92: could you check if your graphics driver is installed correctly? sudo lshw -C video
+[06:57] <lotuspsychje> outoftime_92: xorg & xrandr might also help
+[06:58] <outoftime_92> ltrager: http://termbin.com/zo7x
+[06:59] <lotuspsychje> outoftime_92: look slike driver is installed, wich ubuntu are you on?
+[07:01] <outoftime_92> lotuspsychje: problem that I cann't set screen resolution 1920x1080 maximum that is available via display is 1360x768 and I can not move over this limin nor via nvidia-settings nor via xrandr...
+[07:02] <outoftime_92> lotuspsychje: Linux ruslan-PC 4.10.0-28-generic #32~16.04.2-Ubuntu SMP Thu Jul 20 10:19:48 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+[07:02] <lotuspsychje> outoftime_92: lsb_release -a ?
+[07:03] <outoftime_92> lotuspsychje: Ubuntu 16.04.4 LTS
+[07:03] <lotuspsychje> outoftime_92: have you tried setting higher resolution via xrandr?
+[07:03] <lotuspsychje> !xrandr | outoftime_92
+[07:03] <ubottu> outoftime_92: XRandR 1.2 is the new method of running dual screens in !X.  Information/HowTo here: http://wiki.debian.org/XStrikeForce/HowToRandR12
+[07:05] <lotuspsychje> outoftime_92: or http://ubuntuhandbook.org/index.php/2017/04/custom-screen-resolution-ubuntu-desktop/
+[07:09] <outoftime_92> lotuspsychje: http://termbin.com/jsjv
+[07:11] <lotuspsychje> outoftime_92: try to add newmode first
+[07:11] <lotuspsychje> outoftime_92: its described on the second url
+[07:11] <dingir_> i dont get that ssh thing
+[07:12] <dingir_> ListenAddress 0.0.0.0 doesnt it mean ANY address
+[07:13] <outoftime_92> lotuspsychje: is it already present
+[07:14] <outoftime_92> outoftime: I just don't know how to show you all commands I execute and their output, new mode generated with gtf, I have tried cvt as well
+[07:18] <ConsoleFx> I am having a tough time installing the nvidia drivers for my GT 730 (Ubuntu 16.04 LTS)... Everytime I go to the "Additional Drivers" tab and install the drivers, in the next reboot all I get is a black screen. Nothing else!
+[07:18] <ConsoleFx> Can I assume its not officially supported at all?
+[07:19] <lotuspsychje> ConsoleFx: ubuntu-drivers list to see whats available
+[07:20] <outoftime_92> lotuspsychje: do you have any idea?
+[07:20] <ConsoleFx> lotuspsychje, it lists 2 items nvidia-384 and nvidia-340
+[07:23] <ConsoleFx> Its exactly same as "Additional Drivers" tab options
+[07:29] <lotuspsychje> ConsoleFx: check sudo lshw -C video to see wich one is active?
+[07:30] <ConsoleFx> lotuspsychje, shows this: https://paste.ubuntu.com/p/5gfB84yxYG/
+[07:31] <lotuspsychje> ConsoleFx: your on nouveau
+[07:32] <lotuspsychje> ConsoleFx: your card needs nvidia-prime + an nvidia- driver version
+[07:33] <ConsoleFx> How can I get those?
+[07:33] <ConsoleFx> Need to add some sorta PPAs?
+[07:33] <lotuspsychje> ConsoleFx: no, sudo apt install nvidia-yournumberhere
+[07:34] <EriC^^> ConsoleFx: "sudo ubuntu-drivers devices" shows the recommended driver
+[07:34] <lotuspsychje> ConsoleFx: make sure your system is also up to date to latest .4
+[07:34] <ConsoleFx> apt search nvidia-730 yields zero results
+[07:34] <ConsoleFx> my model is GeForce GT 730 though
+[07:36] <lotuspsychje> ConsoleFx: you dont need 730, choose one of your reccomended ubuntu-drivers list
+[07:37] <lotuspsychje> outoftime_92: try to re-ask your issue here once in a while with all details, steps you tryed
+[07:37] <ConsoleFx> lotuspsychje, drivers recommendation output: https://paste.ubuntu.com/p/HQ4dnDTDhG/
+[07:38] <ConsoleFx> not sure which one to put
+[07:38] <ConsoleFx> howevery i tried the same earlier via "Additional Drivers" and it screwed up with a black screen. Hope this time it would be safe :(
+[07:38] <lotuspsychje> ConsoleFx: wich version did you try when black screen?
+[07:39] <ConsoleFx> 384
+[07:39] <EriC^^> ConsoleFx: do you have the linux-headers installed?
+[07:39] <ConsoleFx> EriC^^, you mean build-essential stuffs?
+[07:40] <EriC^^> ConsoleFx: no, linux-headers-something package
+[07:40] <ConsoleFx> build-essential package I've installed
+[07:40] <ConsoleFx> EriC^^, I feel no
+[07:41] <ConsoleFx> I didnt try that command before
+[07:41] <EriC^^> ConsoleFx: try 'dpkg -l | grep linux-headers-$(uname -r)-generic'
+[07:41] <ConsoleFx> EriC^^, shows 0 results
+[07:41] <outoftime_92> EriC^^: Hello. Do you know how to retrieve EDID from the monitor?
+[07:41] <EriC^^> ConsoleFx: try 'dpkg -l | grep linux-headers' and pastebin
+[07:41] <EriC^^> ConsoleFx: also "uname -r"
+[07:42] <EriC^^> outoftime_92: no, sorry
+[07:43] <ConsoleFx> https://paste.ubuntu.com/p/FfqdhT6ryx/
+[07:43] <EriC^^> ConsoleFx: aha, what does "uname -r" give?
+[07:44] <ConsoleFx> 4.13.0-36-generic EriC^^
+[07:44] <lotuspsychje> outoftime_92: mention what you really wanna do, add new resolution to ubuntu
+[07:44] <EriC^^> ConsoleFx: ok you're good
+[07:44] <outoftime_92> lotuspsychje: but I can't change resolution because of broken EDID
+[07:45] <EriC^^> outoftime_92: did you try manually adding with xrandr the modeline and whatnot?
+[07:46] <outoftime_92> EriC^^: yes
+[07:46] <EriC^^> ConsoleFx: try installing nvidia-384 again, and if you get a blank screen try to upload the /var/log/Xorg.0.log in case it shows anything about the problem
+[07:47] <outoftime_92> EriC^^: http://termbin.com/stv9
+[07:47] <outoftime_92> EriC^^: xranrd --addmode ...
+[07:47] <EriC^^> outoftime_92: it's --newmode first
+[07:48] <outoftime_92> EriC^^: http://termbin.com/g0su xrandr -q
+[07:49] <EriC^^> outoftime_92: try with "cvt 1920 1080 59"
+[07:49] <outoftime_92> EriC^^: I'm using gtf instead of cvt
+[07:49] <EriC^^> i think cvt is newer or something
+[07:50] <ConsoleFx> EriC^^, okay sure. BTW is there any solution that I can revert back to my normal disaply if this time the installation goes haywire? Because last time I had to reinstall the OS again.
+[07:51] <EriC^^> ConsoleFx: if you get a blank screen, try "ctrl+alt+f1" and try to login and run sudo apt-get purge 'nvidia*'   , if you cant get a terminal, use recovery mode
+[07:51] <outoftime_92> EriC^^:  you are right https://forums.geforce.com/default/topic/379915/timing-standard-what-is-it-/
+[07:51] <EriC^^> !recovery | ConsoleFx have a look here, after dropping to root shell you'll want to do 'mount -o remount,rw /' before running the purge command
+[07:51] <ubottu> ConsoleFx have a look here, after dropping to root shell you'll want to do 'mount -o remount,rw /' before running the purge command: If your system fails to boot normally, it may be useful to boot it into recovery mode. For instructions, see https://wiki.ubuntu.com/RecoveryMode
+[07:52] <EriC^^> outoftime_92: aha
+[07:53] <outoftime_92> EriC^^: any way with nouveo driver I had better filling when generated with gtf rather than cvt
+[07:53] <EriC^^> outoftime_92: try with a slightly lower refresh rate it might work
+[07:54] <xEth0sx> sup peeps
+[07:54] <outoftime_92> EriC^^: same error with 59 frequency
+[07:55] <xEth0sx> having issues with a program install on ubuntu am i in the right place to ask questions?
+[07:55] <outoftime_92> xEth0sx: ask
+[07:58] <xEth0sx> program for card gamers called cockatrice. i can copy the errors im getting but when i go to configure the package its not finding something in the script. the package has thousands of users so im not alone running linux on it.
+[07:58] <xEth0sx> trying to figure out what im missing
+[07:58] <xEth0sx> should i copy paste the error log? dont wanna spam the chat
+[07:59] <EriC^^> outoftime_92: i noticed ths resolution is under the HDMI one, maybe that has to do with it?
+[07:59] <xEth0sx> E: Unable to locate package qt5linguisttoolsconfig.cmake
+[07:59] <xEth0sx> E: Couldn't find any package by glob 'qt5linguisttoolsconfig.cmake'
+[07:59] <xEth0sx> E: Couldn't find any package by regex 'qt5linguisttoolsconfig.cmake
+[08:00] <xEth0sx> thats the jest of it
+[08:01] <EriC^^> xEth0sx: what are the dependencies of the program in the README or docs?
+[08:01] <EriC^^> !info qt5-linguist-tools
+[08:01] <ubottu> Package qt5-linguist-tools does not exist in artful
+[08:01] <xEth0sx> i installed the listed dependencies, hang on ill paste them
+[08:01] <EriC^^> !paste | xEth0sx
+[08:01] <ubottu> xEth0sx: For posting multi-line texts into the channel, please use https://paste.ubuntu.com | To post !screenshots use https://imgur.com/ !pastebinit to paste directly from command line | Make sure you give us the URL for your paste - see also the channel topic.
+[08:02] <outoftime_92> EriC^^: when I'm doing --newmode it is added to HDMI
+[08:02] <xEth0sx> # Install the needed prerequisites
+[08:02] <xEth0sx> sudo apt-get install -y git build-essential g++ cmake \
+[08:02] <xEth0sx>     libprotobuf-dev protobuf-compiler \
+[08:02] <xEth0sx>     qt5-default qttools5-dev qttools5-dev-tools \
+[08:02] <xEth0sx>     qtmultimedia5-dev libqt5multimedia5-plugins libqt5svg5-dev \
+[08:02] <xEth0sx>     libqt5sql5-mysql libqt5websockets5-dev
+[08:02] <ducasse> !paste | xEth0sx
+[08:02] <ubottu> xEth0sx: For posting multi-line texts into the channel, please use https://paste.ubuntu.com | To post !screenshots use https://imgur.com/ !pastebinit to paste directly from command line | Make sure you give us the URL for your paste - see also the channel topic.
+[08:03] <EriC^^> outoftime_92: try sudo xrandr --addmode VGA-0 1920x1080_60.00
+[08:03] <outoftime_92> EriC^^: same error
+[08:04] <xEth0sx> well im in timeout lol
+[08:04] <EriC^^> outoftime_92: does xrandr -s 1920x1080_60.00    help at all?
+[08:04] <xEth0sx> k so i gotta paste to the website
+[08:05] <xEth0sx> newb fail
+[08:05] <outoftime_92> EriC^^: Size 1920x1080 not found in available modes
+[08:05] <outoftime_92> xEth0sx: command | nc termbin.com 9999
+[08:06] <EriC^^> outoftime_92: what does 'xrandr -q' show ?
+[08:06] <outoftime_92> EriC^^: http://termbin.com/g0su
+=== r0Oter is now known as r00ter
+[08:07] <xEth0sx> how do i @user here?
+[08:07] <EriC^^> outoftime_92: hmm, the --addmode VGA-0 is running successfully?
+[08:07] <EriC^^> xEth0sx: type first few letters then press tab
+[08:07] <xEth0sx> kk ty
+[08:07] <outoftime_92> xEth0sx: https://irssi.org/documentation/startup/
+[08:08] <outoftime_92> EriC^^: yeas
+[08:09] <EriC^^> outoftime_92: i wonder if this might help not sure, but you can tell grub to use a certain resolution and pass it over to later boot stages
+[08:10] <EriC^^> outoftime_92: sudo nano /etc/default/grub , uncomment GRUB_GFXMODE and set it to 1920x1080
+[08:11] <EriC^^> outoftime_92: add at the bottom GRUB_GFXPAYLOAD_LINUX=keep
+[08:11] <EriC^^> then save and sudo update-grub and give it a reboot
+[08:40] <Diag> I have a retardical question i cannot seem to find a lot about. I have an asus u50f laptop, etc etc, latest ubuntu 17.10. My brightness buttons work, but they make the brightness freak out and jump all around
+[08:45] <yolozulu> There's a snap package improperly advertising what it is, who do I report to?
+[08:48] <godxeno> can anyone pm me?
+[08:48] <godxeno> i need help chat moves quickly
+[08:51] <guiverc> yolozulu, what is the snap package  (sorry I can't find who to report to, email etc)
+[08:51] <guiverc> listing it here at least gives a record of your report...
+[08:52] <guiverc> godxeno, if you have a question, please ask it.. someone will respond if they can
+=== ToeJelly is now known as TabMasher
+[08:59] <yolozulu> @guiverc - bitcoin-qt  1.0.1.1-git-21e45cb  torusjkl   -      Bitcoin Unlimited - The Only Bitcoin Client That Gives You Complete Freedom!  -- Well, the description is correct, and the version naming is, but the snap package seems deceiving, although I don't know if intentional.
+[08:59] <yolozulu> It doesn't show up in the Ubuntu Software search, so only CLI users would see it, unless snaps are easily isntalled elsewhere.
+[09:00] <guiverc> yolozulu, this irc channel is logged; your statement has thus been logged. if i can find where it should be reported to, they'll get what you just said
+[09:01] <yolozulu> guiverc: right on, the same user also uploaded  - bitcoin     v0.15.1              torusjkl   -      peer-to-peer network based digital currency
+[09:02] <yolozulu> Which is the proper naming for Bitcoin Core, which initially used the bitcoin / bitcoin-qt naming scheme AFAIK.
+[09:02] <yolozulu> Proper versioning*
+[09:02] <yolozulu> bitcoin-qt however shows up first in the snap packaging, which is actually BU / Bitcoin Unlimited
+[09:07] <outoftime_92> How to retrieve EDID?
+[09:15] <sorinescu> Salutare :)
+[09:18] <sorinescu> ping
+[09:24] <MagePsycho_> what’s the best way to get temp directory for downloading files that works in all linux distros? $TMPDIR doesn’t exist in Ubuntu
+[09:27] <outoftime_92> How to retrieve EDID binary from the monitor?
+=== agni_ is now known as agnipanda
+[09:41] <girija> hi im giri
+[09:42] <girija> asl?
+[09:42] <agnipanda> hii
+[09:42] <girija> hi agni
+[09:42] <bazhang> girija, this is ubuntu support not chatter
+[09:42] <agnipanda> how can i search user
+[09:43] <bazhang> agnipanda, try asking that in #freenode
+[09:43] <CoJaBo> the hell is this, AOL?
+[09:44] <CoJaBo> https://paste.debian.net/1012875/ anyone know if this is more likely bug or defective disk? Just upgraded to Ubuntu Bionic; disk is old, but little used with no other SMART errors
+[09:45] <bazhang> CoJaBo, #ubuntu+1 until release
+[09:46] <casy> #afkanerd
+[09:46] <CoJaBo> Already there, I tabbed to the wrong channel
+=== ariver|ERR is now known as ariver
+[09:54] <godxeno> anyone help me open port
+[09:55] <bazhang> godxeno, did you mean help you with firewall rules?
+[10:16] <outoftime_92> how to retrieve EDID from monitor?
+[10:31] <outoftime_92> how to retrieve EDID from the monitor?
+[10:33] <bazhang> read-edid <-- did you install that outoftime_92
+[10:33] <outoftime_92> bazhang: yes
+[10:36] <outoftime_92> bazhang: http://termbin.com/7jwg
+=== NickG365_ is now known as NickG365
+=== N3X15_ is now known as N3X15
+[10:40] <outoftime_92> What does it mean: Unable to get display device CRT-1's EDID; cannot compute DPI from CRT-1's EDID ?
+=== Mike_________ is now known as Mike__
+[10:42] <untoreh> any fix on bionic for broken mesa drivers ?
+[10:43] <bazhang> untoreh, #ubuntu+1 for bionic
+[10:45] <outoftime_92> bazhang: do you know where I can ask about EDID?
+[10:45] <bazhang> outoftime_92, please be sure to give full details next time you ask the channel about it being a CRT
+[10:47] <outoftime_92> bazhang: it is not CRT at all, it is LCD, is it recognized as CRT because can not read EDID
+[10:48] <SimonNL> if you're lucky you cable or connectors are malfunctioning outoftime_92
+[10:52] <outoftime_92> SimonNL: everything ok except header
+[10:52] <outoftime_92> SimonNL: https://askubuntu.com/questions/201081/how-can-i-make-linux-behave-better-when-edid-is-unavailable/342350#342350 it doest not match
+[11:00] <SimonNL> I guess if you connect some other monitor with same cable and thats not giving any problem something is wrong with the monitor outoftime_92
+[11:01] <SimonNL> I have such a monitor myself
+[11:06] <outoftime_92> SimonNL: http://read.pudn.com/downloads110/ebook/456020/E-EDID%20Standard.pdf header have to be 00 ff ff ff ff ff ff 00 according to standard 3.3 Header 8 bytes
+[11:14] <flj> Question about command line formatting an usb memory stick. I wanted to wipe an usb memory stick. I used a wipe program which boots from an iso dvd. Something went wrong. I am now unable to format the usb memory stick. Gparted does not find the usb stick. Disks finds the usb stick but allows no formatting. Sudo fdisk -l says Error: /dev/sdb: unrecognised disk label. Is there a command I can use to get the usb stick to work again? I do not know if
+[11:14] <flj> the usb stick is psychically broken.
+[11:15] <ikonia> put a disk label on it with parted or fdisk
+[11:16] <flj> As I wrote, gparted does not list the usb stick. How do I label using fdisk?
+[11:16] <ikonia> not gparted
+[11:16] <ikonia> parted
+[11:16] <ikonia> and don't "list it" - it's not got a label, specify it
+[11:17] <flj> Then I do not know what parted is. Can you tell instructions?
+[11:17] <ikonia> parted is the application gparted is the front end of
+[11:17] <ikonia> just do "sudo fdisk /dev/sdb"
+[11:17] <ikonia> then "n" to create a new partition, answer the questions then "w" to save the changes
+[11:20] <flj> sudo fdisk /dev/sdb says Warning: Unable to open /dev/sdb read-write (Read-only file system).  /dev/sdb has been opened read-only. Warning: Unable to open /dev/sdb read-write (Read-only file system).  /dev/sdb has been opened read-only.GNU Fdisk 1.2.5
+[11:20] <ikonia> so sounds like you've broken the usb with the app by using all the allocated "writes" on it
+[11:21] <ikonia> I don't know what the other app you used was / did, but I suspect it's just wrote a load of data to the disk to blank it and now there are no more writes allowed on it
+[11:21] <ikonia> (I'm guessing from what you've told me and that error)
+[11:21] <ikonia> fdisk doesn't care about file systems, but if it can't write to the partition table, that suggests to me your device is done
+[11:24] <flj> The usb stick is for the trash bin then? I used the program hdshreder 4 several times for usb memory sticks and it worked. It is a new error. It probably also corrupted a sdcard.
+[11:25] <ikonia> flj: you're aware usb sticks only have a certain ammount of "writes" allowed on them right ?
+[11:25] <flj> The sdcard was new. The usb stick likely not used enough to be the problem.
+[11:26] <ikonia> flj: you've used hdshredder several times
+[11:26] <ikonia> you're aware that will do a huge ammount of writes to the disk to "delete" the data
+[11:27] <flj> You say you can only wipe an usb stick a couple of times?
+[11:27] <ikonia> it depends on the settings
+[11:28] <ikonia> if you imagine say the usb device can only do 100.000 writes, if you have the settings on hdshredder that does 50,000 small writes to delete the data, then you can only do it 2 times
+[11:28] <ikonia> if you have it set to do 1 write, it can be done 100,000 times
+[11:28] <flj> hdshreder free version only writes 1 time per wipe.
+[11:28] <ikonia> it writes more than 1 time
+[11:28] <ikonia> it writes to every block to "shred"
+[11:30] <outoftime_92> flj: if your USB from trancend, they have software on their site to reprogram flash drive, sometimes their USBs gets corrupted
+[11:30] <flj> I cannot say you are wrong. But it is strange hdshredder would corrupt a new sdcard.
+[11:31] <ikonia> not really, but you have not mentioned the sdcard until a moment ago, you where just referencing a usb device
+[11:31] <outoftime_92> flj: agree with @ikonia
+[11:32] <flj> I stop using hdshredder 4. sudo shred -vn has not corrupted an usb device so far.
+[11:33] <flj> The usb stick in question is a sandisk.
+[11:36] <albertoiNET> Hi everyone
+=== xandowsk- is now known as xandowsk
+[11:43] <albertoiNET> Hi everybody
+[11:43] <moad_> Hello
+[11:43] <albertoiNET> Somebody can give me a hand with this problem? :(
+[11:43] <guiverc> Hello, if you have a question please ask it.  If someone can answer it, they'll do so.
+[11:43] <albertoiNET> https://askubuntu.com/questions/1010405/the-brightness-of-laptop-screen-cannot-be-adjusted-with-either-the-buttons-or-th
+[11:49] <moad> amideast
+[11:51] <outoftime_92> I have modified EDID header and, now I have this `$ edid-decode edid.bin` http://termbin.com/dek7
+[11:51] <outoftime_92> Have to fix "EDID block does NOT conform to EDID 1.3! Detailed block string not properly terminated" and then fix checksum
+[11:55] <flj> albertoi NEThttps://itsfoss.com/fix-brightness-ubuntu-1310/. Have you read the article. Got brightness keys to work on my ubuntu 14.04 64bit notebook.
+[11:56] <akik> albertoiNET: the acpi_osi parameters didn't resolve it?
+[11:56] <flj> https://itsfoss.com/fix-brightness-ubuntu-1310/
+[12:13] <Guest96> I'm building  new a homeserver and will migrate to linux/ubuntu aswell, does it exist a up-to-date guide to setup&harden it?
+[12:13] <ikonia> there is no such thing a hardening guide as it will be specific to the use case / application stack / network etc to that instance
+[12:14] <ikonia> you need the knowledge and experience to understand the risks and how to mitigate them in the situation you are in
+[12:15] <tomreyn> there is https://help.ubuntu.com/lts/serverguide/security.html
+[12:16] <ChiLLabiS> Hello. my pc just crashed/hanged. i got the syslog here https://pastebin.com/uG5gxCbB . Yesterday it just hanged on games but now it seems it crash on just browsing
+[12:17] <Guest96> ikonia yeah sure, but a base-guide will exist i recon or is it that out-of-the-box good to go
+[12:17] <tomreyn> Guest96: i'm generally with ik0nia there. you could also use a utility such as lynis to help you understand what you could / should improve upon. these auditing / heardening utilities do not claim to provide full coverage, however.
+[12:17] <ikonia> Guest96: it's far from "good to go" out of the box
+[12:18] <ikonia> Guest96: and no, a base-guide will be worthless beyond obvious principals
+[12:18] <ikonia> it's got to be worked against the situation you are in
+[12:18] <BluesKaj> Hi folks
+[12:20] <outoftime_92> What mean edid-decode error: "EDID block does NOT conform to EDID 1.3! Detailed block string not properly terminated" ?
+[12:20] <ikonia> outoftime_92: normally means the monitors advertised EDID config does match the 1.3 standard
+[12:21] <Guest96> ikonia well, im guessing it always something you can do just after a fresh install, and then all the dockers im setting up will be dealt with accordingly.
+[12:21] <tomreyn> ChiLLabiS: Try to learn more about these "amdgpu" (graphics driver / kernel module) error messages: [drm:log_to_debug_console [amdgpu]] *ERROR* Failed validation for stream ffff94fd23c5c000, err:6, !
+[12:22] <ikonia> good lord "docker"
+[12:22] <ikonia> welcome to a the monster of security holes
+[12:22] <Guest96> not a single docker will have acces to the web
+[12:22] <ikonia> Guest96: if you know how to secure docker containers and overlay networks, you don't need a security guide
+[12:22] <ikonia> Guest96: it's not about access to the web
+[12:22] <ChiLLabiS> Okay tomreyn
+[12:24] <tomreyn> ChiLLabiS: which ubuntu release and kernel version is this?
+[12:25] <tomreyn> lsb_release -sd; cat /proc/version
+[12:25] <outoftime_92> ikonia: I'm nodifying it manually, so yeah, can be
+[12:25] <outoftime_92> ikonia: I want to know what it means in order to fix it
+[12:26] <ikonia> outoftime_92: you're modifying it, I don't know what lines your modifying
+[12:26] <ikonia> outoftime_92: you need to understand the 1.3 standard and map it back to your EDID definition to see what part does not meet it
+[12:27] <outoftime_92> ikonia: "original" EDID from Xorg.0.log didn't match, so I decided to fix it http://termbin.com/xqr6
+[12:27] <outoftime_92> ikonia: I already done with header, next part much more difficult
+[12:28] <outoftime_92> ikonia: http://read.pudn.com/downloads110/ebook/456020/E-EDID%20Standard.pdf this is the standard, if your are curious
+[12:29] <ikonia> not really
+[12:29] <outoftime_92> ikonia: http://www.cyberforum.ru/cpp-beginners/thread2204683.html this is how I'm modifying header
+[12:29] <ikonia> outoftime_92: I'm not interested personally
+[12:34] <ChiLLabiS> tomreyn, Ubuntu 16.04.4 lts
+[12:34] <ikonia> ChiLLabiS: are you sure it's not kali linux
+[12:35] <ChiLLabiS> just stop it's ubuntu
+[12:35] <ChiLLabiS> 4.13.0-36-generic
+[12:36] <tomreyn> ChiLLabiS: what'S the output of "cat /proc/version"?
+[12:36] <ChiLLabiS> Linux version 4.13.0-36-generic (buildd@lgw01-amd64-033) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.9)) #40~16.04.1-Ubuntu SMP Fri Feb 16 23:25:58 UTC 2018
+[12:40] <FreakingOut1987_> The script is being run on my local machine. I want ${SOME_VAR} to be replaced but not ${REMOTE_HW_ADDRESS} as that variable should be filled in from the remote machine. https://hastebin.com/uvovosemij.bash
+[12:40] <FreakingOut1987_> Is there a way to escape for this behavior?
+[12:40] <tomreyn> ChiLLabiS: maybe give the non -hwe-edge kernels a try.
+[12:40] <Guest83410> i am used to install ubuntu via network with 2 files linux and initrd.gz, now i got a laptop without rj45, is there a way to configure wifi during installation?
+[12:42] <ChiLLabiS> tomreyn, how do i do that? do i need to redownload and reinstall?
+[12:42] <tomreyn> ChiLLabiS: so just linux-image-generic-hwe-16.04 or even the original one in 16.04. you'r enot trying to use amdgpu-*pro* with a hwe kernel, are you?
+[12:43] <ChiLLabiS> I don't know, im a newb. i just downloaded the LTS version on the ubuntusite and installed the amdgpu-pro from amdsite
+[12:43] <ChiLLabiS> after i did a apt-get upgrade and a  dist-upgrade
+[12:44] <tomreyn> ChiLLabiS:right. so, to my knowledge, the amdgpu-pro drivers are not compatible with upgraded ubuntu kernels.
+[12:44] <ChiLLabiS> Though i must say i didn't have these problems at 16.04.3
+[12:45] <ChiLLabiS> Could be that
+=== FreakingOut1987_ is now known as FreakingOut1987
+[12:45] <tomreyn> ChiLLabiS: it most likely is that.
+[12:45] <reduz> Hi guys, I am using Ubuntu 17.10 on a Dell XPS 13. Did not do much with it, but after 3/4 horus of use it starts to slowly crawl down (mouse starts lagging) and a few seconds later it completely freezes. There are no messages at all on the syslog. Any idea what might be going on?
+[12:45] <ChiLLabiS> I did an bug report to amd yesterday. so hopefully they fix this for the next release
+[12:47] <ChiLLabiS> Thank you for taking your time to help tomreyn :)
+=== zer0 is now known as Guest631
+[12:48] <tomreyn> ChiLLabiS: this one, i guess? https://community.amd.com/thread/225413 that's a forum post, not a bug report. and it's nbot a bug, they just don't support the configuration you have.
+[12:48] <guiverc> Guest83410, not sure if you got an answer, but I recently install 17.10 on a machine with wireless only, i clicked icon top right to login to wireless during 'try ubuntu' & before clicking 'install'
+[12:48] <outoftime_92> Need help with fixing EDID
+[12:48] <tomreyn> ChiLLabiS: i'd suggest you either uninstall amdgpu-pro (i don't know how, check with amd) or you downgrade to the 'official' 16.04.1 kernel, using: sudo apt update: sudo apt install linux-image-generic; sudo apt purge linux-image-generic-hwe-16.04-edge linux-image-virtual-hwe-16.04-edge linux-image-extra-4.13.0-36-generic
+[12:49] <tomreyn> ChiLLabiS: those commands to downgrade the kernel may not be sufficient to downgrade or fix the issue, though.
+[12:50] <albertoiNET> akik, no it didn't resolve :(
+[12:51] <ChiLLabiS> OKay thank you!
+[12:51] <EriC^> outoftime_92: hey, did you give the grub gfx a try?
+[12:51] <tomreyn> Guest83410: if you are looking for a network boot installation then my guess is no.
+[12:52] <Guest83410> guiverc, thx for your answer. i use fluxbox
+[12:52] <akik> albertoiNET: try that guide that flj linked to. it's about creating a xorg config snippet
+[12:52] <tomreyn> Guest83410: you can change the desktop post installation
+[12:54] <songden> hello
+[12:54] <songden> i need help
+[12:54] <cfhowlett> !ask
+[12:54] <ubottu> Please don't ask to ask a question, simply ask the question (all on ONE line and in the channel, so that others can read and follow it easily). If anyone knows the answer they will most likely reply. :-) See also !patience
+[12:55] <Guest83410> tomreyn, alright thx
+[12:55] <MonkeyDust> songden  let's hear it, in one line
+[12:55] <songden> i need to enable U+17FE
+[12:56] <MonkeyDust> songden  what's that
+[12:56] <songden> for layout of keyboard
+[12:56] <songden> i need to use unicode
+[12:58] <outoftime_92> EriC^: no, it is not cool solution, I can switch to nouveau at any time, and try to fix another promlem
+[12:59] <EriC^> outoftime_92: not sure what you mean, how's it not cool?
+[12:59] <EriC^> outoftime_92: you won't be running nouveau it's still using nvidia driver
+[13:00] <songden> my layout keyboard not support khmer unicode
+[13:02] <MonkeyDust> songden  which country are you in? indonesia?
+[13:02] <cfhowlett> songden, dude.  did you even try to find the method for this.  .51 seconds see the very first hit.  https://www.google.co.jp/search?client=ubuntu&channel=fs&q=install+khmer+unicode+ubuntnu&ie=utf-8&oe=utf-8&gfe_rd=cr&dcr=0&ei=2ZyaWpTAI8GuX9m9ivAE
+[13:03] <albertoiNET> akik, what guide?
+[13:04] <akik> albertoiNET: 13:55 < flj> albertoi NEThttps://itsfoss.com/fix-brightness-ubuntu-1310/. Have you read the article. Got brightness keys to work on my ubuntu 14.04 64bit notebook.
+[13:06] <Carll> albertoiNET: hows things?
+[13:08] <ChiLLabiS> tomreyn, i got an 16.04.1 image on the pc. Aslong as i dont type apt-get dist-upgrade it don't update to the latest right?
+[13:09] <Alirezarpi> Hello
+[13:09] <ChiLLabiS> Thinking of doing a fresh installation
+[13:09] <albertoiNET> akik, I've got only card
+[13:09] <Alirezarpi> Guys i have question
+[13:09] <albertoiNET> Hi Carll
+[13:09] <Alirezarpi> Which script is the first script that is ran at boot in multi-user mode ?
+[13:10] <tomreyn> ChiLLabiS check out https://wiki.ubuntu.com/Kernel/Support?action=AttachFile&do=get&target=16.04.x+Ubuntu+Kernel+Support+Schedule.svg and https://wiki.ubuntu.com/Kernel/LTSEnablementStack
+[13:10] <ChiLLabiS> Okay
+[13:11] <tomreyn> ChiLLabiS: depending on what you choose during installation you get either the GA kernel (4.4 with ubuntu 16.04) or a HWE kernel (currently 4.14 in ubuntu 16.04)
+[13:11] <akik> albertoiNET: what do you have in /sys/class/backlight ?
+[13:12] <ChiLLabiS> okay how do i choose? and is GA kernel better?
+[13:15] <tomreyn> ChiLLabiS: actually https://support.amd.com/en-us/kb-articles/Pages/AMDGPU-PRO-Driver-for-Linux-Release-Notes.aspx states that 16.04.3 is supported. so if you're using amdgpu-pro 17.40 and you want to keep using it then you can just use the hwe kernel. i would not recommend downgrading to the GA kernel then.
+[13:15] <ChiLLabiS> Okay :)
+[13:16] <tomreyn> ChiLLabiS: you are currently using the hwe-edge kernel, though, so you'll need to remove that and reboot
+[13:20] <tomreyn> ChiLLabiS: this might work: sudo apt purge linux-image-generic-hwe-16.04-edge linux-image-virtual-hwe-16.04-edge linux-image-extra-4.13.0-36-generic; sudo apt install linux-image-generic-hwe
+[13:20] <songden> i'm cambodian
+[13:22] <outoftime_92> EriC^: I'm almost finished repairing EDID of my monitor
+[13:25] <TJ-> outoftime_92: is it not fixed yet?
+[13:28] <ioria> songden, U+17FE does not exist as you can see https://en.wikipedia.org/wiki/Khmer_(Unicode_block)
+[13:32] <songden> thank you i can use by type plus other keys
+[13:32] <outoftime_92> TJ-: no, I have spend all that time to figure out what you have done (:
+[13:32] <songden> thanks for help
+[13:32] <wlan2_> I seem to have a problem with timidity.
+[13:32] <outoftime_92> TJ-: did you recieve my mail?
+[13:33] <ioria> ok
+[13:33] <TJ-> outoftime_92: mail?
+[13:33] <songden> i can type in my language
+[13:34] <outoftime_92> TJ-: yeah, I found you bug report in launchpad
+[13:34] <wlan2_> When I run "timidity Notes.mid" it plays, but when I try to use "timidity -iA" and connect to it with for example "aplaymidi --port 128:0 Notes.mid", timidity's cpu usage goes to 100 of one core and produces no sound until the client disconnects.
+[13:36] <outoftime_92> TJ-: in few words, the header was wrong, I changed it according to specs and checksum became normal
+[13:38] <TJ-> outoftime_92: that's good, is it accepted by the nvidia driver now?
+[13:38] <outoftime_92> TJ-: I mean check sum now is "Checksum: 0x59 (should be 0xfa)" and in your bug report in was in the oposit
+[13:38] <TJ-> outoftime_92: so change the checksum byte and you're sorted then
+[13:43] <outoftime_92> TJ-: http://termbin.com/mwtl "Unknown extension block" not sure what it means
+=== Firehand is now known as FireHandLE
+[13:44] <outoftime_92> TJ-: also, I found similar EDID but vw246 so it can be compared https://github.com/freedesktop/xorg-edid-decode/blob/master/data/asus-vw246-hdmi
+[13:46] <ziplerk> hello
+[13:46] <ziplerk> how do I enable speaker externall,
+[13:47] <ziplerk> the speakers for pc are enabled , when I run espeak 'Some sentence'
+[13:47] <ziplerk> which is really strange
+[13:47] <dani2629> hi can some help me install this 3rd party software for doing animation http://www.toonloop.com/ the download link on the page are dead so I went to its GitUp and fetch the source, now I need to build it myself how do I do it?
+[13:48] <ikonia> dani2629: contact the 3rd party for support
+[13:50] <dani2629> I tried that, but its an old project and i want to get it fast.
+[13:51] <ikonia> how long have you waited for them to respond
+[13:51] <lotuspsychje> #toonloop is empty also
+[13:52] <ikonia> looks like it's a totally dead project built around GTK 2
+=== kyle is now known as Guest51948
+[13:53] <dani2629> so i wont be able to intall it?
+[13:54] <ikonia> it's 5+ years out of date, I suspect there will be problems to work through building it
+[13:54] <wlan2_> dani2629: In https://github.com/aalex/toonloop if you scroll down you should see instructions.
+[13:54] <tomreyn> the develop branch had its latest commit on may 5 '16
+[13:55] <ikonia> but there is no promise that the development branch is in a working state
+[13:55] <tomreyn> or that it works on current systems, yes.
+[13:57] <MonkeyDust> lotuspsychje
+[13:57] <lotuspsychje> hey MonkeyDust
+[13:59] <lotuspsychje> dani2629: how about asking about ubuntu alternatives, what is it you want to do exactly?
+[13:59] <tomreyn> dani2629: better use a different software which provides the same or similar featrures
+=== hector_ is now known as hector1816
+[14:01] <dani2629> <wlan2_> I know but i dont understand how to build it after I downloaded the source, the instruction says to build do: "./autogen.sh (enter) ./configure (enter) makesudo make install
+[14:02] <dani2629> tomreyn I think its the only one
+[14:02] <TJ-> outoftime_92: which version of edid-decode do you have that is reporting 'Unknown extension block" ? ... and are you working on the 128-byte file or 256-byte file? if the 256 that'll be the problem
+[14:03] <wlan2_> dani2629: Do you know how to use a terminal?
+[14:03] <lotuspsychje> TJ-: he's trying to add higher res on his monitor since this morning
+[14:03] <dani2629> hmm yes, but intructions will help
+[14:04] <TJ-> outoftime_92: I've corrected the header in the file I have here; download this and test it with edid-decode http://iam.tj/projects/ubuntu/edid.ASUS_VW227_A9LMIZ002968.bin
+[14:05] <TJ-> lotuspsychje: yes, I was working on editing the corrupted EDID and loading it into xorg yesterday
+[14:05] <lotuspsychje> !info stopmotion | dani2629
+[14:05] <ubottu> dani2629: stopmotion (source: stopmotion): create stop-motion animations. In component universe, is optional. Version 0.8.3-1 (artful), package size 2102 kB, installed size 4086 kB
+[14:06] <dani2629> thanks i look up to it
+[14:06] <outoftime_92> TJ-: Have no idea what version, I'm using edid-decode has no help. I'm using 256 bit EDID, I suppose it have to be 128
+[14:07] <TJ-> outoftime_92: yes, the file I've just linked to is the 128 bytes version, it passes all checks here
+[14:07] <TJ-> outoftime_92: well - aside from the false warning about the unterminated string block
+[14:11] <outoftime_92> TJ-: logging out and restarting lightgdm
+[14:15] <outoftime_92> TJ-: DUDE, WORKS!
+[14:15] <TJ-> outoftime_92: haha, finally, it took us long enough
+[14:16] <TJ-> outoftime_92: that'll teach me to read the specifications more closely - I should have spotted that header corruption yesterday
+[14:16] <outoftime_92> TJ-: I'd like you to be my friend! (:
+[14:17] <outoftime_92> TJ-: I found out this randomly
+[14:17] <outoftime_92> TJ-: found some post on stackoverflow
+[14:24] <TheWild> hello
+[14:24] <TheWild> "The program 'fossil' is currently not installed. You can install it by typing: sudo apt install fossil"
+[14:24] <TheWild> however, I'm not getting a hint when using tty
+[14:24] <ikonia> ?
+[14:24] <TheWild> what's the thing I should take a look into?
+[14:24] <Carll> TheWild: hey, that's correct.
+[14:25] <ikonia> that is the hint
+[14:25] <ikonia> it's giving you the command you need to install the software you want
+[14:25] <TheWild> but when I type "fossil" in tty, I only get "-bash: fossil: command not found"
+[14:26] <TheWild> sometimes command name != package name
+[14:26] <ikonia> ok ?
+[14:26] <ikonia> well no, as I'm assuming if you're in a tty you've not got the full environment sourced
+[14:30] <TheWild> does it depend on some environment variable?
+[14:32] <capyre> buenas
+[14:32] <capyre> alguien en habla español por aca
+[14:32] <kostkon> !es
+[14:32] <ubottu> En la mayoría de los canales de Ubuntu, se habla sólo en inglés. Si busca ayuda en español entre al canal #ubuntu-es; escriba " /join #ubuntu-es " (sin comillas) y presione intro.
+[14:32] <guest-ijylb9> hey
+[14:32] <capyre> thank
+[14:32] <guest-ijylb9> can anyone tell me how i can run a hardware diagnostic with ubuntu?
+[14:32] <compdoc> what sort?
+[14:33] <guest-ijylb9> i've got a shitty hp probook here which shuts down every once in a while
+[14:33] <ikonia> guest-ijylb9: tone down the language please
+[14:33] <guest-ijylb9> looks like something with the vent or smt
+[14:33] <palayoub> hey
+[14:33] <compdoc> you can keep an eye on temps, and check the hard drive's SMART, and run memtest86. dont know of much elese
+[14:34] <anon_> hey anyone help me out with no audio problem?? have no devices in sound input or output i think it is a bytcr-rt5651
+[14:35] <TJ-> anon_: that suggests the device hasn't been found, doesn't have a driver, or required firmware (all at the kernel level). Check the 'dmesg' output
+[14:35] <outoftime_92> TJ-: would you like me to add recovered EDID as sample to https://github.com/freedesktop/xorg-edid-decode ?
+[14:36] <TJ-> outoftime_92: can you get anyone there to pay attention!? :D doesn't look they pay attention to the bug reports from what I could see
+[14:36] <anon_> dmesg give me Audio Port: ASoC: no backend DAIs enabled for Audio Port
+[14:37] <guest-ijylb9> ok, how can i check the hard drive
+[14:37] <guest-ijylb9> the SMART
+[14:37] <guest-ijylb9> or how do i run memtest86
+[14:38] <TJ-> anon_: best if you pastebin the entire dmesg log
+[14:38] <TJ-> anon_: e.g: "pastebinit <( dmesg )"
+[14:39] <TheWild> okay, found it in /usr/lib/command-not-found
+[14:40] <TJ-> TheWild: are you sure the tty console issue wasn't just due to the bash having recorded a since-removed path in it's hash table?
+=== hector_ is now known as hector1816
+[14:41] <TJ-> TheWild: type "hash" to see the table, use "hash -r" to clear it
+[14:41] <TheWild> in tty I can exit bash, relog and still doesn't hive me a hint when command has not been found
+[14:42] <anon_> https://pastebin.com/b2jiprTf
+[14:42] <TheWild> hash table empty
+[14:43] <albertoiNET> akik, see this post. I attach multiples file outputs :)
+[14:43] <albertoiNET> Carll, I tested the pastebin taht you sendme, creating a xorg.conf with Device input
+[14:44] <Carll> albertoiNET: any good?
+[14:44] <TheWild> hey, is /etc/bash.bashrc loaded when in tty?
+[14:44] <albertoiNET> No :(
+[14:45] <albertoiNET> I continue with this problem https://askubuntu.com/questions/1010405/the-brightness-of-laptop-screen-cannot-be-adjusted-with-either-the-buttons-or-th
+[14:45] <Carll> albertoiNET: did you try xbacklight?Ow
+[14:46] <Carll> mar 02 22:03:47 portatil nvidia-settings-autostart.desktop[1449]: ERROR: Unable to find display on any available system
+[14:46] <Carll> probably your issue ^
+[14:47] <TJ-> TheWild: sounds like you've got some shell customisation going on that might be failing, causing it to fail. Have you personalised $HOME/.bashrc .profile and friends?
+[14:48] <albertoiNET> Did you mean the program xbacklight?
+[14:48] <albertoiNET> yes I tried
+[14:49] <albertoiNET> Utility xbacklight shows "No outputs have backlight property"
+[14:51] <Carll> albertoiNET: ok sure I suggest you try through xrandr
+[14:51] <Carll> albertoiNET: try something like this - xrandr --output eDP-1-1 --brightness 0.6
+[14:52] <albertoiNET> Ok I'm going to try now
+[14:52] <albertoiNET> sudo ?
+[14:53] <Carll> albertoiNET: should be fine without
+[14:53] <albertoiNET> warning: output eDP-1-1 not found;
+[14:53] <albertoiNET> xrandr: Need crtc to set gamma on.
+[14:53] <albertoiNET> this is the output
+[14:54] <Carll> ok try xrandr --brightness 0.6
+[14:55] <albertoiNET> ok thanks
+[14:56] <albertoiNET> xrandr: --brightness must be used after --output
+[14:57] <Carll> albertoiNET: xrandr --output VGA1 --brightness 0.6
+[14:57] <Carll> albertoiNET: if that fails replace vga1 with just VGA
+[14:58] <anon_> TJ-: also my output for pulseaudio is (W: [pulseaudio] pid.c: Stale PID file, overwriting)
+[14:59] <albertoiNET> Carll,  neither VGA, VGA1,...
+[14:59] <albertoiNET> warning: output vga not found; ignoring
+[15:00] <anon_> and output of aplay -l https://pastebin.com/vP1QYvrq
+[15:02] <anon_> dmesg output https://pastebin.com/b2jiprTf
+[15:02] <TJ-> anon_: hmmm, the dmesg log has had the most important stuff pushed out by all those error reports; can you try this: pastebinit <( grep -v 'no backend DAIs' /var/log/kern.log )"
+[15:02] <Carll> albertoiNET: xrandr --output default --brightness 0.6
+[15:03] <albertoiNET> thanks Carll , but shows the same output:
+[15:03] <albertoiNET> warning: output default not found; ignoring
+[15:04] <TJ-> albertoiNET: does "ls /sys/class/backlight/" show any devices ?
+[15:05] <albertoiNET> only one
+[15:05] <albertoiNET> acpi_video0
+[15:07] <TJ-> albertoiNET: have you pastebinned the output of 'dmesg' ?
+[15:07] <anon_> TJ-: the command doesnt seem to be responding - i get no error just sits there
+[15:08] <TJ-> anon_: I suspect you missed out typing a closing quote mark somewhere, try Ctrl+C to break out and try again
+[15:08] <TJ-> anon_: ahhh, possibly from my typo
+[15:09] <albertoiNET> TJ-, this is my dmesg
+[15:09] <albertoiNET> https://paste.ubuntu.com/p/bZ4hVSTBsw/
+[15:09] <TJ-> anon_: (don't type the enclosing double-quotes, they are just to surround the command so you know where it starts and stops) "pastebinit <( grep -v 'no backend DAIs' /var/log/kern.log )"
+[15:10] <TJ-> albertoiNET: that's not dmesg, that's a small fragment of it. We need to see it all
+[15:10] <tamitc> i want create cluster server with ubuntu
+[15:10] <anon_> http://paste.ubuntu.com/p/J4TZRkTXS6/
+[15:10] <outoftime_92> Is it safe to extend number of workspaces? I mean I had a lot of troubles in the past.
+[15:11] <albertoiNET> ok
+[15:13] <Carll> albertoiNET: try xrandr --output LVDS --brightness 0.6 / or LVDS1
+[15:13] <TJ-> anon_: hmmm, we're still missing all the important messages. It might be easier if you reboot and then immediately do "pastebinit <( dmesg )"  before those warnings overflow the kernel's log buffer
+[15:13] <albertoiNET> TJ-, this is the full dmesg  https://paste.ubuntu.com/p/wxkytjGpqS/
+[15:13] <albertoiNET> ok Carll  I'll try now
+[15:14] <anon_> TJ-: ok i will do now
+[15:15] <albertoiNET> Thanks Carll but it doesnt found
+[15:15] <albertoiNET> warning: output LVDS not found; ignoring
+[15:15] <albertoiNET> warning: output LVDS1 not found; ignoring
+[15:15] <albertoiNET> Thanks TJ-
+[15:17] <Carll> albertoiNET: does xrandr -q show anything?
+[15:17] <TJ-> albertoiNET: OK, one small change to the kernel command-line that /may/ make a difference, but first, can you show us "pastebinit <( sudo strings /sys/firmware/acpi/tables/DSDT | grep -i windows )"
+=== anon is now known as Guest15824
+[15:18] <Guest15824> TJ-: http://paste.ubuntu.com/p/wBWrH6ZdmM/
+=== Guest15824 is now known as anon_
+[15:20] <anon_> http://paste.ubuntu.com/p/wBWrH6ZdmM/
+[15:20] <albertoiNET> yes this
+[15:20] <TJ-> anon_: ah, that looks better :)
+[15:21] <albertoiNET> Screen 0: minimum 320 x 200, current 1920 x 1080, maximum 8192 x 8192
+[15:21] <albertoiNET> XWAYLAND0 connected 1920x1080+0+0 (normal left inverted right x axis y axis) 380mm x 210mm
+[15:21] <albertoiNET>    1920x1080    119.93*+
+[15:22] <TJ-> anon_: can you also show us "pasteinbint <( lspci -nnk )"
+[15:22] <albertoiNET> That is the output Carll
+[15:22] <ioria> albertoiNET,   you can't use xrandr on wayland
+[15:22] <TJ-> Carll: albertoiNET the reason xrandr doesn't work is the compositor is Wayland; you'd need to be in the "Ubuntu on Xorg" session (from the greeter) to have access to that
+[15:23] <anon_> TJ-: http://paste.ubuntu.com/p/g73zJQQtMD/
+[15:24] <albertoiNET> Thanks TJ- but how do I do that?
+[15:24] <TJ-> anon_: it seems the audio chipset in that tablet doesn't have a working Linux driver
+[15:25] <TJ-> albertoiNET: log out your user, on the greeter screen at the top should be a Gear icon, on there choose "Ubuntu on Xorg" and log-in
+[15:26] <albertoiNET> I'm going to try that
+[15:26] <albertoiNET> Thanks
+[15:26] <anon_> TJ-: Damn thats a shame thanks for all your help
+[15:28] <TJ-> anon_: it looks like some people have/are worked at it but no idea how successful. see e.g. https://github.com/kernins/linux-chwhi12
+=== pantera_ is now known as pantera
+=== SimonNL is now known as SimonNL_Afk
+[15:33] <anon_> TJ-: thanks man, with audio .conf they just need to be put in an alsa folder right?
+[15:34] <TJ-> anon_: I'm not sure, I only made a brief inspection. I /think/ that code also needs patches applying to the kernel source
+[15:35] <anon_> TJ-: awesome now i at least have a place to start, thanks for everything tj :)
+[15:35] <anon_> bye
+[15:35] <TJ-> anon_: good luck with it
+[15:42] <eihab> hello
+[15:42] <eihab> anyone ?
+[15:43] <mkjl> what's the xorg version in ubuntu 15.10?
+[15:44] <eihab> alright i'll just ask then. i'm on ubuntu 17.10 with xfce4 i wanna add multimedia shortcuts
+[15:44] <eihab> such as play/pause next
+[15:44] <untoreh> i ran again into the issue that ppa-purge can't find repositories
+[15:45] <untoreh> basically ppa-purge has _never_ worked for me
+[15:45] <eihab> on gnome i could just edit the shortcuts i want
+[15:45] <eihab> but i don't know the command line for music controls here
+[15:45] <eihab> anyhelp ?
+[15:45] <untoreh> alsamixer
+[15:46] <untoreh> or basically alsa*
+[15:46] <eihab> i can control volume with it
+[15:46] <eihab> but not music
+[15:47] <untoreh> well that's the music player
+[15:47] <eihab> i mean i can't pause or skip
+[15:47] <eihab> in gnome and other UI's i can do that with shortcuts of my choice
+[15:48] <tape_user> I've used this application http://www.whence.com/minimodem/ with this script http://www.ctsc.dot.org.es/minimodem.html on Debian; I  wonder if it can run on ubuntu as well
+[15:48] <mkjl> what's the xorg version in ubuntu 15.10?
+[15:48] <eihab> i'll check that
+[15:48] <eihab> thx
+[15:50] <untoreh> eihab: I think you mean mapping xorg media key codes to custom keycodes
+[15:50] <eihab> i do
+[15:51] <eihab> can i upload an image here ?
+[15:51] <eihab> i guess not
+[15:52] <eihab> well, xfce4 gives me an option to set shortcuts for a specif command line
+[15:52] <eihab> like setting "ctrl+alt+t" for the command "xfce4-terminal"
+[15:52] <untoreh> can try xbindkeys
+[15:53] <untoreh> more low lever there is xmodmap
+[15:53] <untoreh> level*
+[15:55] <eihab> i'd need the control commands itself right ?
+[15:56] <TJ-> eihab: is this any help? https://help.ubuntu.com/community/XfceMultimediaKeys
+[15:58] <I_cant_see_ahhh> Could someone help me recover my graphics display? The problem started after I installed CUDA 9.1 off of nvidia's website. When I boot, it gives a "low graphics mode" error, and stalls out. I can get to a terminal with CTRL ALT F1.
+=== dingir_ is now known as dingir
+=== dingir___ is now known as dingir_
+[15:59] <YAFU> I_cant_see_ahhh, installed from run file or deb file?
+[16:00] <I_cant_see_ahhh> deb
+[16:00] <eihab> <TJ-> i'm checking the link, how ever my keyboard doesn't have multimedia keys i set shortcuts manually
+[16:01] <YAFU> I_cant_see_ahhh , Can you enter to some terminal to enter commands?
+[16:02] <I_cant_see_ahhh> YAFU, yep, I have terminal access
+[16:03] <YAFU> I_cant_see_ahhh , https://askubuntu.com/questions/206283/how-can-i-uninstall-a-nvidia-driver-completely
+[16:03] <TJ-> eihab: Oh... didn't realise that... maybe the 2nd part of that guide is still useful though, where it shows how to create keyboard shortcuts?
+[16:04] <albertoiNET> Hi TJ- I'm on Ubuntu over Xorg
+[16:04] <albertoiNET> but I'm still the same
+[16:05] <albertoiNET> I can't adjust the brightness of my laptop :(:(:(:(
+[16:05] <albertoiNET> https://askubuntu.com/questions/1010405/the-brightness-of-laptop-screen-cannot-be-adjusted-with-either-the-buttons-or-th
+[16:05] <TJ-> albertoiNET: that's OK, but you've got xrandr control now :)
+[16:06] <TJ-> albertoiNET: did you see my request earlier for the firmware command?
+[16:06] <albertoiNET> no I didn't see
+[16:06] <TJ-> albertoiNET: OK, there's a small change to the kernel command-line that /may/ make a difference, but first, can you show us "pastebinit <( sudo strings /sys/firmware/acpi/tables/DSDT | grep -i windows )"
+[16:07] <I_cant_see_ahhh> YAFU, amazing, that worked!
+[16:08] <albertoiNET> http://paste.ubuntu.com/p/SQYcxyKQ4p/
+[16:08] <I_cant_see_ahhh> YAFO, well, can you help me install CUDA 9.1? I bet when I try again it will do the same thing on me
+[16:08] <albertoiNET> TJ-, http://paste.ubuntu.com/p/SQYcxyKQ4p/
+[16:09] <YAFU> nvidia-cuda-toolkit , why not installing "nvidia-cuda-toolkit" from repos? You really need 9.1 version?
+[16:09] <I_cant_see_ahhh> that sounds like a great workaround, I'll give it a try
+[16:10] <YAFU> I_cant_see_ahhh, sorry. That was for you
+[16:10] <albertoiNET> xrand now works
+[16:11] <albertoiNET> xrandr --output eDP-1 --brightness 0.8
+[16:11] <TJ-> albertoiNET: thanks, that confirms you've got the correct acpi_osi= on the kernel command-line, but it /may/ help to add, just before it, another that clears existing names from the kernel's list. Edit /etc/default/grub, GRUB_CMDLINE_LINUX="... and change it so there's an additional option, then save, update-grub, and reboot test. It should then look like this: ...  acpi_osi=! \"acpi_osi=Windows 2015\" ...
+[16:12] <YAFU> Hi. I was using nvidia 390.25 installed from PPA on Kubuntu 18.04. Ubuntu updates yesterday broke OpenGL. I can open nvidia-settings GUI and it seems to be working fine, but glxinfo shows that it is using Mesa, weird. For example Blender GUI is broken since yesterday, and it also says to be using Mesa instead of nvidia opengl
+[16:13] <YAFU> Anyone having problems in 18.04?
+[16:13] <albertoiNET> OK TJ- I'm going to test that change on my GRUB
+[16:13] <Carll> albertoiNET: perfect :)
+[16:14] <meteorx> ^-^
+[16:16] <ducasse> !ubuntu+1 | YAFU
+[16:16] <ubottu> YAFU: Bionic Beaver is the codename for Ubuntu 18.04 - Support only in #ubuntu+1
+[16:18] <Richard_Cavell> I want to completely block Ubuntu 16.04 from offering me distro upgrades (I tried upgrading to 17.10 and it borked my system, and 16.04 has to be modified to work on my machine). How do I do this?
+[16:21] <ikonia> just don't upgrade
+[16:26] <asheeshkumar96> !helpme
+[16:26] <ubottu> Error: unresolvable <alias> to please
+[16:26] <ikonia> ?
+[16:27] <TJ-> Richard_Cavell: ensure /etc/update-manager/release-upgrades has Prompt=lts then it won't bother you until 18.04.1 LTS is released
+[16:28] <asheeshkumar96> Which book is the all in one book after reading which there'll be no need to read another one????? I am newcomer to linux
+[16:29] <ikonia> that book doesn't exist
+[16:29] <ikonia> you just need time to learn and gain experience
+[16:29] <ikonia> but that's offtopic for this channel
+[16:32] <sorinescu> Flash Player for ubuntu mate i3 ?
+[16:32] <ikonia> what about it ?
+[16:32] <ikonia> i3 is a desktop, not a browser,
+[16:32] <sorinescu> pi3 raspberry
+[16:33] <ikonia> ok ?
+[16:34] <albertoiNET> Hi TJ-  and CarlFK1 . Nothing. I tested with this line on /etc/default/grub and update-grub after but nothing. Only works xrandr
+[16:34] <albertoiNET> GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_osi=! acpi_osi\"Windows 2015\"  "
+[16:37] <sorinescu> i have raspberry pi3 no have flash player for ubuntu mate 14....
+=== dingir__ is now known as dingir
+[16:40] <TJ-> albertoiNET: hmmm, so it must be something in that PC's firmware not playing nicely with Linux
+[16:44] <BluesKaj> sorinescu, whynot ask in #raspberrypi chat
+[16:46] <ph88> does ubuntu gnome edition still exist with ubuntu 18.04 ?
+[16:48] <walmar> hello
+[16:49] <ducasse> !ubuntu+1 | ph88
+[16:49] <ubottu> ph88: Bionic Beaver is the codename for Ubuntu 18.04 - Support only in #ubuntu+1
+[16:49] <kostkon> walmar, hi
+[16:57] <MrKeuner> hi, I see a logo I haven't seen before when restarting my system. it is like to Us inserted into each other. Can you tell me what that is? Some app installed is causing it?
+[16:58] <ikonia> impossible to say without knowing the logo
+[16:59] <TJ-> MrKeuner: at which point is the log shown? it could be from the firmware before the OS takes over
+[17:00] <TJ-> s/log/logo/
+[17:00] <albertoiNET> Hi again sorry I droped TJ-
+[17:00] <kostkon> MrKeuner, maybe describe it a bit
+[17:00] <MrKeuner> gray background
+[17:01] <TJ-> !mainline | albertoiNET: have you tested with the latest mainline kernel in case there's a recent improvement ?
+[17:01] <ubottu> albertoiNET: have you tested with the latest mainline kernel in case there's a recent improvement ?: The kernel team supply continuous mainline kernel builds which can be useful for tracking down issues or testing recent changes in the Linux kernel. More information is available at https://wiki.ubuntu.com/Kernel/MainlineBuilds
+[17:01] <MrKeuner> two Us one is rotated 180 degrees and inserted into other
+[17:01] <MrKeuner> the Us are in a circle
+[17:01] <albertoiNET> yes I tested the mainline upstream kernel
+[17:01] <albertoiNET> :(
+[17:01] <MrKeuner> It is not the lenovo logo, not from firmware
+=== SimonNL_Afk is now known as SimonNL
+[17:04] <kostkon> MrKeuner, https://www.ubuntu.com/download/flavours
+[17:04] <kostkon> MrKeuner, the Ubuntu Gnome one?
+[17:04] <MrKeuner> yes!
+[17:04] <MrKeuner> Haha thanks.
+[17:05] <kostkon> MrKeuner, mystery solved
+[17:05] <MrKeuner> :)
+[17:05] <TJ-> albertoiNET: Looks like the firwmare doesn't want to play, then
+[17:05] <MrKeuner> I have another problem. since the last months of 16.04 my monitor is detected as Goldstar 7" when boot into anything other than unity
+[17:06] <TJ-> MrKeuner: usually the monitor info comes from the monitor itself
+[17:06] <MrKeuner> resolution seems correct but how can I install the correct monitor? it is a very large screen
+[17:06] <MrKeuner> I thought upgrading to 18.04 might solve but didn't
+[17:07] <MrKeuner> wondering if a clean install would help, though I would much appreciate if didn't have to install from scratch
+[17:07] <MrKeuner> Unity does fine gnome fails
+[17:07] <MrKeuner> Saw somewhere it might be a bug with Gnome
+[17:07] <TJ-> MrKeuner: as I said, the info usually comes from the monitor via the EDID; check in /var/log/Xorg.0.log if using Xorg
+[17:08] <MrKeuner> No monitor specified for screen "Default Screen Section".        Using a default monitor configuration.
+[17:08] <MrKeuner> that's from the file you mentioned
+[17:09] <TJ-> MrKeuner: keep reading, look for 'EDID' and carry on
+[17:09] <MrKeuner> (II) intel(0): EDID vendor "LEN", prod id 16400
+[17:10] <ioria> MrKeuner, grep Monitor /var/log/Xorg.0.log
+[17:10] <kostkon> MrKeuner, is it an LG monitor? if that's the case, it seems goldstar merged with lg at one point and those two brands correspond to the same company
+[17:10] <MrKeuner> Yes, it is LG
+[17:11] <kostkon> MrKeuner, mystery solved squared
+[17:11] <MrKeuner> 42cs570-UD.AUSYLUR
+[17:11] <ph88> how can i see the disk space usage per application ?
+[17:11] <MrKeuner> kostkon, thank you but still some mystery though
+[17:12] <MrKeuner> LG monitor is not a 7" one :)
+[17:12] <kostkon> MrKeuner, ok fair enough
+[17:13] <MrKeuner> ioria, (**) |   |-->Monitor "<default monitor>"
+[17:16] <MrKeuner> When logged into Unity it appears like detecting the monitor correctly, however I get an error: Could not apply the stored configuration for monitors
+[17:17] <tomreyn> https://www.redips.net/linux/gnome-wrong-window-scaling-tv/
+[17:17] <MrKeuner> required virtual sized oes not fit available size; requested=(1,1), minimum=(320,200), maximum=(8192,8192)
+[17:17] <lotuspsychje> ph88: the disk analyze tool in ubuntu can see space in use per dir if you like
+[17:17] <ph88> ok
+[17:19] <mcb2003> /join #debian
+[17:19] <tomreyn> MrKeuner: see if this helps. it's probably a buggy monitor firmware.
+[17:19] <tomreyn> (or broken cabling.)
+[17:21] <tomreyn> MrKeuner: disconnecting from computer, unplugging from power, reconnecting, restarting screens has sometimes helped before in such cases. also try powering it up without it connected to anything temporarily.
+[17:22] <MrKeuner> tomreyn, powering tv up without connecting hdmi?
+[17:22] <tomreyn> MrKeuner: yes, that was one of my suggestions
+[17:22] <MrKeuner> or the ubuntu box?
+[17:23] <MrKeuner> gsettings didn't help
+[17:23] <tomreyn> the tv
+[17:23] <MrKeuner> booted into "Ubuntu" and applied the gsettings suggestion from the web page
+[17:24] <MrKeuner> that didn't work. I'll try power cycling the tv hdmi unplugged
+[17:26] <MrKeuner> Nope.
+[17:26] <MrKeuner> I'll try another hdmi cable
+[17:30] <MrKeuner> nope
+[17:30] <MrKeuner> I'll look into updating the tv firmware
+[17:30] <MrKeuner> which will probably ask for an OS that I do not have... :(
+[17:31] <MrKeuner> In case updating the firmware may not help... Unity seems to detect it fine, or close enough. Can't I copy that setting to Gnome as well?
+[17:36] <Ascavasaion> Can someone please tellme how to install codecs for audio files?  I Googled... is sudo apt-get install gstreamer1.0-plugins-ugly the way to go?
+[17:38] <MonkeyDust> Ascavasaion  sudo apt install ubuntu-restricted-extras
+=== anon is now known as Guest45864
+[17:39] <Guest45864> TJ:
+[17:40] <ejr> are there any differences as far as up-to-dateness of the packages is concerned between ubuntu and its derivatives? i.e. are there derivatives that have newer packages?
+[17:43] <MonkeyDust> ejr  few or no derivates are supported here, so hard to tell
+[17:44] <anon121> hi guys i was given this to try but i am not sure how to use it as im a linux newb https://pastebin.com/s2CJdumR
+[17:45] <hggdh> ejr: in general, no, if the derivatives are using the common repositories.
+[17:47] <ejr> hggdh: ok, and I guess ubuntu's packages are as up-to-date as those of, say, arch?
+[17:48] <Cheguacamole> hello is there an ubuntu channel specifically for newbs?
+[17:48] <hggdh> ejr: arch is not a derivative of Ubuntu, so... they may well deploy newer upstreams
+[17:48] <hggdh> (IDK, I do not use Arch)
+=== testst is now known as Guest7308
+[17:50] <Kumool> how would you go about adding a modifier to a media key? basically i want ctrl + XF86MediaLowerVolume to become XF86MediaPrev
+=== root is now known as spider
+[17:53] <rashing> hello
+[17:53] <spider> rashing: yeah
+[17:53] <hggdh> Cheguacamole: no, there is no beginners channel for Ubuntu. This is it
+[17:53] <rashing> i have couple of questions to ask
+[17:54] <Cheguacamole> thanks
+[17:54] <spider> rashing: hope I can answer them
+[17:54] <rashing> meyby someone can help me
+[17:54] <hggdh> rashing: just ask your questions, no need to ask if you can ask :-)
+[17:54] <rashing> 1 .. i try to install a new version of openssh on my ubuntu
+[17:54] <tomreyn> MrKeuner: if that's a 'smart tv' it can probably update itself from it's on screen menu. surely worth a try.
+[17:54] <rashing> i downloaded and i got a error zlib
+[17:55] <rashing> i fix the prob with the zlib
+[17:55] <rashing> i got another one with openssl
+[17:55] <rashing> i almost fixit
+[17:55] <rashing> but when i try to finish the compilation
+[17:55] <rashing> i got this
+[17:56] <tomreyn> rashing: why are you trying to install a newer version of openssh in the frist place?
+[17:56] <tomreyn> *first
+[17:56] <rashing> i try to see something ...
+[17:57] <hggdh> rashing: and, as important, why are you building from source, and not using a published package?
+[17:57] <rashing> ../sshbuf.h:25:11: fatal error: openssl/bn.h: No such file or directory  # include <openssl/bn.h>            ^~~~~~~~~~~~~~
+=== Howie69_ is now known as Howie69
+[17:58] <rashing> because apt-get give me hard time
+[17:58] <rashing> i need to fix apt-get does well
+[17:58] <ikonia> so you can't use the package manager - so you want to compile from source ?
+[17:58] <rashing> ../sshbuf.h:25:11: fatal error: openssl/bn.h: No such file or directory  # include <openssl/bn.h>            ^~~~~~~~~~~~~~
+[17:58] <ikonia> that seems very back to front,
+[17:58] <rashing> yes
+[17:59] <ikonia> rashing: what is the problem with the version of openssh instaled by ubuntu
+[17:59] <rashing> nothing
+[17:59] <ikonia> then why are you building a version ?
+[17:59] <rashing> they release a new one
+[17:59] <ikonia> so ?
+[17:59] <Ascavasaion> thank you MonkeyDust
+[17:59] <rashing> so i want it
+[17:59] <ikonia> why ?
+[17:59] <hggdh> rashing:
+[17:59] <ikonia> for what benifit, what does it fix ?
+[17:59] <ikonia> (for you)
+[17:59] <spider> rashing: just updating your system will work
+[18:00] <spider> rashing: no need to install a new one
+[18:00] <rashing> i cant .. i need to fix the apt-get first or software updater
+[18:00] <ikonia> rashing: step back
+[18:00] <rashing> but when i try say cause is up to date
+[18:01] <rashing> or the key is old
+[18:01] <ikonia> why are you building a different version of ssh
+[18:01] <rashing> one of it
+[18:01] <ikonia> what is the problem with the version you currently have ?
+[18:01] <TJ->  ikonia s/ssh/ssl/
+[18:01] <ikonia> I thought he was building ssh from the description and it was failing on missing ssl headers
+[18:01] <rashing> is not a problem with that ... i need to do a project a stand alone sshd for a friend
+[18:01] <spider> rashing: what happens when you try to update the system?
+[18:02] <ikonia> yeah, he's trying to build ssh
+[18:02] <ikonia> rashing: why ?
+[18:02] <Howie69> speaking if ssh...
+[18:02] <Howie69> I am not sure where to ask this question...
+[18:02] <ikonia> why do you need a standalone version of ssh ?
+[18:02] <Howie69> but
+[18:02] <TJ-> ikonia: ah, true - I was focusing on the lack of openssl-dev :)
+[18:02] <ikonia> TJ-: for this discussion they are one in the same anyway
+[18:03] <Howie69> I always have used various android apps to quickly access ssh for simple tasks but lately, all of them I have tried login then close upon the first command attempted
+[18:03] <TJ-> rashing: build a standalone openssh inside a chroot or container to avoid contaminating or breaking your host
+[18:03] <donofrio> sometimes you just need to build standalone for research or just because "compile and stay thirsty" lol
+[18:03] <Howie69> But old putty still works fine from the laptop
+[18:03] <MrKeuner> tomreyn, I don't think it is one of those 'smart' ones... Apparently they support updating firmware via usb port which is nice but couldn't locate a firmware yet
+[18:03] <ikonia> compile and stay thirsty ?? what does that even mean
+[18:04] <rashing> no tnx
+[18:04] <ikonia> Howie69: look at the ubuntu security log and see why it rejects them
+[18:04] <donofrio> he's not trying to update the system ssh just his own
+[18:04] <rashing> i dont want putty
+[18:04] <rashing> i want my dual boot from laptop ..
+[18:04] <Howie69> ikonia: Which location, I'll have a look
+[18:04] <rashing> is much nice
+[18:04] <ikonia> rashing: I think from what I'm reading you are making a problem where one doesn't exist
+[18:04] <donofrio> rashing, need ssh in windows?
+[18:04] <ikonia> Howie69: /var/log
+[18:05] <TJ-> rashing: the reason your compilation is failing is because your system is missing openssl-dev headers, for which you *NEED APT WORKING* so fix apt first
+[18:05] <Howie69> ikonia: I poked arond /var/log/messages and dmesg but didn't find anything... Ok, it must have been seperated out
+[18:05] <rashing> nop ... i have kali linux .. and windows ..
+[18:05] <rashing> and is not booting from windows
+[18:05] <tomreyn> MrKeuner: hmm i don't know then, good luck. you could check the edid (read-edid | parse-edid) if you wanted to see whether the issue is with the monitor or software
+[18:05] <ikonia> Howie69: messages is not the security log and dmesg is a real time dump of the system status
+[18:05] <TJ-> Howie69: see /var/log/auth.log
+=== lotuspsychje_ is now known as lotuspsychje
+[18:06] <ikonia> rashing: so you're not actually even using ubuntu, your using Kali
+[18:06] <Howie69> TJ-: Thanks.  That gives me something different to google :)
+[18:06] <rashing> the base for kali
+[18:06] <donofrio> rashing, I run ubuntu 18.04 on top of Windows 10 - build powerpoint at http://www.tinyurl.com/donofrio1804 I do not know if that will help you from dual booting but yah I use windows as a 15gb bootloader into xfce4 goodness
+[18:06] <rashing> is ubuntu darling
+[18:06] <ikonia> rashing: right, we don't support the base for kali here
+[18:06] <ikonia> and we don't support custom builds
+[18:07] <rashing> k ..
+[18:07] <ikonia> rashing: so this channel isn't really the right one for your problem,
+[18:07] <rashing> sorry to ask then
+[18:07] <ikonia> rashing: not a problem
+[18:07] <rashing> but can i stai
+[18:07] <ikonia> rashing: of course you can stay
+[18:07] <rashing> a little .. around here
+[18:07] <rashing> ta
+[18:07] <rashing> tha .. meyby .. i can learn more from you
+[18:07] <donofrio> rashing, learning is good ;)
+=== rashing is now known as asdffg
+[18:08] <asdffg> true
+[18:08] <ikonia> channel has a lot to offer in terms of experiernce, just be aware that it won't really apply to Kali
+[18:08] <TJ-> ... but can be somewhat time consuminh!
+[18:08] <asdffg> ikonia .. is same .. like in other servers
+[18:08] <asdffg> belive me ..
+[18:08] <asdffg> same commands
+[18:09] <ikonia> asdffg: parts of it will cross-over as generic, parts will not
+[18:09] <asdffg> yep
+[18:09] <asdffg> true
+[18:10] <TJ-> asdffg: you might find more generic support in the channel ##linux
+[18:10] <asdffg> one question ... how the hek some people have IP 2602:306......
+[18:10] <asdffg> what they do .. to mask .... the real IP
+[18:11] <kostkon> !cloak
+[18:11] <ubottu> To get an Ubuntu member cloak or any other one, first register your nick as detailed at https://freenode.net/kb/answer/registration - For Ubuntu member cloaks, then ask in #ubuntu-irc and provide your Launchpad page. For unaffiliated ones, ask in #freenode. See also !membership
+[18:12] <asdffg> nice
+[18:13] <kostkon> asdffg, those are ipv6 ips but if you want an unaffiliated cloak follow the instructions above ^
+[18:13] <Goop> Yo did Ubuntu LTS 16.04 recieve a new lock screen?
+[18:13] <asdffg> i so that .. tnx ... any way nice ..
+[18:13] <Cheguacamole> ubottu what exactly is a Launchpad page?
+[18:13] <ubottu> I am only a bot, please don't think I'm intelligent :)
+[18:16] <Howie69> TJ-: Absolutely nothing in auth.log
+[18:16] <TJ-> Howie69: does it report the ssh connections from your android devices? it should
+[18:16] <Howie69> The ssh connection is successful and I can see the terminal screen
+[18:17] <Howie69> TJ-: Nope, the last thing it reported was my sudo to view /var/log/auth.log
+[18:17] <kostkon> Goop, afaik it was updated to fix a known bug other than that im not sure what else has changed
+[18:17] <Howie69> I see the login, then as soon as I try to type anything it closes
+[18:17] <TJ-> Howie69: you're checking the auth.log on the host which the android device(s) are connecting to?
+[18:17] <Howie69> But it happens with every SSH app I ever found
+[18:17] <Howie69> TJ-: Yes
+[18:18] <Howie69> It's the only ssh server in my entire house :)
+[18:18] <TJ-> Howie69: OK, at least we're talking about the same thing! Right, so now what you do is increase server-side logging to gather more info, which, I think, should be written into /var/log/syslog ...
+=== anon is now known as Guest7992
+[18:19] <Guest7992> anyone tell me how i use this https://pastebin.com/4ArWKSak ????
+[18:19] <Howie69> TJ-: Ah, there's some info...
+=== Guest7992 is now known as anon___
+[18:20] <Howie69> what's the pastebin site we like to use here again?
+[18:20] <TJ-> Howie69: ... then stop the ssh service ("sudo systemctl stop ssh") and manually run it in the foreground in debug mode ("sudo sshd -ddd |& tee /tmp/sshd.log") and make connections with Android. The captured log should help us figure out what is going on
+[18:21] <palayoub> ok
+[18:21] <Howie69> TJ-: I get info from syslog.  If lshd is what we're looking for...
+[18:22] <Goop> kostkon, did they finally fix the really huge screensaver bug that would not sleep monitors after moving the mouse on the lock screen?
+[18:23] <Howie69> TJ-: https://pastebin.ubuntu.com/p/tpv9sJ7ztg/ is that what we were looking for?  Running in foreground to check too
+[18:23] <micha_> xdcc://Abjects/irc.Abjects.net/#moviegods/[MG]-HDTV|EU|S|kratos/#0175/Sankt.Maik.S01E01.Vom.Regen.in.die.Kirche.GERMAN.720p.HDTV.x264-WiSHTV.mkv/
+[18:24] <r3muxd> Does anyone know why I wouldn't have apt installed if I ran "debootstrap --arch=arm64 artful artful http://ports.ubuntu.com/ubuntu-ports"?
+=== dingir___ is now known as dingir_
+[18:24] <Howie69> bleh.. except I can't kill ssh from here because I'm SSH'd into that box from the laptop lol
+[18:25] <Howie69> I have to find a keyboard to run it from that box
+[18:25] <hfp> Hi, I'd like to keep using Ubuntu, but I don't care much for Unity or Gnome. What do I replace it with? I'd like something lighter. Do I need a new distribution altogether or can I swap it on my existing Ubuntu 17.10 install? Am I looking for a new window manager, or is that the wrong name for it?
+[18:25] <MonkeyDust> hfp  try xfce
+[18:25] <Howie69> hfp: Or lubuntu-desktop
+[18:26] <TJ-> Howie69: oh! you've not got the usual openssh-server installed, you've got a non-standard lsh-server (which I've never seen used!)
+[18:26] <Howie69> TJ-: You got me, it came with the distro :)
+[18:26] <TJ-> Howie69: and presumably it's not talking the correct protocol for the clients for some reason
+[18:26] <hfp> MonkeyDust, Howie69: Do I need to install a new distribution for that or can I install it instead (or along with?) gnome on the 17.10 I'm using now?
+[18:26] <tape_user> anyone else here uses cassette tapes to store computer files?
+[18:26] <TJ-> Howie69: what does "cat /etc/issue" report?
+[18:27] <Howie69> hfp: Just apt update then apt install lubuntu-desktop
+[18:27] <MonkeyDust> hfp  along with ... you can then logout, switch, login
+[18:27] <Howie69> hfp: I played with a lot of different desktops that way
+[18:27] <TJ-> Howie69: lsh-server isn't seeded or depended on by /any/ Ubuntu packages or tasks
+[18:27] <Howie69> ~$ sudo cat /etc/issue
+[18:27] <Howie69> Ubuntu 17.10 \n \l
+[18:27] <hfp> MonkeyDust, Howie69: That sounds much easier than I thought
+[18:28] <Howie69> hfp: It takes a little while
+[18:28] <Tbob> hey im bit of noob how would one use this file https://pastebin.com/4ArWKSak
+[18:28] <hfp> Howie69: I meant the installation and change. I thought I'd have to reinstall the OS or something.
+[18:29] <Howie69> hfp: Nah, there are lots of different desktops you can try out.  And if you find the one you like, you can apt remove the ones you don't like to save space
+[18:29] <Howie69> hfp: This isn't windows :-)
+[18:30] <TJ-> Howie69: I don't know how you got lsh-server installed but there's nothing depending on it, but it does declare a "Provides: ssh-server" so if you did "apt install ssh-server" rather than the usual "apt install openssh-server" lsh could have been chosen
+=== antonm_ is now known as antonm
+[18:30] <TJ-> Howie69: I'd remove it and install openssh-server
+[18:30] <OerHeks> remove a desktop can be fun ..
+[18:30] <r3muxd> Does arm64 ubuntu have apt-get?
+[18:30] <Howie69> TJ-: makes sense to me
+[18:32] <Howie69> TJ-: Umm
+[18:32] <Howie69> TJ-: openssh-server is already the newest version (1:7.5p1-10ubuntu0.1).
+[18:32] <hfp> MonkeyDust, Howie69: alright, I'm off to try lubuntu-desktop and xfce. Thanks
+[18:33] <Howie69> hfp: for the record, there are other desktop environments that use xfce
+[18:33] <TJ-> Howie69: OK, so disable/remove lsh-server
+[18:34] <Howie69> TJ-: let me verify that it is installed in apt first...
+[18:34] <TJ-> Howie69: "sudo apt purge lsh-server" then "sudo systemctl enable ssh; sudo systemctl start ssh"
+[18:34] <lotuspsychje> !arm | r3muxd
+[18:34] <ubottu> r3muxd: ARM is a specific (RISC) processor architecture used in a variety of applications such as handhelds and networkdevices. For more information see https://wiki.ubuntu.com/ARM . For ARM specific support, stop by the #ubuntu-arm channel.
+[18:35] <r3muxd> ok
+[18:35] <Howie69> TJ-: Yeah, it's installed.. and your way requires no keyboard if I use screen :)
+[18:38] <Cheguacamole> funny to offer a cloak through #ubuntu/-irc by supplying email and name lol, ironic
+[18:39] <shiba_dev> hi
+[18:39] <Howie69> TJ-: Ehh... my scripting could have been better.. I forgot how to force ssh to answer YES to stuff
+[18:40] <Zoara327> Hello!
+[18:40] <shiba_dev> what is this group
+[18:40] <Zoara327> I was in here yesterday looking for some help with a hp computer install
+[18:40] <shiba_dev> laptop or computer ?
+[18:41] <Zoara327> A all in one desktop
+[18:41] <Howie69> TJ-: umm... that's the problem with scripting...
+[18:41] <Zoara327> Hp 18 series
+[18:41] <Howie69> TJ-: errors, but it looks like it worked
+[18:42] <Zoara327> It keeps ignoring the partition I have set up
+[18:43] <Howie69> TJ-: Works perfect now
+[18:43] <Howie69> TJ-: Thanks
+[18:43] <Howie69> TJ-: I'll apt-hold lsh-server to keep it from coming back
+[18:44] <Zoara327> If anyone has any idea what might be causing the error I would appreciate it
+[18:44] <Howie69> TJ-: hrm... can't apt-hold it..
+[18:48] <jonathan_> bonjour
+[18:49] <Zoara327> God, this is annoying lol
+[18:49] <lotuspsychje> Zoara327: did you try 16.04 yesterday?
+[18:49] <Zoara327> Hello again!
+[18:50] <Zoara327> I have completely wiped over and reinstalled Ubuntu with the newest install on usb
+[18:50] <Zoara327> Yet when I turn it on, it still ignores the installed partition
+[18:50] <lotuspsychje> Zoara327: define ignore? what happens at wich point?
+[18:51] <Zoara327> It gives me the message in Ubuntu once the install is finished, “install complete, please restart computer to begin using Ubuntu”
+[18:51] <Zoara327> Or something like that
+[18:51] <Zoara327> But when I do, it boots back into the usb drive
+[18:52] <Zoara327> And if I remove it, it says no os is installed.
+[18:52] <Zoara327> Same goes if I try booting from the hard drive itself in boot list
+[18:52] <lotuspsychje> Zoara327: hmm that sounds like boot order is wrong
+[18:53] <Zoara327> Yeah, but then why would it fail even if I selected a different drive manually
+[18:53] <kostkon> Goop, probably not
+[18:53] <lotuspsychje> Zoara327: are you sure your uefi settings are setup correctly
+[18:53] <kostkon> Zoara327, latest 16.04.4 iso?
+[18:54] <lotuspsychje> Zoara327: fastboot & secureboot disabled
+[18:54] <Zoara327> Yes, I just installed it yesterday
+[18:54] <Zoara327> And I have the settings as follows
+[18:54] <Zoara327> Legacy support-On
+[18:54] <Zoara327> Secure boot-Disables
+[18:55] <Zoara327> Key management-clear secure boot keys-don’t clear
+[18:55] <Zoara327> Key ownership-HP Keys
+[18:55] <Zoara327> Fast boot-disabled
+=== DrWatson_ is now known as DrWatson
+[18:57] <lotuspsychje> Zoara327: did you doublecheck boot order settings
+[18:57] <lotuspsychje> Zoara327: also check sata settings, could be wrong there?
+[18:57] <Cheguacamole> are there two places to check boot order settings or just one
+[18:58] <Zoara327_> Yeah, hard drive is labeled as SATA 0 and is at bottom of list
+[18:59] <Zoara327_> But it won’t go all the way to the top since it is stuck in the legacy boot catagory
+[18:59] <Babiz> Hello everyone folks, I will know if is a kind of bug under KDE (Wayland) and Spectacle "copy to clipboard" function, here isn't work, (for example when I try to paste my screenshot to snag.gy I get error message like "empty clipboard)
+[19:01] <Zoara327_> I also have a partition named Ubuntu on boot order but if I put it at the top it still fails to boot
+[19:01] <brainwash> Babiz: that's not an error message. did you test under xorg?
+[19:02] <Babiz> not really brainwash :D
+[19:03] <brainwash> other than that, I would ask in #KDE about wayland and its clipboard synchronization
+[19:04] <Babiz> I ask only for know if others  notice same issue :>
+[19:04] <Zoara327_> Any idea what to try next
+[19:04] <lotuspsychje> Zoara327_: if boot says no disk, order must be wrong or uefi settings
+[19:04] <Zoara327_> Which settings
+[19:04] <Babiz> ho well thanks brainwash I follow your advice , thanks
+[19:05] <brainwash> Babiz: I think that most KDE users are actually in #kubuntu and #kde
+[19:05] <lotuspsychje> Zoara327_: well its hard to look from here ofc.. perhaps the ##hardware guys might know for your bios brand?
+[19:05] <Babiz> I got it , well :)
+[19:05] <Zoara327_> Ok, I will check them out
+[19:08] <Zoara327_> Says I need to be invited to join hardware
+[19:09] <lotuspsychje> Zoara327_: you need to register
+[19:09] <Zoara327_> Oh
+[19:09] <Zoara327_> How do I do that
+[19:09] <lotuspsychje> !register | Zoara327_
+[19:09] <ubottu> Zoara327_: For information on registering your IRC nick, see https://help.ubuntu.com/community/InternetRelayChat/Registration - For any further help, ask in #freenode.
+[19:09] <lotuspsychje> !uefi | Zoara327_ see also for settings
+[19:09] <ubottu> Zoara327_ see also for settings: UEFI is a specification that defines a software interface between an operating system and platform firmware. It is meant as a replacement for the BIOS. For information on how to set up and install Ubuntu and its derivatives on UEFI machines please read https://help.ubuntu.com/community/UEFI
+[19:09] <TJ-> Zoara327_: Was the latest installation done in EFI mode? the firmware's boot-entry suggests at least one install was in EFI mode
+[19:11] <Zoara327_> I’m not sure
+[19:11] <Zoara327_> How do I check
+[19:12] <TJ-> Zoara327_: If in EFI mode there is an increasingly common problem whereby the firmware has to be told to specifically trust the OS's EFI boot loader (/EFI/ubuntu/grubx64.efi) via the firmware setup's Security tab. If this is the case, on that tap you'll see a section titled something like "Trust" where you have to use a file-selector to choose the grubx64.efi file and trust it manually. To do /that/ Secure
+[19:12] <TJ-> Boot needs to be /enabled/ at least whilst doing the 'trust' operation, even if afterwards you disable Secure Boot
+[19:13] <Zoara327_> Is this inside the boot drive or in the bios settings itself
+[19:13] <Zoara327_> And how do I know if I am in efi mode
+[19:13] <TJ-> Zoara327_: in the firmware settings, where the Security tab should be found (if my suggestion is correct for your PC)
+[19:13] <Zoara327_> Ok
+[19:13] <Zoara327_> Btw a side note
+[19:14] <Zoara327_> In storage options it lists a SATA emulation that reads AHCI or IDE depending on what I choose
+[19:14] <Zoara327_> Does that matter
+[19:14] <TJ-> Zoara327_: well, if there is an EFI boot menu entry then it's likely it is an EFI install, but if you get to the Trust > file browse part and cannot find the /EFI/ubuntu/ directory or files, that'd suggest the last install was in legacy mode and the boot menu entry is an artifact of a previous install
+[19:14] <TJ-> Zoara327_: that should usually be set to AHCI
+[19:15] <Zoara327_> Ok
+[19:15] <TJ-> Zoara327_: Linux won't mind, it can handle either, but AHCI is higher performance
+[19:15] <Zoara327_> Also, I cannot find a tab for firmware
+[19:16] <Zoara327_> I am using a Foxconn Almond Mobo by the way
+[19:16] <Zoara327_> Version 2.15.1236
+[19:16] <Zoara327_> Figured that might help you get a better idea of what I’m seeing lol
+=== sadsad is now known as testpw123
+[19:18] <Zoara327_> So there’s a file browser inside the bios then?
+[19:19] <vafg> Yep, you can browse files if they are not encrypted
+[19:21] <Zoara327_> Ok
+[19:21] <Zoara327_> And you said that the browser is listed under security in bios
+[19:21] <Cheguacamole> vafg sorry i lost connex for a tick... what is the name of the file browser in the bios please? I'll go look up how to use it
+[19:23] <Cheguacamole> *might be able to resurrect some broken machines*
+[19:23] <Zoara327_> What is the name of the file browser in the bios I need to do this
+[19:25] <Zoara327_> Yeah, I don’t see a option to edit files in security
+[19:26] <Zoara327_> All I see is setup password, power on password, device security, usb security, slot security, network boot, system ids, system security, and secure boot configuration
+[19:27] <azizLIGHT> does 16.04 or 18.04 able to show changelogs in ppa repo packages
+[19:28] <ikonia> shouldn't it work the same as the standard repo
+[19:28] <ikonia> in terms of dispaying changelogs
+[19:29] <vafg> Bios update can be use to see files
+[19:29] <ikonia> what ?
+[19:29] <kostkon> azizLIGHT, 18.04 in theory should. check bug 253119
+[19:29] <ubottu> bug 253119 in Launchpad itself "PPA packages do not show a changelog in update-manager" [Low,Triaged] https://launchpad.net/bugs/253119
+[19:30] <Zoara327_> This is frusterating lol
+[19:30] <azizLIGHT> thanks
+[19:31] <Zoara327_> By the way, the file is designed for UEFI and shows up as a uefi boot devicd
+[19:31] <TheGrumble> bojeur
+[19:31] <vafg> Live boot linux
+[19:32] <Zoara327_> What was that Vafg?
+[19:34] <vafg> Zoara327_: Tell me the whole prob.
+[19:35] <Zoara327_> K lol
+[19:35] <Zoara327_> I finished installing ubuntu from usb with a successful install message
+[19:36] <Zoara327_> However, when I reboot it like it says into the hard drive, It refuses to show up in the boot list
+[19:36] <Zoara327_> I get a partition that says Ubuntu and everything
+[19:36] <Zoara327_> But when I go to actually boot it, it says no os is installed
+[19:38] <Zoara327_> I was told it might be a issue with the boot key or something, and I can edit it in the bios I guess?
+[19:40] <Zoara327_> Any idea what that might mean
+[19:40] <kioprr> o
+[19:41] <kioprr> hello
+[19:42] <vafg> Reinstall it new partition or live boot ubuntu
+[19:43] <tomreyn> Zoara327_: do you know the exact model of computer you have there?
+[19:43] <Zoara327_> I have already installed it and reinstalled it multiple times
+[19:43] <Zoara327_> And yes tom
+[19:43] <Zoara327_> A hp 18
+[19:43] <Zoara327_> Let me grab serial
+[19:44] <tomreyn> that's a series
+[19:44] <tomreyn> not a model #
+[19:44] <tomreyn> serial # wont help either
+[19:44] <tomreyn> P/N is needed
+[19:44] <Zoara327_> K
+[19:44] <Zoara327_> Let me find it
+[19:45] <tomreyn> usually on the bottom next to the battery
+[19:45] <Zoara327_> F3E02AA#ABA
+[19:46] <tomreyn> this seems to be a "HP Pavilion 18-5010" then
+[19:46] <Zoara327_> Yeah
+[19:46] <Zoara327_> Didn’t actually realize it was a pavilion series though heh
+[19:47] <Babiz> !google F3E02AA#ABA
+[19:47] <ubottu> I have no google command, use http://www.google.com/
+[19:47] <Babiz> lol
+[19:49] <Zoara327_> From what I see, it’s a secure boot issue?
+[19:49] <Zoara327_> Since the pc doesn’t have a key for ubuntu, it rejects it
+[19:53] <Zoara327_> So what do you think is the issue tom
+[19:53] <tomreyn> Zoara327_: i don't really know. didn't you say you have secure boot deactivated?
+[19:54] <tomreyn> i recommend that you do if you haven't
+[19:54] <tomreyn> also, use uefi but not the legacy bios (disable compatibility). if that doesn't work (after further work), you can switch back to legacy,
+[19:55] <Zoara327_> Yes
+[19:55] <MrKeuner> tomreyn, I have checked the get-edid -b 5 | parse-edid output
+[19:55] <Zoara327_> Disable legacy compatibility, got it
+[19:55] <MrKeuner> appears to be normal to me, would you like to take a look by any chance?
+[19:56] <MrKeuner> 256-byte EDID successfully retrieved from i2c bus 5
+[19:56] <tomreyn> MrKeuner: i'm not really qualified to interpret it. but i had expected it to print a warinig or error. if it doesn't, it suggests it's just incomplete or there is a software bug.
+[19:56] <Zoara327_> Ok, I disabled legacy in security bios
+[19:57] <Zoara327_> Didn’t make a difference, just hid a couple boot options
+[19:57] <Zoara327_> Leaves me with two Ubuntu partitions, neither work
+[19:57] <tomreyn> Zoara327_: when you installed ubuntu, was it in uefi mode or legacy boot?
+[19:58] <MrKeuner> tomreyn, Checksum Correct
+[19:58] <tomreyn> Zoara327_: here's how to install a bios update if you want to https://support.hp.com/us-en/product/hp-18-5000-all-in-one-desktop-pc-series/6528363/model/6617030/document/c04126730
+[19:58] <Zoara327_> Does that matter?
+[19:58] <TJ-> Zoara327_: is this the PC? https://support.hp.com/za-en/document/c04076848
+[19:58] <tomreyn> actually this https://support.hp.com/us-en/product/hp-18-5000-all-in-one-desktop-pc-series/6528363/model/6617030/document/c00007682
+[19:59] <Zoara327_> Yes
+[19:59] <MrKeuner> the page I think you gave me suggests a bug with the TV, I just talked to LG and they don't see an issue since other hdmi devices are full resolution. I lost the battle since I ran out of arguments easily
+[19:59] <tomreyn> i would have thought it's this https://support.hp.com/us-en/product/hp-18-5000-all-in-one-desktop-pc-series/6528363/model/6617030/how-to
+[20:01] <Zoara327_> So I wa supposed to tell it to boot into uefi, not legecy
+[20:01] <MrKeuner> tomreyn, https://gist.github.com/anonymous/e548515137da80cf42131c0356685417
+[20:01] <tomreyn> actually yours is correct, TJ-
+[20:01] <tomreyn> "Product number F3E02AA"
+[20:02] <tomreyn> MrKeuner: i dont think i can help you, sorry
+[20:02] <MrKeuner> tomreyn, no problem. thank you very much for your help so far.
+[20:02] <tomreyn> welcome
+=== zer0 is now known as Guest80497
+[20:05] <Zoara327_> So how do I install Ubuntu into uefi
+[20:07] <OerHeks> if it is 64 bit uefi, follow the !uefi factoid
+[20:07] <OerHeks> !uefi
+[20:07] <ubottu> UEFI is a specification that defines a software interface between an operating system and platform firmware. It is meant as a replacement for the BIOS. For information on how to set up and install Ubuntu and its derivatives on UEFI machines please read https://help.ubuntu.com/community/UEFI
+[20:08] <tomreyn> normally, it would just work. the ubuntu installer installs a trusted / signed shim to make ubuntu an availabhle boot option even with secure boot on.
+[20:08] <tomreyn> somehting is special about your system or configuration what it doesn't "just work".
+[20:08] <tomreyn> it's not so easy to find this out remotely.
+[20:08] <TJ-> Zoara327_: on this page, if you got to "Desktop Startup Menu options" and expand the "BIOS Setup - Desktop"  section link to see a screenshot, is 'Figure 3 Desktop BIOS Setup Menu' what you see? https://support.hp.com/us-en/product/hp-18-5000-all-in-one-desktop-pc-series/6528363/model/6617030/document/c03801890#AbT3
+[20:10] <Zoara327_> Oh, so the boot key would auto install, but mine refuses
+[20:11] <TJ-> Zoara327_: or do you see this screen? https://support.hp.com/doc-images/803/c03980379.jpg
+[20:12] <arooni> is this aan ubuntu related issue:  https://gist.github.com/arooni/f02b1661faa2aea8e897c1978056db66 ?? or a fish issue?
+[20:14] <Zoara327_> I get the same screen as in the picture
+[20:14] <Zoara327_> But that’s only when I go to system information
+[20:15] <TJ-> Zoara327_: Yes, that's fine, I'm trying to confirm we know which firmware you've got. That's an Insyde H2O UEFI firmware
+[20:15] <Zoara327_> Oh
+[20:16] <Zoara327_> I’m running firmware 2.15.1236
+[20:18] <Zoara327_> That help?
+[20:18] <tomreyn> the latest bios is this https://support.hp.com/za-en/drivers/selfservice/swdetails/hp-18-5000-all-in-one-desktop-pc-series/6528363/model/6529750/swItemId/cp-206114-1
+[20:19] <tomreyn> scroll down for history
+[20:19] <Bashing-om> Zoara327_: Acer machine or other that has vendor lockin ?
+[20:19] <TJ-> tomreyn: Is that the one dated this month? I saw that earlier
+[20:19] <tomreyn> TJ- feb 1
+[20:20] <Zoara327_> That’s not it
+[20:20] <Zoara327_> My revision is ALM v80.04
+[20:20] <TJ-> tomreyn: yes, that's the one I saw. Zoara327_ at this point I think the best thing is for you to boot with the Ubuntu installer again, choose the "Try Ubuntu" method, and then we can use some diagnostic procedures to check what the state of the system is
+[20:20] <tomreyn> 80.04 is stone age
+[20:21] <Zoara327_> Sounds good
+[20:21] <Zoara327_> And yeah, the computer is from 2014
+[20:21] <tomreyn> must be form 2014 or older. the latest listed is 80.12 from dec 2014
+[20:21] <Zoara327_> Never updated bios
+[20:21] <tomreyn> i mean the oldest
+[20:21] <tomreyn> the latest is from last month
+[20:21] <Zoara327_> Ok
+[20:21] <TJ-> tomreyn: oh, we're in March now... duh :D
+[20:22] <Zoara327_> Ima boot into the usb again
+[20:22] <tomreyn> and several of these intermediary updates seem to be striongly recommended by hp
+[20:22] <tomreyn> TJ-: i am!
+[20:22] <Zoara327_> Would it affect the booting that badly
+[20:23] <tomreyn> that's totally possible, but booting into ubuntu installer for now is fine
+[20:23] <TJ-> tomreyn: meant to tell you - I've been working on ubuntu-software-status, and using some of the python-apt classes ... in doing so I've spotted the functionality in there to do your foreign-packages report
+[20:23] <Zoara327_> Ok, I booted into the trial
+[20:23] <Zoara327_> What do I do now
+[20:24] <tomreyn> TJ-: :) nice. i've been both too untalented and too lazy to give that a try.
+[20:24] <TJ-> Zoara327_: open a terminal so you have a command line shell
+[20:24] <Zoara327_> I should mention that the inner hard drive actually mounts
+[20:24] <TJ-> tomreyn: nice part is python-apt is installed on all systems so it's easy to take advantatge of
+[20:24] <Zoara327_> It shows all the ubuntu files I installed
+[20:24] <Zoara327_> Also I opened a terminal
+[20:24] <Zoara327_> What do next
+[20:25] <TJ-> Zoara327_: do you have a shell now? start with "ping paste.ubuntu.com" to confirm it has network
+[20:25] <Zoara327_> Yeah
+[20:25] <Zoara327_> Terminals open
+[20:25] <TJ-> Zoara327_: now do "sudo apt install pastebinit"
+[20:25] <Zoara327_> What will this do?
+[20:26] <Zoara327_> Also it’s downloded
+[20:26] <tomreyn> TJ-: yes that's quite convenient, no extra installations from other sections needed then. i guess i'll look into how to do it sometime.
+[20:26] <TJ-> Zoara327_: once that is done, do this and tell us the link it gives: "pastebinit <( find /sys/firmware/efi; dmesg )"
+[20:27] <TJ-> tomreyn: don't worry; I'm doing that as part of my changes to u-s-s so I'll pass on just the code you need for it once I'm done. No point both od us doing the same thing
+[20:27] <tomreyn> wohoo!
+[20:29] <TJ-> tomreyn: my biggest problem right now is being able to identify different architecture's in the list of origins - e.g. the origin object for i386 is idential to amd64 - so I'm getting duplicate origins. Looks like I have to add functionality to python-apt for the future, and add a workaround for the currently installed base
+[20:30] <tomreyn> i ran into the same issue when i tried to grep through apt-cache policy for specific packages.
+[20:30] <tomreyn> well, not the same, but related
+[20:30] <TJ-> yes, it looks like someone didn't think about this fully when multiarch arrived
+[20:31] <TJ-> because potentially the origin for i386 could be on a different server to amd64
+[20:31] <TJ-> if sources.list had a "dev [amd64] http://a.b.c/ubuntu" and "dev [i386] http:/x.y.z/ubuntu"
+[20:31] <TJ-> s/dev/deb/ doh
+[20:32] <Zoara327_> It doesn’t do anything when I enter the command
+[20:32] <Zoara327_> I put
+[20:33] <TJ-> Zoara327_: it should run the commands inside the ( ... ) and pass the output to the pastebinit command which'll post it to the paste.ubuntu.com server and then give you a http://paste.ubuntu.com/p/..... URL
+[20:33] <Zoara327_> pastebinit <( find/sys/firmware/efi; dmesg )
+[20:34] <TJ-> Zoara327_: space between 'find' and '/sys/firmware/efi' ?
+[20:34] <Zoara327_> No
+[20:34] <TJ-> should be one :)
+[20:34] <TJ-> You should be able to Ctrl+C to stop it if it's hung up
+[20:34] <Zoara327_> Let’s see if that will fix things
+[20:34] <tomreyn> TJ-: yes, that'd be bad. but actually i seem to have mixed the up issue i ran into parsing apt-cache output. "apt-cache policy <packagename>" does show "i386 Packages"
+[20:35] <TJ-> tomreyn: right... that's what's missing in the python-apt Origin class
+[20:35] <tomreyn> i see :-/
+[20:36] <TJ-> tomreyn: I've got to do some more deep-diving into those classes in case I can find some way to extract it
+[20:36] <Zoara327_> I entered it as you specified
+[20:36] <Zoara327_> I got a url
+[20:36] <TJ-> Zoara327_: yay... give us the URL so we can see it
+[20:36] <Zoara327_> Ok
+[20:36] <TJ-> Zoara327_: pastebinit is a VERY useful tool for sharing complex diagnostic output, we rely on it
+[20:37] <Zoara327_> http://paste.ubuntu.com/p/wBF3C3kcKR/
+[20:37] <Zoara327_> Here we go
+[20:38] <TJ-> Zoara327_: OK, great news, all those /sys/firmware/efi/ file and directories tell us it has booted in EFI mode, which is what we want
+[20:38] <Zoara327_> Ok great
+[20:38] <Zoara327_> So what next
+[20:38] <TJ-> Zoara327_: I'm going to test some more commands here first to ensure they give us the info we need, then I'll give them to you in the same way as that last command
+[20:39] <Zoara327_> K
+[20:39] <TJ-> Zoara327_: you could start an IRC session from the Live installer so you can directly copy/paste on that PC rather than having to copy things across
+[20:39] <Zoara327_> Ok
+[20:40] <TJ-> Zoara327_: use the web browser go to https://webchat.freenode.net/
+[20:40] <tomreyn> channel: #ubuntu
+[20:41] <Zoara327> ok
+[20:41] <Zoara327> So what next
+[20:41] <TJ-> Zoara327: "sudo apt install efibootmgr"
+[20:42] <TJ-> Zoara327: then "pastebinit<( sudo efibootmgr -v )"
+[20:42] <Zoara327> done
+[20:43] <tomreyn> then you should have a new url to paste here
+[20:43] <TJ-> oh, space between pastebinit and the <
+[20:43]  * TJ- stamps on his fingers to stop the typos
+=== Sven_vB_ is now known as Sven_vB
+[20:45] <Sven_vB> all the examples (e.g. https://askubuntu.com/questions/367574/ ) show apt printing actual URLs in the last 2 lines, but mine only prints "Inst" and "Conf" lines. e.g. for apport, "0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.¶ Inst apport (2.14.1-0ubuntu3.27 Ubuntu:14.04/trusty-security [all])¶ Conf apport (2.14.1-0ubuntu3.27 Ubuntu:14.04/trusty-security [all])"
+[20:45] <Zoara327> http://paste.ubuntu.com/p/HCXZ4Z3dRf/
+[20:46] <Zoara327> thats the output
+[20:47] <Zoara327> and yeah, thats my boot order'
+[20:48] <Zoara327> What next?
+[20:49] <TJ-> Zoara327: thanks, so, on first look I'm suspecting Boot0000 entry was the broken one, and that is because it doesn't contain a path to a boot loader. It should look something like "ubuntu      HD(1,GPT,some-long-UUID)/File(\EFI\UBUNTU\GRUBX64.EFI)
+[20:49] <TJ-> Zoara327: so now let's inspect the installed system. Show us "pastebinit <( lsblk -f )"
+[20:50] <Zoara327> got it
+[20:51] <Zoara327> http://paste.ubuntu.com/p/5tcqFvND7W/
+[20:52] <Zoara327> here
+[20:53] <TJ-> Zoara327: now let's start doing something useful! We'll mount that installed system so we can inspect it. "sudo mkdir /target; sudo mount /dev/sda2 /target; pastebinit <( find /target -maxdepth 2 -type d )"
+[20:54] <Zoara327> it auto mounted when i booted into the testing os
+[20:54] <Zoara327> got a nice thicc 496 gig volume to play with lol
+[20:54] <TJ-> Zoara327: GUI's have a habit of being 'helpful' like that :)
+[20:54] <Zoara327> Glad I chose this over arch lol
+[20:54] <palayoub> what are you talking about guys?
+[20:55] <MonkeyDust> palayoub  this is the ubuntu support channel
+[20:56] <Zoara327> So what next
+[20:56] <TJ-> Sven_vB: which Ubuntu release are you working on
+[20:56] <TJ-> Zoara327: waiting for your pastebint from the command I gave above ^^^^
+[20:56] <palayoub> MonkeyDust: okies, it's only ubuntu no other distro?
+[20:56] <Sven_vB> TJ-, trusty i386
+[20:56] <Zoara327> oh sorry
+[20:56] <MonkeyDust> palayoub  type   /topic
+[20:56] <OerHeks> palayoub, ##linux for general help
+[20:57] <TJ-> Sven_vB: hmmm, long time since I used apt-get in 14.04, let me check in a container
+[20:57] <electricmilk> Can Ubuntu mount a RAID setup for a Windows server?  I need to backup a large file and running into all kinds of issues with Windows. Thinking about trying from a Ubuntu USB
+[20:57] <Zoara327> I got permission denied errors on the mounting, not that matters since they were already mounted
+[20:58] <Zoara327> http://paste.ubuntu.com/p/SRG9MVMr3P/ but heres the pastebin
+[20:58] <palayoub> MonkeyDust: OerHeks thank you
+[20:58] <electricmilk> I don't even know what particular RAID setup this server has...it doens't appear to have HD encryption enabled
+[20:58] <frostschutz> electricmilk, depends on the type of raid. it might not be able to for windows software raid. for regular fakeraid, linux supports most of those somehow (either mdadm or dmraid)
+[20:59] <electricmilk> Is it a pain in the butt to mount?
+[21:00] <TJ-> Zoara327: it shouldn't have given permission denied
+[21:00] <TJ-> Zoara327: oh, not from the mount, but from the find command it would , no worries
+[21:01] <TJ-> Zoara327: that's looking good, we make progress. Next, show us "pastebinit <( cat /target/etc/fstab; ls -latr /boot/; )"
+[21:01] <Zoara327> ok, good lol
+[21:01] <Zoara327> What do I do next
+[21:02] <TJ-> ^^^^^ command above
+[21:02] <TJ-> Zoara327: oh no, hang on, don't do that
+[21:03] <TJ-> Zoara327: I typo-ed, do this instead:  "pastebinit <( cat /target/etc/fstab; ls -latr /target/boot/  )"^^
+[21:03] <Zoara327> o
+[21:03] <Zoara327> ok
+[21:03] <TJ-> I missed off the /target/ on /boot/ :p
+[21:03] <Zoara327> http://paste.ubuntu.com/p/XhczD39Tm4/
+[21:03] <Zoara327> Here
+[21:04] <TJ-> Zoara327: looking good; now we are going to set up /target/ so we can enter into it as if it had booted, and run some commands to try to fix things
+[21:05] <Bashing-om> !info linux-image-generic artful
+[21:05] <Zoara327> ok
+[21:05] <ubottu> linux-image-generic (source: linux-meta): Generic Linux kernel image. In component main, is optional. Version 4.13.0.36.38 (artful), package size 2 kB, installed size 14 kB
+[21:05] <osse> Hi, I have a keyboard layout: https://raw.githubusercontent.com/Osse/dotfiles/master/.misc/osse . I can use it by running 'setxkbmap osse', but what do I need to do to install it properly so that I can select it as a layout in the Settings?
+[21:06] <TJ-> Zoara327: "for n in proc sys dev dev/pts etc/resolv.conf; do sudo mount --bind /$n /target/$n; done"
+[21:06] <Zoara327> which command first
+[21:06] <TJ-> Zoara327: then do "sudo chroot /target" --- at this point you're 'inside' that installed system, not the Installer environment
+[21:07] <TJ-> Zoara327: in the order I'm giving you them
+[21:07] <TJ-> Zoara327: you can copy/paste that entire command (the one beginning 'for' )
+[21:07] <Zoara327> k
+[21:08] <Zoara327> I got a syntax error
+[21:08] <Zoara327> didnt like "for"
+[21:08] <TJ-> Zoara327: copy paste everything inside the double quotes: " for n in proc sys dev dev/pts etc/resolv.conf; do sudo mount --bind /$n /target/$n; done  "
+[21:08] <Sven_vB> TJ-, I tried on xenial amd64, same, just Conf and Inst lines, no URLs.
+[21:09] <TJ-> Sven_vB: is it in a container ?
+[21:09] <Zoara327> worked that time
+[21:09] <Sven_vB> TJ-, nope, on real metal
+[21:09] <Zoara327> didnt give any output, juts took the command
+[21:09] <Zoara327> "just took"
+[21:09] <palayoub> ok
+[21:10] <TJ-> Zoara327: that's perfect, that's what successful commands on Linux generally do
+[21:10] <TJ-> Zoara327: now do "sudo chroot /target" --- at this point you're 'inside' that installed system, not the Installer environment
+[21:10] <Zoara327> done
+[21:11] <TJ-> Zoara327: now let's see if from inside it can get to the network: do "ping paste.ubuntu.com"
+[21:11] <Zoara327> curser also changed to a >
+[21:11] <TJ-> Zoara327: you're now user 'root' inside that install
+[21:11] <Zoara327> So I am actually inside the installed partition, the one that refuses to boot?
+[21:12] <Zoara327> also I pinged it, got no reply output
+[21:12] <TJ-> Zoara327: yes :) and we're hoping to re-install it's boot loader in a few minutes
+[21:12] <Zoara327> which you said was normal
+[21:12] <Zoara327> ok
+[21:12] <TJ-> Zoara327: the ping command should report each ping packet
+[21:13] <TJ-> Zoara327: you should be seeing something similar to this: http://paste.ubuntu.com/p/Zn4dSW96mH/
+[21:13] <Zoara327> So what next
+[21:13] <TJ-> Zoara327: the important part we want to see is the "4 packets transmitted, 4 received, 0% packet loss"
+[21:14] <Zoara327> I didnt get a pastebin from that command
+[21:14] <Sven_vB> TJ-, full output https://paste.ubuntu.com/p/5SqVtCcHxR/
+[21:14] <Zoara327> yeah, nothing pops up from that command
+[21:14] <TJ-> Zoara327: no you wouldn't, I want to confirm that the install can reach the internet, that's why I need you to confirm you see the kind of output I just showed you
+[21:16] <TJ-> Sven_vB: that's the expected output for that command
+[21:16] <Zoara327> Thats what I mean, I dont get any output at all
+[21:16] <Zoara327> just gives me the > sign again
+[21:16] <TJ-> Zoara327: hmmm, that is weird :D
+[21:17] <TJ-> Zoara327: let's carry on I'll just have to do without pastebinit for now and trust you to tell me if something looks wrong or reports a problem
+[21:17] <Zoara327> ok
+[21:17] <Sven_vB> TJ-, so how do I get the URL lines like in https://askubuntu.com/questions/367574/ ?
+[21:17] <TJ-> Zoara327: so now do "mount -a" and don't expect any output - this will mount all required file-systems, the important one being the EFI system partition
+[21:17] <Sven_vB> after the "Do you want to continue [Y/n]? y" there are lines with 'http://archive.ubuntu.com/ubuntu/
+[21:17] <Zoara327> ok, no output
+[21:18] <compdoc> y
+[21:18] <hegemoOn> hello there
+[21:18] <hegemoOn> any incident on offical repo ?
+[21:18] <hegemoOn> unable to proceed to an apt-get update
+[21:18] <ikonia> what ?
+[21:18] <ikonia> what's the error
+[21:18] <Zoara327> what next
+[21:18] <Cheguacamole> .kloak
+[21:18] <hegemoOn> https://pastebin.com/0Wxqzy7S
+[21:18] <Cheguacamole> .cloak
+[21:18] <compdoc> .choke
+[21:19] <ikonia> hegemoOn: that's not apt-get
+[21:19] <Cheguacamole> sorry it's just that people in #ubuntu-irc were not sure what that message was about cloak
+[21:19] <Cheguacamole> fallen off my log by now
+[21:19] <hegemoOn> <ikonia
+[21:19] <hegemoOn> yes
+[21:19] <Zoara327> drive is mounted
+[21:20] <tomreyn> !cloak > Cheguacamole
+[21:20] <ubottu> Cheguacamole, please see my private message
+[21:20] <TJ-> Sven_vB: drop the "--simulate" you don't need it with "--print-uris"
+[21:20] <glitchd> intersting problem here..
+[21:20] <TJ-> Zoara327: OK, "grub-install /dev/sda"     then if that reports OK, do "update-grub"
+[21:21] <Zoara327> didnt get a reply so I assume it did
+[21:21] <glitchd> any time i open a terminal window, im greeted with this message "E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
+[21:21] <glitchd> E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?"
+[21:21] <Sven_vB> TJ-, thanks! that solved it. I wish the man page had told me. :/
+[21:22] <Zoara327> ok, both commands went in
+[21:22] <Zoara327> what now
+[21:22] <TJ-> Zoara327: for the "grub-install /dev/sda" you should have seen "Installation finished. No error reported.
+[21:22] <Zoara327> no.
+[21:22] <glitchd> anyone have any clue how to remedy this problem?
+[21:23] <Zoara327> It just went to the next >
+[21:23] <TJ-> Zoara327: right, so we may have discovered a problem
+[21:23] <Cheguacamole> (Thank You he that shall remain nameless)
+[21:23] <Zoara327> nothing popped up saying it worked
+[21:23] <ikonia> glitchd: remove the lock file
+[21:23] <ikonia> glitchd: no big deal
+[21:23] <TJ-> Zoara327: let's investigate, this could be an indicator of why the install failed originally.
+[21:24] <Zoara327> ok
+[21:24] <kostkon> !aptlock | glitchd
+[21:24] <ubottu> glitchd: If an APT front-end crashed and your database is locked, try this in a !terminal: « sudo fuser -vki /var/lib/dpkg/lock;sudo dpkg --configure -a »
+[21:24] <TJ-> Zoara327: do "exit" -- you're now back in the LiveISO Try Ubuntu environment
+[21:24] <Zoara327> ok, I typed exit and entered it
+[21:25] <Zoara327> it didnt change my curser though
+[21:25] <TJ-> Zoara327: really? try "exit" again
+[21:25] <Zoara327> i tried it
+[21:25] <Zoara327> still getting a > curser
+[21:25] <hegemoOn> ikonia: forget it, i was a little agressive on iptable ! :)
+[21:25] <hegemoOn> thank you
+[21:26] <TJ-> Zoara327: ohhhhh... you're stuck in a command where you haven't closed off some quote marks!!!!
+[21:26] <TJ-> Zoara327: do Ctrl+C
+[21:26] <TJ-> Zoara327: then you should have a regular prompt again
+[21:26] <Zoara327> wait, could that be why I wasnt getting responces
+[21:26] <TJ-> Zoara327: you've got it :D
+[21:26] <glitchd> kostkon, thank you for that, but even after running that command, the problem remains
+[21:26] <Zoara327> I never entered quotation marks into the commands
+[21:26] <TJ-> Zoara327: so let's go back to the top now you've got a shell prompt...
+[21:26] <Zoara327> ok
+[21:27] <Zoara327> so what first
+[21:27] <TJ-> Zoara327: try " ping -c 4 paste.ubuntu.com "  (remember these quote marks " don't get entered - I use them to separate my commentary from the commands you need to run
+[21:27] <kostkon> glitchd, close any related app that is open like synaptic, Ubuntu software, gdebi and or any of the kde, lxde etc. equivalents, and try again
+[21:28] <kostkon> glitchd, or the updater even
+[21:29] <Zoara327> i am getting a response this time
+[21:29] <Zoara327> 4 packets transmitted, 4 received, 0% packet loss, time 3003ms rtt min/avg/max/mdev = 136.975/146.640/151.674/5.701 ms
+[21:29] <Zoara327> So what next
+[21:29] <TJ-> Zoara327: "  mount -a  "
+[21:30] <TJ-> Zoara327: then "  grub-install /dev/sda  " where it should report "Installation finished. No error reported."
+[21:30] <Zoara327> do I need to go root again first
+[21:30] <glitchd> kostkon, nothing is open
+[21:30] <TJ-> Zoara327: you're in the chroot so you are root
+[21:30] <TJ-> Zoara327: do "id"
+[21:30] <Zoara327> mount: only root can use "--all" option
+[21:30] <Zoara327> that what I got
+[21:31] <TJ-> Zoara327: oh, you've fallen outside the chroot then?
+[21:31] <TJ-> Zoara327: what does "id" report ?
+[21:31] <TJ-> does it say "ubuntu'
+[21:31] <kostkon> glitchd, you could just try rebooting that will kill any process that might be keeping access to the lock for itself
+[21:31] <Zoara327> yes
+[21:31] <TJ-> Zoara327: ahhhhh! OK, let's start from the beginning then!!
+[21:32] <TJ-> Zoara327: show us "  pastebinit /proc/mounts  "
+[21:32] <Zoara327> k
+[21:32] <Zoara327> http://paste.ubuntu.com/p/kgjRwXrHTP/
+[21:33] <Zoara327> here
+[21:33] <glitchd> kostkon, i have already rebooted several times to no avail of the problem
+[21:34] <TJ-> Zoara327: looks good... ok, NOW we enter the chroot for the installed system with: "   sudo chroot /target  "
+[21:34] <TJ-> Zoara327: now do "id" and you should be 'root' user
+[21:34] <Zoara327> ok, im in root now
+[21:34] <TJ-> Zoara327: yay... do "  mount -a  " (don't expect a response)
+[21:35] <TJ-> Zoara327: now let's try fixing it: "  grub-install /dev/sda  "
+[21:35] <Zoara327> no responce recieved
+[21:35] <TJ-> Zoara327: ... it should report "Installation finished. No error reported."
+[21:35] <Zoara327> its installing
+[21:36] <Zoara327> ok, it worked
+[21:36] <TJ-> Zoara327: at last :)
+[21:36] <TJ-> Zoara327: ok now "  update-grub  "
+[21:36] <kostkon> glitchd, what's the command you are trying to run
+[21:36] <Zoara327> Found linux image: /boot/vmlinuz-4.13.0-36-generic Found initrd image: /boot/initrd.img-4.13.0-36-generic Adding boot menu entry for EFI firmware configuration done
+[21:36] <TJ-> Zoara327: then check if you have network with "  ping -c 4 paste.ubuntu.com  "
+[21:37] <glitchd> kostkon, im not running any command. if i simply just open a terminal window,that message is displayed.
+[21:37] <kostkon> glitchd, really?
+[21:37] <Zoara327> it worked that time
+[21:37] <TJ-> Zoara327: great! now do "  pastebinit <(  efibootmgr -v )  "
+[21:37] <glitchd> kostkon, seriously.
+[21:38] <Zoara327> The program 'pastebinit' is currently not installed. You can install it by typing: apt install pastebinit
+[21:38] <Zoara327> I thought I installed it already
+[21:38] <TJ-> Zoara327: oh, of course... but no, you're in the /installed/ OS now where it wasn't so do "  apt install pastebinit  "
+[21:38] <Zoara327> or I wouldnt have since I am inside the right os
+[21:38] <TJ-> Zoara327: you installed it on the Live installer environment earlier
+[21:39] <Zoara327> yeah
+[21:39] <TJ-> Zoara327: so: "  pastebinit <(  efibootmgr -v )  "
+[21:39] <Zoara327> http://paste.ubuntu.com/p/2xZQfm8xw3/
+[21:39] <Zoara327> here
+[21:40] <TJ-> Zoara327: well done, this looks perfect:  Boot0000* ubuntu HD(1,GPT,2257a6db-f953-4923-a25c-b59d3584830b,0x800,0x100000)/File(\EFI\ubuntu\shimx64.efi)
+[21:40] <kostkon> glitchd, have you checked your .bashrc and .profile for anything that looks off
+[21:40] <TJ-> Zoara327: you see there's a file path now?
+[21:40] <Zoara327> where am I looking?
+[21:40] <TJ-> Zoara327: OK... we're done... do " exit  " then reboot .. remove the installer USB and your PC should boot
+[21:41] <TJ-> Zoara327: line 4 of the pastebin I just copied in
+[21:41] <Zoara327> what exactly did I just do? lol
+[21:41] <glitchd> kostkon, what exactly am i looking for as far as anything not looking right?
+[21:41] <TJ-> Zoara327: you re-installed GRUB boot loader, which called efibootmgr to add the entry to the firmware menu... I don't know why, but originally that didn't add the file path to the boot loader
+[21:42] <TJ-> Zoara327: but, we're done... exit, reboot, and test
+[21:42] <Zoara327> ok
+[21:43] <kostkon> glitchd, you could pastebin their contents, if you don't mind
+[21:44] <TJ-> glitchd: could it be a script being run from /etc/update-motd.d/ ?
+[21:44] <Zoara327_> Aaaaaannnddd exactly the same thing happens
+[21:44] <glitchd> kostkon, sure give me a second to do this
+[21:44] <TJ-> Zoara327_: it's not booting ?
+[21:44] <Zoara327_> -_-
+[21:45] <Zoara327_> Nope
+[21:45] <Zoara327_> I followed all the steps
+[21:45] <TJ-> Zoara327_: OK, so, we know what the problem is - the PC has a faulty firmware/BIOS. We added the boot menu entry, we proved it was there by reading it with efibootmgr, but the firmware hasn't saved it
+[21:45] <TJ-> Zoara327_: So I think now you need to install the latest BIOS that tomreyn found earlier
+[21:46] <TJ-> Zoara327_: we've seen this issue on several makes of EFI systems where they do not save the boot menu entries over a reboot, or corrupt them
+[21:46] <Zoara327_> Then why would it run Windows 10 but reject this
+[21:47] <TJ-> Zoara327_: buggy firmware... most of these systems are only designed and tested with Windows, so bugs like this are never discovered
+[21:47] <Zoara327_> Would it matter if any of the secure boot config options are on besides secure boot itself
+[21:48] <Zoara327_> I have everything off besides key management which is set to use custom keys and do not clear keys
+[21:48] <Zoara327_> Anyways, how do I install the new bios if I don’t have a Os on it
+[21:50] <glitchd> kostkon, .bashrc - https://pastebin.com/Nct7aMa5   .profile - https://pastebin.com/6u7fkU0N
+[21:51] <kostkon> glitchd, lines 120-122 in .bashrc
+[21:52] <TJ-> Zoara327_: I'm checking on this; I've already found descriptions of this particular issue on several HP pavillion models; I'm seeing if there's a confirmed workaround
+[21:52] <Zoara327_> I saw that too
+[21:52] <Zoara327_> Thank tou
+[21:52] <Zoara327_> “You”
+[21:53] <TJ-> Zoara327_: whilst I'm searching... reboot into the installer ISO and "Try Ubuntu" so we're ready to do something
+[21:53] <glitchd> kostkon, how is that the problem? ive had those in there for a long while already. this all started because i messed up my install yesterday and had to do a repair install. got everything back to how it was except for this one problem.
+[21:53] <glitchd> kostkon, ill comment those lines out and see if it makes a difference
+[21:54] <kostkon> glitchd, try it yeah
+[21:54] <glitchd> kostkon, nope no difference
+[21:54] <kostkon> glitchd, you opened a new terminal first right?
+[21:54] <glitchd> kostkon, its almost like im not in the sudoers group, but i am
+[21:55] <glitchd> kostkon, yes
+[21:55] <glitchd> kostkon, new terminal and the message is still displayed at the top
+[21:56] <Zoara327_> K
+[21:59] <kostkon> glitchd, i can't think of any other culprit but what exactly did you do yesterday
+[21:59] <Zoara327_> So do you still want me to install the newer bio
+[21:59] <Zoara327_> Bios
+[21:59] <christopher_> hi
+[21:59] <TJ-> Zoara327_:  not right now, let's try to get it booting Ubuntu first
+[21:59] <Zoara327_> Ok
+[22:00] <TJ-> Zoara327_: get into the 'Try Ubuntu' session then " sudo apt install pastebinit  " so it's ready to do more diagnostic
+[22:00] <glitchd> kostkon, well yesterday my install crashed hard. was not able to recover it normally. had to do an install on top of the install that was there. and ive gotten almost eveything back to how it was except for this, and my network shares.
+[22:00] <Zoara327_> K
+[22:01] <Zoara327_> Done
+[22:02] <Zoara327> ok
+[22:03] <Zoara327> let me know when u have something
+[22:04] <TJ-> Zoara327: let's get some info: show me " pastebinit <( sudo efibootmgr -v )  "
+[22:05] <TJ-> Zoara327: oh, you'll need to do "  sudo apt install efibootmgr  " first !
+[22:06] <Zoara327> http://paste.ubuntu.com/p/YtxdhyT5cJ/ here
+[22:06] <Nevidimka> hi
+[22:06] <Nevidimka> mens
+[22:06] <Nevidimka> hey
+[22:06] <Nevidimka> are ur here?
+[22:07] <Nevidimka> i'm the first here
+[22:07] <Nevidimka> say something
+[22:07] <kostkon> glitchd, any other config that is being loaded by your terminal app?
+[22:07] <Zoara327> What next
+[22:07] <Nevidimka> lol
+[22:08] <Nevidimka> i communicate with real people, awasome
+[22:08] <glitchd> kostkon, i have no idea, how would i check?
+[22:08] <Nevidimka> e*
+[22:08] <glitchd> Nevidimka, whats your problem dude?
+[22:08] <Nevidimka> i have no problem, for what that chat was created
+[22:09] <TJ-> Zoara327: right, that shows the firmware didn't save the Ubuntu boot path in the menu (line 4 of the pastebin)
+[22:09] <kostkon> glitchd, same things happens when you log into a tty?
+[22:09] <Nevidimka> for guys with problem?
+[22:09] <Flannel> Nevidimka: This is a technical support channel for Ubuntu.  If you're looking for a social channel, we have #ubuntu-offtopic, thanks.
+[22:09] <Nevidimka> Thanks, i get it
+[22:09] <glitchd> Nevidimka, this chat is for helping with problems. if you dont have a problem, and youre not here to help, then maybe you shouldnt be here.
+[22:09] <glitchd> kostkon, ill check now
+[22:09] <Nevidimka> sorry for flood, okey
+[22:09] <Flannel> glitchd: relax, no need to be rude.
+[22:10] <TJ-> Zoara327: I think we'll try the 'GRUB pretends to be Windows boot-loader" approach :)
+[22:10] <glitchd> Flannel, that wasnt rude.
+[22:10] <Zoara327> and what does that do
+[22:10] <Zoara327> or how do I do that
+[22:10] <glitchd> Flannel, hes flooding with nonsense.
+[22:11] <TJ-> Zoara327: the 'bug' is that the firmware only accepts boot-loader paths for the Windows boot-loader... anything else is silently thrown away, so we put GRUB in the same path and filename as Windows boot loader would use
+[22:12] <mlody> vcdx/quit
+[22:12] <TJ-> Zoara327: so, let's get started: "  sudo mkdir /target; sudo mount /dev/sda2 /target "
+[22:12] <glitchd> kostkon, yes the same thing happenes when i log into a vt
+[22:13] <kostkon> glitchd, and those lines are still commented out
+[22:13] <TJ-> Zoara327: "   for n in proc sys dev dev/pts etc/resolv.conf; do sudo mount --bind /$n /target/$n; done   "
+[22:13] <glitchd> yes they are commented out, but like i said, i doubted those were the problems.
+[22:14] <kostkon> glitchd, you could also cat the global bashrc stupid i know but just for the heck of it cat /etc/bash.bashrc
+[22:14] <Zoara327> ok
+[22:15] <Zoara327> i did the command and nothing happened
+[22:15] <Zoara327> do I need to go root again
+[22:15] <TJ-> Zoara327: if you've done the "for ..." you can now enter the installed system with "  sudo chroot /target  "
+[22:15] <TJ-> Zoara327: at this point "id" should report 'root'
+[22:15] <glitchd> kostkon, bash.basrc - https://pastebin.com/27wt5D9M
+[22:16] <kostkon> glitchd, no workie
+[22:16] <glitchd> https://pastebin.com/Z7wt5D9M
+[22:16] <glitchd> i misread a Z for a 2
+[22:16] <glitchd> other way around actually
+[22:17] <glitchd> put a 2 instead of a Z by mistake
+[22:17] <kostkon> glitchd, and you can run apt etc. just fine
+[22:17] <Zoara327> I have root
+[22:17] <TJ-> kostkon: glitchd have you checked the user's shell is vanilla bash and not something interposing? "getent passwd $USER"
+[22:17] <glitchd> kostkon, yes sudo apt update runs fine, no errors
+[22:17] <TJ-> Zoara327: right, good, now do "  mount -a  "
+[22:18] <Zoara327> mounted
+[22:18] <glitchd> TJ-, i have no idea what youre talking about..
+[22:18] <Zoara327> now what
+[22:19] <TJ-> Zoara327: right, now I need to be sure things are correct before I start you copying/renaming files. show me "  pastebinit <( find /boot/efi -ls )  "
+[22:19] <TJ-> glitchd: if the user's shell is not set to /bin/bash something could be interposed and be running additional scripts in bash's config
+[22:19] <Zoara327> http://paste.ubuntu.com/p/njDb6Ck8tC/
+[22:20] <Zoara327> here
+[22:21] <TJ-> Zoara327: Now: "  mkdir -p /boot/efi/EFI/Microsoft/Boot  "
+[22:21] <Zoara327> what next
+[22:21] <Zoara327> k
+[22:21] <glitchd> TJ-, glitchd:x:1000:1000:glitchd,,,:/home/glitchd:/bin/bash
+[22:21] <TJ-> glitchd: that looks fine, good.
+[22:21] <Zoara327> ok, done
+[22:21] <Zoara327> should I expect a responce?
+[22:22] <TJ-> Zoara327: no, these commands are generally quite unless something goes wrong. Now do: "  cp -va /boot/efi/EFI/ubuntu/    /boot/efi/EFI/Microsoft/Boot/  "
+[22:23] <TJ-> s/quite/quiet/
+[22:23] <Zoara327> ok
+[22:23] <Zoara327> what next, got a bunch of strings of text
+[22:24] <TJ-> Zoara327: that was 'copy' telling you the files it copied
+[22:24] <Zoara327> oh, what did it copy
+[22:24] <TJ-> Zoara327: now we will rename the GRUB boot loader file to use the Windows boot-loader's name
+[22:24] <Zoara327> how do I do that
+[22:24] <TJ-> Zoara327: so: "  mv /boot/efi/EFI/Microsoft/Boot/grubx64.efi     /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi  "
+[22:25] <Zoara327> mv: cannot stat '/boot/efi/EFI/Microsoft/Boot/grubx64.efi': No such file or directory
+[22:26] <TJ-> Zoara327: arghh, that means the copy didn't do what it should have. Show me "  pastebinit <( find /boot/efi -ls  )  "
+[22:26] <Zoara327> this popped up at the bottom of the screen
+[22:27] <Zoara327> http://paste.ubuntu.com/p/Wwhmvr3dWh/
+[22:27] <Zoara327> here
+[22:28] <glitchd> anyone else have any idea how to remedy this?
+[22:28] <TJ-> Zoara327: ahhh, my mistake! Let's fix it. "  mv /boot/efi/EFI/Microsoft/Boot/ubuntu/*   /boot/efi/EFI/Microsoft/Boot/ "
+[22:29] <Zoara327> ok
+[22:29] <TJ-> Zoara327: then do "  rmdir /boot/efi/EFI/Microsoft/Boot/ubuntu  "
+[22:29] <TJ-> Zoara327: now this: "  mv /boot/efi/EFI/Microsoft/Boot/grubx64.efi     /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi  "
+[22:29] <Zoara327> done, no responces
+[22:30] <TJ-> Zoara327: that's good... one last command... give me a moment to make sure I have it correct
+[22:30] <Zoara327> ok
+[22:31] <TJ-> Zoara327: do: "   efibootmgr -c -d /dev/sda -p 1 -l \\EFI\\Microsoft\\Boot\\bootmgfw.efi -L ubuntu   "
+[22:33] <Zoara327> done
+[22:33] <TJ-> Zoara327: before we end I want to check something... I just noticed that your earlier "lsblk" output lists the partitions on sda in a strange order; I want to make sure they're in the correct order, so show me:  "   pastebinit <( parted /dev/sda print )  "
+[22:34] <Zoara327> http://paste.ubuntu.com/p/9XMyYhMTWH/
+[22:34] <Zoara327> here
+[22:35] <TJ-> Zoara327: phew! that's a relief, it's OK !
+[22:35] <Zoara327> so now what
+[22:35] <TJ-> Zoara327: one last command to see what the firmware boot menu looks like: " pastebinit <( efibootmgr -v )  "
+[22:35] <TJ-> Zoara327: after this you can "exit" back to the installer, reboot and test
+[22:35] <Zoara327> http://paste.ubuntu.com/p/5GG5nGwkJh/
+[22:35] <Zoara327> ok
+[22:36] <TJ-> Zoara327: looks good, it now looks like this - Ubuntu pretending to be Windows:  Boot0001* ubuntu HD(1,GPT,2257a6db-f953-4923-a25c-b59d3584830b,0x800,0x100000)/File(\EFI\Microsoft\Boot\bootmgfw.efi)
+[22:36] <TJ-> Zoara327: fingers crossed and try a reboot
+[22:37] <Zoara327> ok, so I can reboot now
+[22:37] <Zoara327> k
+[22:39] <Zoara327_> Nothing
+[22:39] <Zoara327_> Same message
+[22:39] <TJ-> Zoara327_: Does the 'ubuntu' entry show up on the manual boot menu ?
+[22:39] <Zoara327_> Yes
+[22:39] <Zoara327_> It always has
+[22:40] <Zoara327_> But if I hit it it says no os is installed
+[22:40] <TJ-> Zoara327_: if you enter the firmware setup and go to the boot order section are you able to view the entry details, rather than just see it's name?
+[22:40] <Bashing-om> Zoara327_: Are you certain that you are booting in EFI mode vice legacy ?
+[22:40] <Zoara327_> Yes
+[22:41] <TJ-> Zoara327_: right, it says that presumably because the HP EFI is not saving the path to the boot loader
+[22:41] <Zoara327_> in bios now
+[22:41] <Zoara327_> Yeah, nothing categorizes off of ubuntu
+[22:42] <TJ-> Zoara327_: this is obviously a major fault in the HP EFI, we can hope the latest BIOS fixes it, but we still have to figure out how you can upgrade it without windows
+[22:42] <Zoara327_> Well let me think
+[22:42] <Zoara327_> The key is saved in the bios for windows, right?
+[22:43] <Zoara327_> So all I need to do is install windows 10 fresh from a usb and reinstall it onto the computer
+[22:43] <TJ-> Zoara327_: You mean the Microsoft Secure Boot signing certificate ?
+[22:43] <Zoara327_> I mean whatever tells the mobo I have had a activated version of Windows in the past
+[22:44] <Zoara327_> So all I need is to reinstall the os off another usb to get windows back
+[22:44] <TJ-> Zoara327_: hang on!!! I think we might be missing something
+[22:45] <Zoara327_> Yes?!!?!
+[22:45] <TJ-> Zoara327_: I've just read something that made my brain click... usually EFI is 64-bit but some systems have a 32-bit EFI ... if this HP has a 32-bit EFI that would explain why it won't load/accept/boot a 64-bit GRUB
+[22:46] <TJ-> Zoara327_: so... we need to confirm which that HP Pavillion has
+[22:46] <Zoara327_> How can I check this?
+[22:46] <TJ-> Zoara327_: I'm pretty much 99% sure it must be 64-bit because the Ubuntu installer is 64-bit only
+[22:46] <Zoara327_> Yeah, it wouldn’t have even loaded
+[22:46] <TJ-> Zoara327_: which Ubuntu release is the installer, is it 16.04 Xenial ?
+[22:47] <Zoara327_> Yes, I choose the first install option
+[22:47] <Zoara327_> For desktop
+[22:47] <TJ-> Zoara327_: I'm not sure if our very latest ISOs, which are hybrid, might include both 64- and 32- GRUB boot loader
+[22:47] <TJ-> Zoara327_: so latest would be Artful, 17.10
+[22:47] <Zoara327_> No, it was 64 bit only
+[22:48] <Zoara327_> And yeah, that’s what I have
+[22:48] <TJ-> Zoara327_: OK, so NOT that then... shame, that would have been an easy fix!
+[22:48] <Zoara327_> I still have the 32 but install disk of Ubuntu if that might work
+[22:49] <TJ-> No, unfortunately
+[22:49] <Zoara327_> So what’s a solution to this then
+[22:50] <TJ-> Zoara327_: still researching... it's not looking good though, we've tried the most obvious solution that has worked for others
+[22:51] <Zoara327_> That’s very strange
+[22:51] <Zoara327_> So why is it rejecting the os again?
+[22:51] <Zoara327_> Security key, right
+[22:51] <MrHall> Hello, i want execute sudo script on init.d (on boot) someone know how can i do that?
+[22:52] <Zoara327_> So it can only run Windows because it isn’t designed to accept security keys other then windows
+[22:52] <TJ-> Zoara327_: interestingly, the only HP Pavillion that is certified by Ubuntu uses Legacy boot mode, not UEFI! https://certification.ubuntu.com/hardware/201408-15432/
+[22:53] <MeaCulpa> a word of warning, don't try to install kubuntu-desktop on top of unity for the sake of having a look, it's a bad, bad thing lol.  Curiousity killed the cat.
+[22:53] <MrHall> beacause i want change cpu frequency on boot. because my cpu is so hot and i want slow that
+[22:53] <TJ-> Zoara327_: I don't think it's even the security keys, I think it's simply they're hard coded some paths or other details about the Windows boot manager
+[22:54] <Zoara327_> Alright, that sucks
+[22:54] <Zoara327_> Well I guess I’ll just reinstall Windows then
+[22:54] <Zoara327_> Thank you for all the help
+[23:08] <Whiskey> what is tcl-dev path`
+[23:08] <Whiskey> i says i don´t have it when i try to build but apt-get install says i have it
+[23:09] <bparker> I'm trying to figure out if my CPU is a "C2 stepping" because only that one particular model supports VT-d which I want to use. However /proc/cpuinfo only gives stepping information as integers... anyone know how to figure this out?
+[23:13] <TJ-> bparker: install the 'cpuid' tool it reports things like that
+[23:13] <TJ-> !info cpuid | bparker
+[23:13] <ubottu> bparker: cpuid (source: cpuid): tool to dump x86 CPUID information about the CPU(s). In component universe, is optional. Version 20170122-1 (artful), package size 70 kB, installed size 286 kB (Only available for any-i386; any-amd64)
+[23:14] <TJ-> bparker: e.g. an extract with a Cx value you're probably looking for: (simple synth)  = Intel Core 2 Duo (Wolfdale C0/M0)
+[23:14] <Cheguacamole> *wonders if HP and windows conspire like that very often* especially as was trying to buy heaps of ex polytech Dell pcs on the cheap and put linux on them
+[23:15] <JoopSoop> Can anybody give me some advice on how to fix my failing make?
+[23:15] <JoopSoop> http://paste.ubuntu.com/p/FrjRh7xdSS/
+[23:22] <TJ-> Cheguacamole: we see that hard-coded EFI+Windows issue a lot in various forms
+[23:22] <Cheguacamole> whoa, is there a list i can access to check 2nd hand parts before i buy them
+[23:23] <Cheguacamole> oops i guess that was a pm
+[23:30] <TJ-> Cheguacamole: Ubuntu has some lists of certified PCs but there are far too many makes and models to have a comprehensive tested list
+[23:31] <TJ-> Cheguacamole: see here for example https://certification.ubuntu.com/
+[23:32] <bparker> TJ-:   10       (simple synth)  = Intel Core i7-3800/3900 (Sandy Bridge-E C2) / Xeon E5-1600/2600 (Sandy Bridge-E C2/M1), 32nm
+[23:32] <bparker> guess that answers my question
+[23:32] <bparker> thanks
+[23:33] <bparker> I also figured out how to find this info externally, using the /proc/cpuinfo integer
+[23:33] <bparker> you have to find on intel's website a "specification update" PDF
+[23:33] <TJ-> bparker: yeah
+[23:33] <bparker> and it gives a 16-bit stepping ID in hex
+[23:34] <bparker> where the first 4 bits is the integer given by /proc/cpuinfo
+[23:34] <bparker> in my case the reported "7" lines up with the C2 stepping ID
+[23:34] <bparker> so that is further confirmation
+[23:39] <JoopSoop> Can anyone help me fix this compile?  http://paste.ubuntu.com/p/ndczCkDfYt/
+[23:40] <JoopSoop> I messed up the logging the last time I posted
+[23:40] <JoopSoop> this one is fixed
+[23:44] <ikonia> JoopSoop: talk to the software owner
+[23:44] <ikonia> or better still, see if there is a version of the software already built and hosted in the ubuntu repos
+[23:45] <ikonia> you also shouldn't be blindly doing things like command && command && command
+[23:45] <ikonia> you really want to see the output before executing the next step
+[23:46] <OerHeks> yeah, up2date since 2013 , https://launchpad.net/ubuntu/+source/libdisasm >> https://tracker.debian.org/media/packages/libd/libdisasm/changelog-0.23-6
+[23:53] <hotfudgemuff> hello
+[23:54] <JoopSoop> @ikonia I did actually contact the developer, he got me further, but I am still not quite there.
+[23:55] <ikonia> JoopSoop: so it's in the repo it would seem, can you not use that
+[23:55] <ikonia> other than that, I suggest working with the developer/support
+[23:55] <JoopSoop> He helped me in the midst of telling me that he no longer supports it
+[23:55] <JoopSoop> in the repo? You mean it can be installed with apt-get or some such?
+[23:55] <JoopSoop> Which repo do you mean?
+[23:56] <ikonia> https://launchpad.net/ubuntu/+source/libdisasm
+[23:56] <ikonia> looks like it's in universe
+[23:57] <ikonia> looks like upstream is dead though
+[23:58] <JoopSoop> I just installed libdisasm a little while ago, or tried to.  It seemed successful.  on what the developer said, I thought that was a dependency for what I am trying to install overall. hydan.
+[23:58] <JoopSoop> Do you think the make error means the install was unsuccessful?
+[23:59] <ikonia> what ?
+[23:59] <ikonia> the make error means it couldn't build the software
+[23:59] <JoopSoop> the make was for hydan.
