@@ -52,7 +52,7 @@ class Log:
             self.unparsed.append(line)
             return None
 
-        return {"timestamp" : m.groups()[0], "nick" : m.groups()[1], "message" : m.groups()[2]}
+        return {"timestamp" : m.groups()[0], "nick" : m.groups()[1].strip(), "message" : m.groups()[2]}
 
     def __str__(self):
         return str(self.entries)
