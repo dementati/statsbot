@@ -42,7 +42,7 @@ class Log:
         self.entries = []
 
     def parse(self, line):
-        m = re.match("^(\S*)\s<([^>]*)> (.*)$", line)
+        m = re.match("^(\S+ |\d+-\d+-\d+ \d+:\d+:\d+)(?:< |\s+)([^>\s]+)(?:>|\s)\s*(.*)$", line)
 
         if not m:
             self.unparsed.append(line)
@@ -59,7 +59,11 @@ class Log:
 
 
 if __name__ == "__main__":
-    log = Log(line="[00:04] <rosvi> I have a linux box I'm gonna install arch a windows box. Not bootable media. Would it be possible to installa distro on those circumstances? Just wondering about it")
-    log = Log(filename="../resources/#ubuntu.txt")
     log = Log(filename="../resources/log.txt")
-    log = Log(filename="../resources/palle_pig.txt")
+    print(len(log.entries))
+    print(len(log.unparsed))
+    log = Log(filename="../resources/loggo.txt")
+    print(len(log.entries))
+    print(len(log.unparsed))
+    [print(entry) for entry in log.entries]
+    print(log)

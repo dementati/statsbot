@@ -4,24 +4,86 @@ import operator
 import cProfile
 import nltk
 from nltk.corpus import stopwords
+from nltk.metrics import *
+import numpy
 
-def descending_map(map):
-    return [item for item in reversed(sorted(map.items(), key=operator.itemgetter(1)))]
+
+def descending_map(map, key=operator.itemgetter(1)):
+    return [item for item in reversed(sorted(map.items(), key=key))]
 
 
 def print_list(list):
     [print(item) for item in list]
 
 
+ignored_words = stopwords.words("english")
+ignored_words.extend(["n't", "'re", "like"])
+
+word_filter_cache = {}
+
+
+def word_filter(word):
+    if word not in word_filter_cache:
+        word_filter_cache[word] = len(word) >= 3 and word.lower() not in ignored_words
+
+    return word_filter_cache[word]
+
+
+class Distance:
+
+    def __init__(self):
+        self.masi = None
+        self.jaccard = None
+        self.nick_distance = None
+        self.masi_index = None
+        self.jaccard_index = None
+        self.nick_distance_index = None
+
+    def set_masi(self, masi):
+        self.masi = masi
+
+    def set_jaccard(self, jaccard):
+        self.jaccard = jaccard
+
+    def set_nick_distance(self, nick_distance):
+        self.nick_distance = nick_distance
+
+    def set_masi_index(self, masi_index):
+        self.masi_index = masi_index
+
+    def set_jaccard_index(self, jaccard_index):
+        self.jaccard_index = jaccard_index
+
+    def set_nick_distance_index(self, nick_distance_index):
+        self.nick_distance_index = nick_distance_index
+
+    def distance(self):
+        return numpy.mean([self.masi / self.masi_index,
+                           self.jaccard / self.jaccard_index,
+                           self.nick_distance / self.nick_distance_index])
+
+    def __str__(self):
+        return "Distance: (distance=%f, masi(rel)=%f, jaccard(rel)=%f, nick_distance(rel)=%f)" \
+               % (float(self.distance()),
+                  self.masi / self.masi_index,
+                  self.jaccard / self.jaccard_index,
+                  self.nick_distance / self.nick_distance_index)
+
+    def __repr__(self):
+        return self.__str__()
+
 class Stats:
 
     def __init__(self, log, bad_words_file):
-        self.all_bad_words = self.load_all_bad_words(bad_words_file)
+        #self.all_bad_words = self.load_all_bad_words(bad_words_file)
 
-        self.text_per_nick = self.compute_text_per_nick(log)
+        #self.raw_text_per_nick = self.compute_raw_text_per_nick(log)
+        #self.text_per_nick = self.compute_text_per_nick(self.raw_text_per_nick)
 
         self.words_per_nick = self.compute_words_per_nick(log)
+        self.compute_distance(self.words_per_nick)
 
+        '''
         self.message_count_per_nick = self.compute_message_count_per_nick(log)
 
         self.message_distribution_over_nicks = \
@@ -31,22 +93,30 @@ class Stats:
 
         self.bad_word_percentage_per_nick = \
             self.compute_bad_word_percentage_per_nick(self.bad_words_per_nick, self.words_per_nick)
+            '''
 
     @staticmethod
-    def compute_text_per_nick(log):
+    def compute_raw_text_per_nick(log):
         raw_text_per_nick = defaultdict(str)
-        for entry in log.entries:
+        for i in range(len(log.entries)):
+            if i % 10000 == 0:
+                print("Handled %d entries of %d" % (i, len(log.entries)))
+
+            entry = log.entries[i]
             raw_text_per_nick[entry["nick"]] += entry["message"] + " "
 
+        return raw_text_per_nick
+
+    @staticmethod
+    def compute_text_per_nick(raw_text_per_nick):
         text_per_nick = defaultdict(nltk.Text)
         for nick in raw_text_per_nick:
             tokens = nltk.word_tokenize(raw_text_per_nick[nick])
-            ignored = stopwords.words("english")
-            ignored.extend(["n't", "'re", "like"])
-            tokens = filter(lambda w: len(w) >= 3 and w.lower() not in ignored, tokens)
+
+            tokens = filter(word_filter, tokens)
             text_per_nick[nick] = nltk.Text(tokens)
 
-        return text_per_nick
+        return raw_text_per_nick
 
     @staticmethod
     def compute_words_per_nick(log):
@@ -55,11 +125,56 @@ class Stats:
             words = entry["message"].split()
             words = [word.strip(".") for word in words]
             words = [word.lower() for word in words]
+            words = filter(word_filter, words)
 
             for word in words:
                 words_per_nick[entry["nick"]][word] += 1
 
         return words_per_nick
+
+    @staticmethod
+    def compute_distance(words_per_nick):
+        words_per_nick = {nick : words for nick, words in words_per_nick.items() if len(words) > 1000}
+
+        all_nick_count = len(words_per_nick)
+        print(all_nick_count)
+
+        present_for_all_nicks = defaultdict(int)
+        for nick in words_per_nick:
+            for word in words_per_nick[nick].keys():
+                present_for_all_nicks[word] += 1
+
+        for nick in words_per_nick:
+            words_per_nick[nick] = {word : count for word, count in words_per_nick[nick].items() if present_for_all_nicks[word] < all_nick_count}
+
+        most_common_words = {}
+        for nick in words_per_nick.keys():
+            if len(words_per_nick[nick]) > 1000:
+                most_common_words[nick] = set(pair[0] for pair in descending_map(words_per_nick[nick])[0:50])
+
+        distance = defaultdict(Distance)
+        for nick in most_common_words.keys():
+            for nick2 in most_common_words.keys():
+                if nick != nick2:
+                    distance[frozenset((nick, nick2))]\
+                        .set_masi(masi_distance(most_common_words[nick], most_common_words[nick2]))
+
+                    distance[frozenset((nick, nick2))] \
+                        .set_jaccard(jaccard_distance(most_common_words[nick], most_common_words[nick2]))
+
+                    distance[frozenset((nick, nick2))] \
+                        .set_nick_distance(edit_distance(nick, nick2))
+
+        masi_index = numpy.mean([sim.masi for sim in distance.values()])
+        jaccard_index = numpy.mean([sim.jaccard for sim in distance.values()])
+        nick_distance_index = numpy.mean([sim.nick_distance for sim in distance.values()])
+
+        for sim in distance.values():
+            sim.set_masi_index(masi_index)
+            sim.set_jaccard_index(jaccard_index)
+            sim.set_nick_distance_index(nick_distance_index)
+
+        print_list(descending_map(distance, key=lambda item: item[1].distance()))
 
     @staticmethod
     def compute_message_count_per_nick(log):
@@ -118,6 +233,6 @@ def main():
 
 
 if __name__ == "__main__":
-    cProfile.run("main()", sort=1)
-    #main()
+    #cProfile.run("main()", sort=1)
+    main()
 
