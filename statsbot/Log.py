@@ -42,7 +42,7 @@ class Log:
         self.entries = []
 
     def parse(self, line):
-        m = re.match("^(\S+ |\d+-\d+-\d+ \d+:\d+:\d+)(?:< |\s+)([^>\s]+)(?:>|\s)\s*(.*)$", line)
+        m = re.match("^(\S+ |\d+-\d+-\d+ \d+:\d+:\d+)(?:< ?|\s+)([^>\s]+)(?:>|\s)\s*(.*)$", line)
 
         if not m:
             self.unparsed.append(line)
@@ -59,11 +59,6 @@ class Log:
 
 
 if __name__ == "__main__":
-    log = Log(filename="../resources/log.txt")
+    log = Log(filename="../resources/#ubuntu.txt")
     print(len(log.entries))
     print(len(log.unparsed))
-    log = Log(filename="../resources/loggo.txt")
-    print(len(log.entries))
-    print(len(log.unparsed))
-    [print(entry) for entry in log.entries]
-    print(log)
