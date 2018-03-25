@@ -6,11 +6,13 @@ stats = Stats(Log(filename="resources/palle_pig.txt"), "resources/bad-words.txt"
 
 def f(nick):
     with open(nick + ".txt", "w") as file:
-        file.write(stats.text_per_nick[nick])
+        file.write(stats.nicks[nick].raw_text)
 
 
 def channel(filename, encoding="latin-1", limit=0):
-    long_raw_texts = [text for text in stats.raw_text_per_nick.values() if len(text) > limit]
+    long_raw_texts = [stats.nicks[nick].raw_text
+                      for nick in stats.nicks.values()
+                      if len(stats.nicks[nick].raw_text) > limit]
     shortened_texts = [text[0:10000] for text in long_raw_texts]
     text = "\n".join(shortened_texts)
     with open(filename, "w", encoding=encoding) as f:
