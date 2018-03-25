@@ -1,7 +1,7 @@
 from statsbot.Stats import Stats
 from statsbot.Log import Log
 
-stats = Stats(Log(filename="resources/log.txt"), "resources/bad-words.txt")
+stats = Stats(Log(filename="resources/palle_pig.txt"), "resources/bad-words.txt")
 
 
 def f(nick):
