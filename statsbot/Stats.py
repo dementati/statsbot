@@ -6,6 +6,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.metrics import *
 import numpy
+import time
 
 
 def descending_map(map, key=operator.itemgetter(1)):
@@ -72,18 +73,38 @@ class Distance:
     def __repr__(self):
         return self.__str__()
 
+
+def process(items, f, name):
+    print("Computing %s..." % name)
+
+    last_time = time.time()
+
+    items = list(items)
+
+    for i in range(len(items)):
+        if time.time() > last_time + 1:
+            print("%f%%" % (100 * i / len(items)))
+            last_time = time.time()
+
+        item = items[i]
+        f(item)
+
+    print("Done.")
+
+
 class Stats:
 
     def __init__(self, log, bad_words_file):
-        #self.all_bad_words = self.load_all_bad_words(bad_words_file)
+        self.all_bad_words = self.load_all_bad_words(bad_words_file)
 
-        #self.raw_text_per_nick = self.compute_raw_text_per_nick(log)
-        #self.text_per_nick = self.compute_text_per_nick(self.raw_text_per_nick)
+        self.raw_text_per_nick = self.compute_raw_text_per_nick(log)
+
+        self.text_per_nick = self.compute_text_per_nick(self.raw_text_per_nick)
 
         self.words_per_nick = self.compute_words_per_nick(log)
-        self.compute_distance(self.words_per_nick)
 
-        '''
+        self.distance = self.compute_distance(self.words_per_nick)
+
         self.message_count_per_nick = self.compute_message_count_per_nick(log)
 
         self.message_distribution_over_nicks = \
@@ -93,35 +114,35 @@ class Stats:
 
         self.bad_word_percentage_per_nick = \
             self.compute_bad_word_percentage_per_nick(self.bad_words_per_nick, self.words_per_nick)
-            '''
 
     @staticmethod
     def compute_raw_text_per_nick(log):
         raw_text_per_nick = defaultdict(str)
-        for i in range(len(log.entries)):
-            if i % 10000 == 0:
-                print("Handled %d entries of %d" % (i, len(log.entries)))
 
-            entry = log.entries[i]
+        def f(entry):
             raw_text_per_nick[entry["nick"]] += entry["message"] + " "
+
+        process(log.entries, f, "raw text per nick")
 
         return raw_text_per_nick
 
     @staticmethod
     def compute_text_per_nick(raw_text_per_nick):
         text_per_nick = defaultdict(nltk.Text)
-        for nick in raw_text_per_nick:
-            tokens = nltk.word_tokenize(raw_text_per_nick[nick])
 
+        def f(nick):
+            tokens = nltk.word_tokenize(raw_text_per_nick[nick])
             tokens = filter(word_filter, tokens)
             text_per_nick[nick] = nltk.Text(tokens)
 
-        return raw_text_per_nick
+        process(raw_text_per_nick.keys(), f, "NLTK Text per nick")
+        return text_per_nick
 
     @staticmethod
     def compute_words_per_nick(log):
         words_per_nick = defaultdict(lambda: defaultdict(int))
-        for entry in log.entries:
+
+        def f(entry):
             words = entry["message"].split()
             words = [word.strip(".") for word in words]
             words = [word.lower() for word in words]
@@ -130,22 +151,13 @@ class Stats:
             for word in words:
                 words_per_nick[entry["nick"]][word] += 1
 
+        process(log.entries, f, "words per nick")
         return words_per_nick
 
     @staticmethod
     def compute_distance(words_per_nick):
+        print("Computing distance...")
         words_per_nick = {nick : words for nick, words in words_per_nick.items() if len(words) > 1000}
-
-        all_nick_count = len(words_per_nick)
-        print(all_nick_count)
-
-        present_for_all_nicks = defaultdict(int)
-        for nick in words_per_nick:
-            for word in words_per_nick[nick].keys():
-                present_for_all_nicks[word] += 1
-
-        for nick in words_per_nick:
-            words_per_nick[nick] = {word : count for word, count in words_per_nick[nick].items() if present_for_all_nicks[word] < all_nick_count}
 
         most_common_words = {}
         for nick in words_per_nick.keys():
@@ -174,29 +186,38 @@ class Stats:
             sim.set_jaccard_index(jaccard_index)
             sim.set_nick_distance_index(nick_distance_index)
 
-        print_list(descending_map(distance, key=lambda item: item[1].distance()))
+        print("Done.")
+        return distance
 
     @staticmethod
     def compute_message_count_per_nick(log):
         message_count_per_nick = defaultdict(int)
-        for entry in log.entries:
+
+        def f(entry):
             message_count_per_nick[entry["nick"]] += 1
+
+        process(log.entries, f, "message count per nick")
 
         return message_count_per_nick
 
     @staticmethod
     def compute_message_distribution_over_nicks(log, message_count_per_nick):
         message_distribution_over_nicks = defaultdict(float)
-        for nick in message_count_per_nick.keys():
+
+        def f(nick):
             message_distribution_over_nicks[nick] = message_count_per_nick[nick] / len(log.entries)
+
+        process(message_count_per_nick.keys(), f, "message distribution over nicks")
 
         return message_distribution_over_nicks
 
     @staticmethod
     def load_all_bad_words(bad_words_file):
+        print("Loading bad words...")
         with open(bad_words_file) as file:
             all_bad_words = [word.strip() for word in file.readlines()]
 
+        print("Done.")
         return all_bad_words
 
     @staticmethod
@@ -205,7 +226,7 @@ class Stats:
 
         bad_word_cache = {}
 
-        for nick in words_per_nick.keys():
+        def f(nick):
             for word in words_per_nick[nick].keys():
                 if word not in bad_word_cache:
                     bad_word_cache[word] = word in all_bad_words
@@ -213,23 +234,28 @@ class Stats:
                 if bad_word_cache[word]:
                     bad_words_per_nick[nick][word] += words_per_nick[nick][word]
 
+        process(words_per_nick.keys(), f, "bad words per nick")
+
         return bad_words_per_nick
 
     @staticmethod
     def compute_bad_word_percentage_per_nick(bad_words_per_nick, words_per_nick):
         bad_word_percentage_per_nick = defaultdict(float)
-        for nick in words_per_nick.keys():
+
+        def f(nick):
             total_word_count = sum([words_per_nick[nick][word] for word in words_per_nick[nick].keys()])
             total_bad_word_count = sum([bad_words_per_nick[nick][word] for word in bad_words_per_nick[nick].keys()])
 
             if total_word_count > 1000 and total_bad_word_count / total_word_count > 0:
                 bad_word_percentage_per_nick[nick] = total_bad_word_count / total_word_count
 
+        process(words_per_nick.keys(), f, "bad word percentage per nick")
+
         return bad_word_percentage_per_nick
 
 
 def main():
-    stats = Stats(Log(filename="../resources/palle_pig.txt"), "../resources/bad-words.txt")
+    Stats(Log(filename="../resources/palle_pig.txt"), "../resources/bad-words.txt")
 
 
 if __name__ == "__main__":
