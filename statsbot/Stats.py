@@ -100,6 +100,21 @@ class Nick:
         self.message_frequency = None
         self.bad_word_count = defaultdict(int)
         self.bad_word_frequency = None
+        self.bigram_distribution = {}
+
+    def generate(self):
+        word = 0
+        sentence = []
+        while True:
+            sentence.append(word)
+            word = self.bigram_distribution[word].generate()
+
+            if word == 0:
+                break
+
+        sentence = sentence[1:]
+
+        return " ".join(sentence)
 
 class Stats:
 
@@ -110,14 +125,15 @@ class Stats:
 
         self.load_all_bad_words(bad_words_file)
 
-        self.compute_raw_text_per_nick(log)
-        self.compute_text_per_nick()
+        #self.compute_raw_text_per_nick(log)
+        #self.compute_text_per_nick()
         self.compute_messages_per_nick(log)
-        self.compute_message_frequency_per_nicks(log)
-        self.compute_bad_word_count_per_nick()
-        self.compute_bad_word_frequency_per_nick()
+        self.compute_bigram_frequency_per_nick()
+        #self.compute_message_frequency_per_nicks(log)
+        #self.compute_bad_word_count_per_nick()
+        #self.compute_bad_word_frequency_per_nick()
 
-        self.compute_distance()
+        #self.compute_distance()
 
     def load_all_bad_words(self, bad_words_file):
         print("Loading bad words...")
@@ -145,6 +161,28 @@ class Stats:
             self.nicks[entry["nick"]].messages.append(entry["message"])
 
         process(log.entries, f, "messages per nick")
+
+    def compute_bigram_frequency_per_nick(self):
+        def f(nick):
+            # For each message
+            bigram_frequency = defaultdict(nltk.FreqDist)
+            for message in self.nicks[nick].messages:
+                # Compute bigrams for the message
+                bigrams = list(nltk.bigrams(nltk.word_tokenize(message)))
+
+                if len(bigrams) < 1:
+                    continue
+
+                bigrams = [(0, bigrams[0][0])] + bigrams + [(bigrams[-1][1], 0)]
+
+                # Put bigrams into frequency distribution
+                for bigram in bigrams:
+                    bigram_frequency[bigram[0]][bigram[1]] += 1
+
+            for word, freq in bigram_frequency.items():
+                self.nicks[nick].bigram_distribution[word] = nltk.MLEProbDist(freq)
+
+        process(self.nicks.keys(), f, "bigram frequency per nick")
 
     def compute_message_frequency_per_nicks(self, log):
         def f(nick):
